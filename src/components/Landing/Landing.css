@@ -1,0 +1,52 @@
+.headertext{
+    color: white;
+    
+
+}
+.headertext1{
+    justify-self: center;
+    align-self: center;
+    margin-left: 35vw;
+    color: white;
+    font-weight: normal;
+
+}
+.header{
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0a4b;
+}
+.bottom{
+    background-color: #232371;
+ 
+}
+.input{
+    height: 50px;
+    width: 350px;
+   
+background-color: white;
+}
+.input2{
+    height: 50px;
+    width: 350px;
+    border-radius: 5px;
+    background: url(https://img.icons8.com/ios-glyphs/30/000000/password.png)no-repeat 2%;
+background-size: 24px;
+background-color: white;
+}
+.signup{
+    color: white;
+}
+.signup :hover{
+    color: rgb(255, 255, 138);
+    text-decoration: none;
+}
+.c1{
+    color: white;
+}
+.headertext2{
+    font-size: 1.2rem;
+   font-weight: normal;
+   color:white;
+}
