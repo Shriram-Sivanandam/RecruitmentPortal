@@ -9,7 +9,7 @@ function Nav() {
     return (
         <>
           <nav className="navbar navbar-expand-lg navbar-dark " id="nav" style={{backgroundColor: "transparent"}}> 
-      <a className="navbar-brand ml-lg-5 pl-lg-5 ml-xs-0 pl-xs-0" href="/" ><h3 className="logo_text"><b>EASY</b>RECRUIT</h3></a>
+      <a className="navbar-brand ml-lg-5 pl-lg-5 ml-xs-0 pl-xs-0" href="/" ><h3 className="logo_text" style={{color:"#0a0a4b"}}><b>EASY</b>RECRUIT</h3></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
