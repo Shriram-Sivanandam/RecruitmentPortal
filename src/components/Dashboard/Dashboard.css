@@ -1,0 +1,23 @@
+.card-deck{
+    width: 75vw;
+}
+.card-img-top{
+    width: 18rem;
+    height: 14rem;
+    display: flex;
+    /* background-color: white; */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  button.btn {
+    margin-top: auto;
+    align-self: flex-end;
+    background-color: #0a0a4b;
+  }
+
+  .card-text{
+     text-align: center;
+  }

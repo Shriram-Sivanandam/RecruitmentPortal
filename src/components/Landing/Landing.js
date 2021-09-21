@@ -1,14 +1,15 @@
 import { TextField } from '@material-ui/core'
 import React from 'react'
 import landing_illustration from '../../assets/landing_illustration.svg'
-import Nav from '../Nav/Nav'
+// import Nav from '../Nav/Nav'
+import Nav2 from '../Nav/Nav2'
 import './Landing.css'
 
 
 function Landing() {
     return (
         <>
-        <Nav />
+        <Nav2 />
      
             <div className="container my-lg-5 py-lg-5">
                 <div className="row my-auto">
@@ -40,7 +41,7 @@ function Landing() {
                                             <h6 className="mx-auto headertext1">Don't have an account yet ? <a className="signup"  href="/signup"><span >Sign up</span></a></h6>
 
                                         </div>
-                                    <div className="row">
+                                    <div className="row my-3">
                                     <button type="button" className="btn btn-light mx-auto"><h6>SIGN IN</h6></button>
                                     </div>
                                     </div>
