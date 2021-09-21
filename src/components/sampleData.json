@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "name": "random name 1",
+        "registration": "43SJI7856",
+        "slot": "5pm-7pm"
+    },
+    {
+        "id": "2",
+        "name": "random name 2",
+        "registration": "43SJI7856",
+        "slot": "4pm-7pm"
+    },
+    {
+        "id": "3",
+        "name": "random name 3",
+        "registration": "43SJY7856",
+        "slot": "5pm-9pm"
+    },
+    {
+        "id": "4",
+        "name": "random name 4",
+        "registration": "43SJI7856",
+        "slot": "5pm-7pm"
+    },
+    {
+        "id": "5",
+        "name": "random name 5",
+        "registration": "43SJI7856",
+        "slot": "5pm-7pm"
+    },
+    {
+        "id": "6",
+        "name": "random name 6",
+        "registration": "43SJI7856",
+        "slot": "5pm-7pm"
+    },
+    {
+        "id": "7",
+        "name": "random name 7",
+        "registration": "43SJI7856",
+        "slot": "5pm-7pm"
+    },
+    {
+        "id": "8",
+        "name": "random name 8",
+        "registration": "43SJI7856",
+        "slot": "5pm-7pm"
+    }
+]
