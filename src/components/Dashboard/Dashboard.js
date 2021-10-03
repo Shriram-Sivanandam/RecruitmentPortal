@@ -44,24 +44,24 @@ function Dashboard() {
 <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title mx-4">Instructions</h5>
+      <div class="modal-header"style={{backgroundColor:"#232371"}}>
+        <h5 class="modal-title mx-auto" style={{color:"WHITE"}}> Rules and Regulations </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style={{backgroundColor:"#D2D4E3"}}>
         <ol>
           <li>
-          <p>There will be 2 quizzes - Aptitude (20 questions) and Domain Specific (15 questions)</p>
+          <h6>There will be 2 quizzes - Aptitude (20 questions) and Domain Specific (15 questions)</h6>
           </li>
           <li>
-            <p>Once you click on next question your response will be automatically saved</p>
+            <h6>Once you click on next question your response will be automatically saved</h6>
           </li>
           <li>
-            <p>
+            <h6>
             You cannot go back to the questions you answered or skipped earlier.
-            </p>
+            </h6>
           </li>
         </ol>
       </div>

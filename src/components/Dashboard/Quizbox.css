@@ -1,0 +1,9 @@
+.quizbox{
+  margin-top: 1vh;
+  align-self: center;
+  
+  background-color: #D2D4E3;
+  border-radius: 12px;
+  padding: 1.5rem 3rem 0.5rem 3rem
+  ;
+}
