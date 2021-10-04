@@ -6,11 +6,13 @@ import CountdownTimer from "./components/CountdownTimer/CountdownTimer";
 import StudentList from "./components/StudentList/StudentList";
 // import TakeQuizBtn from "./components/TakeQuizBtn/TakeQuizBtn";
 import Dashboard from "./components/Dashboard/Dashboard";
+import ManagementQuiz from "./components/ManagementQuiz/ManagementQuiz";
+import ThankYou from "./components/ThankYou/ThankYou";
 
 function App() {
   return (
     <div className="App">
-      <StudentList />
+      <ManagementQuiz />
     </div>
   );
 }
