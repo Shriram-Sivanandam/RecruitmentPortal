@@ -1,5 +1,13 @@
+.thankYouMainContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .thankYouBox {
-  margin: auto;
+  /* margin: auto; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,6 +17,7 @@
   height: 50vh;
   width: 50vw;
   border-radius: 12px;
+  text-align: center;
 }
 
 .socials {
@@ -19,4 +28,37 @@
 .socialsLogo {
   width: 20px;
   margin-right: 5px;
+}
+
+.thankYouImage {
+  height: 30vw;
+}
+
+@media only screen and (max-width: 620px) {
+  .thankYouImage {
+    height: 40%;
+  }
+
+  .thankYouBox {
+    width: 70vw;
+  }
+
+  .thankYouText {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .thankYouImage {
+    height: 20vw;
+  }
+}
+
+@media only screen and (max-height: 680px) {
+  .thankYouImage {
+    height: 15vh;
+  }
+  .thankYouText {
+    font-size: 20px;
+  }
 }

@@ -8,11 +8,16 @@ import StudentList from "./components/StudentList/StudentList";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ManagementQuiz from "./components/ManagementQuiz/ManagementQuiz";
 import ThankYou from "./components/ThankYou/ThankYou";
+import Quizbox from "./components/Dashboard/Quizbox";
 
 function App() {
   return (
     <div className="App">
       <ManagementQuiz />
+      {/* <Landing />
+      <Signup />
+      <Dashboard />
+      <Quizbox /> */}
     </div>
   );
 }

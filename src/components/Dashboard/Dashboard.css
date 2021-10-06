@@ -12,11 +12,11 @@
     display: flex;
     flex-direction: column;
   }
-  button.btn {
+  /* button.btn {
     margin-top: auto;
     align-self: flex-end;
     background-color: #0a0a4b;
-  }
+  } */
 
   .card-text{
      text-align: center;
