@@ -1,9 +1,45 @@
 import { TextField } from "@material-ui/core";
-import React from "react";
+import React, { useRef, useState } from "react";
+import { Alert } from "react-bootstrap";
 import Nav from "../Nav/Nav";
 import signup_illustration from "../../assets/signup_illustration.svg";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Signup() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      // db.collection("users")
+      //   .add({
+      //     emailId: emailRef.current.value,
+      //   })
+      //   .then(() => {})
+      //   .catch((error) => {
+      //     setError(error.message);
+      //   });
+      // history.push("/");
+    } catch {
+      setError("Failed to create an account");
+    }
+
+    setLoading(false);
+  }
+
   return (
     <>
       <Nav />
@@ -19,7 +55,8 @@ function Signup() {
           </div>
           <div className="col">
             <h6>SIGN UP </h6>
-            <form>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <form onSubmit={handleSubmit}>
               <div className="container">
                 <div className="row header">
                   <h4 className="mx-auto my-auto headertext">
@@ -45,21 +82,36 @@ function Signup() {
 
                     <div className="row mb-3">
                       <TextField
+                        id="email"
+                        ref={emailRef}
                         className="input mx-auto"
                         color="default"
-                        label="Registration Number"
-                        variant="filled"
-                        placeholder=""
-                        type="text"
-                      />
-                    </div>
-                    <div className="row my-3">
-                      <TextField
-                        className="input mx-auto"
                         label="Email-Id"
                         variant="filled"
                         placeholder=""
                         type="email"
+                      />
+                    </div>
+                    <div className="row my-3">
+                      <TextField
+                        id="password"
+                        ref={passwordRef}
+                        className="input mx-auto"
+                        label="Password"
+                        variant="filled"
+                        placeholder=""
+                        type="password"
+                      />
+                    </div>
+                    <div className="row my-3">
+                      <TextField
+                        id="password-confirm"
+                        ref={passwordConfirmRef}
+                        className="input mx-auto"
+                        label="Confirm Password"
+                        variant="filled"
+                        placeholder=""
+                        type="password"
                       />
                     </div>
                     <div className="row mx-auto my-3">
@@ -148,7 +200,8 @@ function Signup() {
                     </div>
                     <div className="row">
                       <button
-                        type="button"
+                        disabled={loading}
+                        type="submit"
                         className="btn btn-light mx-auto my-2"
                       >
                         <h6>SIGN UP</h6>

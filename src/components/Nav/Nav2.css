@@ -1,8 +1,9 @@
+.profiletext {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: white;
+}
 
-.profiletext{
-    font-size: 0.9rem;
-    font-weight: normal;
-    color: white
- 
-   
+#profilePic {
+  width: 40px;
 }

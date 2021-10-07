@@ -1,18 +1,16 @@
-.logo_text{
-   
-    margin: 10px 10px 10px 10px;
+.logo_text {
+  margin: 10px 10px 10px 10px;
 }
 .img-profile {
-    height: 2rem;
-    width: 2rem;
-  }
+  height: 2rem;
+  width: 2rem;
+}
 
-@media screen and (min-width:800px) {
-    .navbar-nav{
-        margin-right: 8%;
-    }
-    .logo_text{
-        margin-left: 48% ; 
-    }
-    
+@media screen and (min-width: 800px) {
+  .navbar-nav {
+    margin-right: 8%;
+  }
+  .logo_text {
+    margin-left: 48%;
+  }
 }
