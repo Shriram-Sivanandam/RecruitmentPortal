@@ -4,6 +4,7 @@ import technical from "../../assets/Technical.svg";
 import management from "../../assets/Managment.svg";
 import design from "../../assets/Design.svg";
 import "./Dashboard.css";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
@@ -23,15 +24,16 @@ function Dashboard() {
               of technology right from web and app development to forthcoming
               domains like ML and data science.
             </p>
-
-            <button
-              type="button"
-              className="btn btn-dark mx-auto"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              <h6>Take Quiz</h6>
-            </button>
+            <Link to="/apt-quiz">
+              <button
+                type="button"
+                className="btn btn-dark mx-auto"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                <h6>Take Quiz</h6>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="card">

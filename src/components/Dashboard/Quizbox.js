@@ -1,56 +1,128 @@
 import React, { useState } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./Quizbox.css";
+import { Link } from "react-router-dom";
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  var answers = [];
+  const [showNextBtn, setShowNextBtn] = useState(true);
+  const [showEndBtn, setEndBtn] = useState(false);
+  var answersArray = [];
 
   const questionBank = [
     {
       id: "1",
       questionText: "What is the shortcut for adding Auto Layout in Figma1?",
       answerOptions: [
-        { optionText: "opt 11", isCorrect: false },
-        { optionText: "opt 21", isCorrect: false },
-        { optionText: "opt 31", isCorrect: true },
-        { optionText: "opt 41", isCorrect: false },
+        { optionText: "opt 11", optionSelected: 1 },
+        { optionText: "opt 21", optionSelected: 2 },
+        { optionText: "opt 31", optionSelected: 3 },
+        { optionText: "opt 41", optionSelected: 4 },
       ],
     },
     {
       id: "2",
       questionText: "What is the shortcut for adding Auto Layout in Figma2?",
       answerOptions: [
-        { optionText: "opt 12", isCorrect: false },
-        { optionText: "opt 22", isCorrect: false },
-        { optionText: "opt 32", isCorrect: true },
-        { optionText: "opt 42", isCorrect: false },
+        { optionText: "opt 12", optionSelected: 1 },
+        { optionText: "opt 22", optionSelected: 2 },
+        { optionText: "opt 32", optionSelected: 3 },
+        { optionText: "opt 42", optionSelected: 4 },
       ],
     },
     {
       id: "3",
       questionText: "What is the shortcut for adding Auto Layout in Figma3?",
       answerOptions: [
-        { optionText: "opt 16", isCorrect: false },
-        { optionText: "opt 27", isCorrect: false },
-        { optionText: "opt 38", isCorrect: true },
-        { optionText: "opt 49", isCorrect: false },
+        { optionText: "opt 16", optionSelected: 1 },
+        { optionText: "opt 27", optionSelected: 2 },
+        { optionText: "opt 38", optionSelected: 3 },
+        { optionText: "opt 49", optionSelected: 4 },
       ],
     },
     {
       id: "4",
       questionText: "What is the shortcut for adding Auto Layout in Figma4?",
       answerOptions: [
-        { optionText: "opt 14", isCorrect: false },
-        { optionText: "opt 24", isCorrect: false },
-        { optionText: "opt 34", isCorrect: true },
-        { optionText: "opt 44", isCorrect: false },
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
+      ],
+    },
+    {
+      id: "5",
+      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+      answerOptions: [
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
+      ],
+    },
+    {
+      id: "6",
+      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+      answerOptions: [
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
+      ],
+    },
+    {
+      id: "7",
+      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+      answerOptions: [
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
+      ],
+    },
+    {
+      id: "8",
+      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+      answerOptions: [
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
+      ],
+    },
+    {
+      id: "9",
+      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+      answerOptions: [
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
+      ],
+    },
+    {
+      id: "10",
+      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+      answerOptions: [
+        { optionText: "opt 14", optionSelected: 1 },
+        { optionText: "opt 24", optionSelected: 2 },
+        { optionText: "opt 34", optionSelected: 3 },
+        { optionText: "opt 44", optionSelected: 4 },
       ],
     },
   ];
 
+  function handleOptionClick(optionSelected) {
+    answersArray.push(optionSelected);
+    console.log(answersArray);
+  }
+
   function nextQues() {
     setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion === 8) {
+      setShowNextBtn(false);
+      setEndBtn(true);
+    }
   }
 
   return (
@@ -89,7 +161,10 @@ function Quizbox() {
           </div>
           <div className="col">
             {questionBank[currentQuestion].answerOptions.map((answerOption) => (
-              <div className="row my-2">
+              <div
+                onClick={() => handleOptionClick(answerOption.optionSelected)}
+                className="row my-2"
+              >
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -104,18 +179,39 @@ function Quizbox() {
               </div>
             ))}
           </div>
-          <div className="row my-5">
-            <div className="ml-auto">
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick={nextQues}
-                style={{ backgroundColor: "#5E72E4" }}
-              >
-                Next Question
-              </button>
+          {showNextBtn ? (
+            <div className="row my-5">
+              <div className="ml-auto">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onClick={nextQues}
+                  style={{ backgroundColor: "#5E72E4" }}
+                >
+                  Next Question
+                </button>
+              </div>
             </div>
-          </div>
+          ) : (
+            ""
+          )}
+          {showEndBtn ? (
+            <Link to="/thankyou">
+              <div className="row my-5">
+                <div className="ml-auto">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    style={{ backgroundColor: "#5E72E4" }}
+                  >
+                    End Test
+                  </button>
+                </div>
+              </div>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
