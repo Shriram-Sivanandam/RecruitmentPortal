@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import profile_pic from "../../assets/undraw_profile_pic_ic5t.svg";
 import "./Nav2.css";
+import { useAuth } from "../../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+
 function Nav() {
+  const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
+  const history = useHistory();
+  async function handleLogout() {
+    setError("");
+    try {
+      await logout();
+      history.push("/");
+    } catch {
+      setError("Failed to log out");
+    }
+  }
   return (
     <>
       <nav
@@ -54,15 +69,15 @@ function Nav() {
                   aria-labelledby="userDropdown"
                 >
                   <div class="dropdown-item"></div>
-                  <a
+                  <button
                     class="dropdown-item"
-                    href=" "
+                    onClick={handleLogout}
                     data-toggle="modal"
                     data-target="#logoutModal"
                   >
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
-                  </a>
+                  </button>
                 </div>
               </li>
             </div>

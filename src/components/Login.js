@@ -17,7 +17,9 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
+      if (emailRef.current.value === "1234@1234.com")
+        history.push("/admin-dashboard");
+      else history.push("/");
     } catch {
       setError("Failed to log in");
     }
