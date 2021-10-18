@@ -12,6 +12,7 @@ import AdminDashboard from "./components/admin/Dashboard/AdminDashboard";
 import Quizbox from "./components/Dashboard/Quizbox";
 import QuesUpload from "./components/admin/Dashboard/UploadQuestions";
 import StudentList from "./components/StudentList/StudentList";
+import StickerWall from "./components/StickerWall/StickerWall";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               path="/upload-questions"
               component={QuesUpload}
             />
+            <PrivateRoute exact path="/stickers" component={StickerWall} />
             <PrivateRoute exact path="/student-list" component={StudentList} />
             <PrivateRoute exact path="/apt-quiz" component={Quizbox} />
             <PrivateRoute path="/thankyou" component={ThankYou} />
