@@ -12,11 +12,13 @@ import AdminDashboard from "./components/admin/Dashboard/AdminDashboard";
 import Quizbox from "./components/Dashboard/Quizbox";
 import QuesUpload from "./components/admin/Dashboard/UploadQuestions";
 import StudentList from "./components/StudentList/StudentList";
+import Landing1 from "./components/Landing/Landing1";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Landing1/>
+      {/* <Router>
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={Dashboard} />
@@ -43,7 +45,7 @@ function App() {
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>
-      </Router>
+      </Router> */}
     </div>
   );
 }
