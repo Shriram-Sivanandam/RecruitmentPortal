@@ -1,0 +1,67 @@
+.stiWallDiv {
+  background-color: #fff5f1;
+  overflow: hidden;
+}
+
+.sticker1:hover {
+  animation-name: stickerAnimation1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.sticker2:hover {
+  animation-name: stickerAnimation2;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.row1,
+.row2,
+.row3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stiSmiley {
+  transform: translateY(-30%);
+}
+
+.stiCode {
+  margin-right: 10%;
+  transform: translateY(50%);
+}
+
+.stiCalender {
+  margin-bottom: 10%;
+}
+
+.stiTicket {
+  margin-bottom: 15%;
+}
+
+.stiSuperb {
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.stiHand {
+  transform: translateY(-30%);
+}
+
+@keyframes stickerAnimation2 {
+  from {
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes stickerAnimation1 {
+  from {
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
