@@ -33,8 +33,8 @@ function Landing1() {
         </button>
       </nav>
       <section className="hero_banner">
-        <div class="parent" style={{ display: "flex" }}>
-          <div class="section yellow ml-5 pl-5">
+        <div className="parent container" style={{ display: "flex" }}>
+          <div className="section yellow ml-5 pl-5">
             <svg
               id="we_are"
               className="my-5"
