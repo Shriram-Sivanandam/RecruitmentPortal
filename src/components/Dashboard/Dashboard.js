@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav2 from "../Nav/Nav2";
 import technical from "../../assets/Technical.svg";
 import management from "../../assets/Managment.svg";
@@ -50,15 +50,16 @@ function Dashboard() {
               managing daily operations, creating effective content and much
               more.
             </p>
-
-            <button
-              type="button"
-              className="btn btn-dark mx-auto"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              <h6>Take Quiz</h6>
-            </button>
+            <Link to="/management-quiz">
+              <button
+                type="button"
+                className="btn btn-dark mx-auto"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                <h6>Take Quiz</h6>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="card">

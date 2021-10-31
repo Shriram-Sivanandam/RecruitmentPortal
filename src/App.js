@@ -18,8 +18,8 @@ import StickerWall from "./components/StickerWall/StickerWall";
 function App() {
   return (
     <div className="App">
-      <Landing1/>
-      {/* <Router>
+      {/* <Landing1 /> */}
+      <Router>
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={Dashboard} />
@@ -47,7 +47,7 @@ function App() {
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>
-      </Router> */}
+      </Router>
     </div>
   );
 }
