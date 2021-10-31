@@ -12,17 +12,14 @@ import AdminDashboard from "./components/admin/Dashboard/AdminDashboard";
 import Quizbox from "./components/Dashboard/Quizbox";
 import QuesUpload from "./components/admin/Dashboard/UploadQuestions";
 import StudentList from "./components/StudentList/StudentList";
-<<<<<<< HEAD
-import Landing1 from "./components/Landing/Landing1";
-=======
+// import Landing1 from "./components/Landing/Landing1";
 import StickerWall from "./components/StickerWall/StickerWall";
->>>>>>> 7bab9352935194dcf1ccb60a1c8fcff6bc343ddb
 
 function App() {
   return (
     <div className="App">
-      <Landing1/>
-      {/* <Router>
+      {/* <Landing1 /> */}
+      <Router>
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={Dashboard} />
@@ -50,7 +47,7 @@ function App() {
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>
-      </Router> */}
+      </Router>
     </div>
   );
 }
