@@ -1,64 +1,17 @@
-.thankYouMainContainer {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.thankYouBox {
-  /* margin: auto; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 24px;
-  background-color: #d2d4e2;
-  height: 50vh;
-  width: 50vw;
-  border-radius: 12px;
-  text-align: center;
-}
+.font-face-gm {
+  font-family: "Brice Font Family";
+  font-style: normal;
+font-weight: bold;
+font-size: 48px;
+line-height: 68px;
+color: #C33D59;
 
-.socials {
-  padding-top: 40px;
-  text-align: center;
-}
-
-.socialsLogo {
-  width: 20px;
-  margin-right: 5px;
-}
-
-.thankYouImage {
-  height: 30vw;
-}
-
-@media only screen and (max-width: 620px) {
-  .thankYouImage {
-    height: 40%;
+ }
+ 
+ @media only screen and (max-width: 400px) {
+  #svg1{
+    width: 95vw;
   }
+ }
 
-  .thankYouBox {
-    width: 70vw;
-  }
-
-  .thankYouText {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .thankYouImage {
-    height: 20vw;
-  }
-}
-
-@media only screen and (max-height: 680px) {
-  .thankYouImage {
-    height: 15vh;
-  }
-  .thankYouText {
-    font-size: 20px;
-  }
-}

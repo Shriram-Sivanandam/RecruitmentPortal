@@ -21,3 +21,11 @@
   .card-text{
      text-align: center;
   }
+  .btn{
+    background-color: #C33D59;
+    opacity: 50%;
+
+  }
+  body{
+    background-color: #FFF5F1;
+  }
