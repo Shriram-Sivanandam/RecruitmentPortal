@@ -1,0 +1,15 @@
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    
+  }
+
+.option:hover{
+  border-style: solid !important;
+  border-color: black !important;
+  /* border-width: 3px !important; */
+  /* background-color: black; */
+}

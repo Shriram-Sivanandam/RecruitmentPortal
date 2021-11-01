@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./Quizbox.css";
 import { Link } from "react-router-dom";
+import Group45 from "../../assets/Group45.svg";
+import Options from './Options'
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentOption, setCurrentOption] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);
-  var answersArray = [];
+  // var answersArray = [];
+  const [answersArray, setAnswersArray] = useState([]);
+
+  const optionsForm = {
+    1 : "A",
+    2: "B",
+    3: "C",
+    4: "D"
+  }
 
   const questionBank = [
     {
@@ -112,24 +123,32 @@ function Quizbox() {
     },
   ];
 
+  
   function handleOptionClick(optionSelected) {
-    answersArray.push(optionSelected);
-    console.log(answersArray);
+    // answersArray.push(optionSelected);
+    // console.log(answersArray);
+    setCurrentOption(optionSelected);
   }
 
   function nextQues() {
     setCurrentQuestion(currentQuestion + 1);
+    setAnswersArray([...answersArray, currentOption])
+    // answersArray.push(currentOption);
+    // console.log(answersArray);
+
     if (currentQuestion === 8) {
       setShowNextBtn(false);
       setEndBtn(true);
     }
   }
 
+  console.log(answersArray)
+
   return (
     <>
-      <Nav2 />
-      <div className="container">
-        <div className="row my-5">
+      {/* <Nav2 /> */}
+      <div className="container quizpage  p-5 " >
+        {/* <div className="row my-5">
           <div className="mr-auto">
             <h4 style={{ fontWeight: "600" }}>
               {" "}
@@ -149,34 +168,65 @@ function Quizbox() {
               </span>
             </h4>
           </div>
-        </div>
+        </div> */}
         <div className="quizbox container">
-          <div className="row my-1">
+          <div className="d-flex justify-content-between">
+            <img className="logo" src={Group45} alt="logo" />
+            <div>
+              <h5 className="completedText">
+                Total Test Completed - {((currentQuestion + 1) / 10) * 100}%
+              </h5>
+              <div className="bar">
+                <div
+                  style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
+                  className="completedbar"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-100 my-2 " style={{backgroundColor:"#E0E0E0", padding:"1px"}} >
+
+</div>
+          {/* <div className="row my-1">
             <b>
               <h3>Question {currentQuestion + 1}</h3>
             </b>
+          </div> */}
+          <div className="d-flex justify-content-between">
+            <h5 style={{ color:"#7A7A7A" }}> {10 -  currentQuestion - 1  } questions to go</h5>
+            <div className="logo">
+              Time to Go : 20:00{" "}
+            </div>
+            
           </div>
-          <div className="row my-3">
-            <h5>{questionBank[currentQuestion].questionText}</h5>
+
+          <div className=" my-3 ">
+            <h5> <span style={{ color:"#7A7A7A" }}>Q{currentQuestion + 1}:</span> {questionBank[currentQuestion].questionText}</h5>
           </div>
           <div className="col">
             {questionBank[currentQuestion].answerOptions.map((answerOption) => (
-              <div
-                onClick={() => handleOptionClick(answerOption.optionSelected)}
-                className="row my-2"
-              >
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault1"
-                  />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    {answerOption.optionText}
-                  </label>
-                </div>
+              // <div
+              //   onClick={() => handleOptionClick(answerOption.optionSelected)}
+              //   className="row my-2"
+              // >
+              //   <div class="form-check">
+              //     <input
+              //       class="form-check-input"
+              //       type="radio"
+              //       name="flexRadioDefault"
+              //       id="flexRadioDefault1"
+              //     />
+              //     <label class="form-check-label" for="flexRadioDefault1">
+              //       {answerOption.optionText}
+              //     </label>
+              //   </div>
+              // </div>
+              <div  onClick={() => handleOptionClick(answerOption.optionSelected)} >
+                <Options option={optionsForm[answerOption.optionSelected]} text={answerOption.optionText} />
+                
+
               </div>
+              
             ))}
           </div>
           {showNextBtn ? (
@@ -184,7 +234,7 @@ function Quizbox() {
               <div className="ml-auto">
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={nextQues}
                   style={{ backgroundColor: "#5E72E4" }}
                 >
@@ -201,7 +251,7 @@ function Quizbox() {
                 <div className="ml-auto">
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     style={{ backgroundColor: "#5E72E4" }}
                   >
                     End Test

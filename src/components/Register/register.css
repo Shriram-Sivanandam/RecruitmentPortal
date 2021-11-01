@@ -1,0 +1,22 @@
+
+
+.registerPage{
+    background-color: #FFF5F1;
+    padding: 100px;
+
+}
+.heading{
+   
+    text-align: center;
+   
+}
+
+.inputField{
+    border-style: solid !important;
+    border-color: black !important;
+    border-width: 0px 0px 1px 0px;
+    padding:5px;
+    background-color:#FFF5F1;
+    width:100%;
+    
+}

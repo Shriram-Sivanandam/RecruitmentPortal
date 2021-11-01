@@ -1,11 +1,26 @@
+
 .managementQBox {
   padding: 1.5rem 3rem 0.5rem 3rem;
-  background-color: #d2d4e3;
+  background-color: white;
   border-radius: 12px;
 }
 .managementQues {
   font-size: 20px;
 }
+.bar{
+  background-color: #C4C4C4 ;
+  border-radius: 50px;
+
+}
+
+.completedbar{
+  height: 8px;
+  width: 100%;
+  background-color: #C33D59 ;
+  border-radius: 50px;
+}
+
+
 
 @media only screen and (max-width: 420px) {
   /* .managementQuizInfo {
