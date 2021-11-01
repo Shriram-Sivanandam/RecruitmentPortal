@@ -60,7 +60,7 @@ function Nav() {
                     src={profile_pic}
                   />
                   <span class="ml-2 d-none d-lg-inline small profiletext">
-                    Preetish Biswal
+                    {currentUser.email}
                   </span>
                 </a>
 
