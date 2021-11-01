@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./contexts/AuthContext";
+import './fonts/Brice Font Family.rar';
+
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
