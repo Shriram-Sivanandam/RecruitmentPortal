@@ -10,6 +10,18 @@
     text-align: center;
    
 }
+ 
+.testing{
+    font-family:"BriceBold"
+}
+.testing2{
+    font-family:"BriceSemiBold"
+}
+.testing3{
+    font-family:"BriceRegular";
+    font-weight:700;
+    font-size: 74px;
+}
 
 .inputField{
     border-style: solid !important;
@@ -18,5 +30,47 @@
     padding:5px;
     background-color:#FFF5F1;
     width:100%;
+    
+}
+
+.steps-form {
+    display: table;
+    width: 100%;
+    position: relative; }
+.steps-row {
+    display: table-row; }
+ .steps-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc; }
+.steps-step {
+    display: table-cell;
+    text-align: center;
+    position: relative; }
+
+ .btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    border-radius: 15px;
+    margin-top: 0;
+    border-style: 3px solid !important;
+    border-color: #F6CAB8 !important;
+    background-color: #FFF5F1;
+    color:black ;
+   
+
+ }
+.active {
+    background-color: #F05127;
+    font-weight: bold;
+    color:white
+
     
 }

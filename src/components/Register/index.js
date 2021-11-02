@@ -40,7 +40,47 @@ function Register() {
 
   return (
     <div className="container registerPage " style={{ width: "100vw", height: "100vh" }}>
+          <h1 className="testing">Hello</h1>
+          <h1 className="testing2">Hello</h1>
+          <h1 className="testing3">Technical</h1>
       <h1 className="heading">Lets Get Started</h1>
+      <div class="steps-form">
+      <div class="steps-row setup-panel">
+          {[0,1,2,3,4,5,6].map((key) => {
+              return(
+                  <>
+                  { key < currentQuestion ?
+                    <div class="steps-step" >
+                <a href="#step-9" type="button" className="btn btn-indigo active btn-circle">{key+1}</a>
+               
+              </div> 
+                  
+                
+                : 
+                <div class="steps-step" >
+                <a href="#step-9" type="button" className="btn btn-indigo btn-circle">{key+1}</a>
+               
+              </div>
+            
+            }
+            </>
+                
+
+              )
+             
+
+          })}
+{/*        
+        <div class="steps-step">
+          <a href="#step-10" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+          
+        </div>
+        <div class="steps-step">
+          <a href="#step-11" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+          
+        </div> */}
+      </div>
+    </div>
 
       <div>
         <h3 className="my-5">

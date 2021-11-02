@@ -1,4 +1,21 @@
 .font-face-gm {
     font-family: "Brice Font Family";
    }
+
+
+   @font-face {
+    font-family: "BriceBold";
+    src: local("Brice-Bold") , url("./fonts/Brice-Bold.otf") format("otf");
+  }
+
+  @font-face {
+    font-family: "BriceRegular";
+    src: local("Brice-Regular") , url("./fonts/Brice-Regular.otf") format("otf");
+  }
+
+  @font-face {
+    font-family: "BriceSemiBold";
+    src: local("Brice-SemiBold") , url("./fonts/Brice-SemiBold.otf") format("otf");
+  }
+ 
    
