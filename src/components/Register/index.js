@@ -1,31 +1,69 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import {Name , Email , PhoneNo , Password , DomainChoose} from './FormField'
 import "./register.css";
 function Register() {
   const answerRef = useRef();
+  const [value , setValue] = useState(null);
+  const [error , setError] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);
   const [answersArray, setAnswersArray] = useState([]);
 
+
+
+
   function nextQues() {
     // answersArray.splice(currentQuestion, 0, answerRef.current.value);
     // answersArray = [...answersArray, answerRef.current.value];
     // answersArray.concat([answerRef.current.value]);
-    setAnswersArray([...answersArray, answerRef.current.value]);
-    // setUserAnswer("");
-    answerRef.current.value = "";
+    // console.log(value)
+    // console.log(error)
+    if (value !== null){
+        setAnswersArray([...answersArray, value]);
+        setValue(null)
+        setCurrentQuestion(currentQuestion + 1);
+        if (currentQuestion === 6) {
+          setShowNextBtn(false);
+          setEndBtn(true);
+        }
+    }else{
+        alert("Pls Enter Valid Value")
+        
 
-    setCurrentQuestion(currentQuestion + 1);
-    if (currentQuestion === 6) {
-      setShowNextBtn(false);
-      setEndBtn(true);
     }
+
+    if (error !== null) {
+        alert(error)
+        setError(null)
+    }
+
+    
+   
+   
+    // setUserAnswer("");
+    // answerRef.current.value = "";
+    
+
+    
   }
 
-  console.log(currentQuestion)
+  const components = {
+      1 : <Name setValue={setValue} setError={setError} placeholder="Enter your name"  /> , 
+      2 : <Name setValue={setValue} setError={setError} placeholder="Enter your Registration Number" /> , 
+      3 : <Email setValue={setValue} setError={setError} placeholder="Enter Your Email" /> , 
+      4: <PhoneNo setValue={setValue} setError={setError} placeholder="Enter your Phone Number" /> , 
+      5 : <Password setValue={setValue} setError={setError} placeholder="Enter your Password" /> ,
+      6: <DomainChoose value={value} setValue={setValue} setError={setError}  />
 
-  console.log(answersArray);
+  }
+
+//   console.log(error)
+
+//   console.log(currentQuestion)
+
+//   console.log(answersArray);
 
   const questionBank = [
     "1. Heyy, what’s your name?",
@@ -40,10 +78,8 @@ function Register() {
 
   return (
     <div className="container registerPage " style={{ width: "100vw", height: "100vh" }}>
-          <h1 className="testing">Hello</h1>
-          <h1 className="testing2">Hello</h1>
-          <h1 className="testing3">Technical</h1>
-      <h1 className="heading">Lets Get Started</h1>
+          
+      <h1 className="heading mb-5">Lets Get Started</h1>
       <div class="steps-form">
       <div class="steps-row setup-panel">
           {[0,1,2,3,4,5,6].map((key) => {
@@ -58,7 +94,7 @@ function Register() {
                 
                 : 
                 <div class="steps-step" >
-                <a href="#step-9" type="button" className="btn btn-indigo btn-circle">{key+1}</a>
+                <div  type="button" className="btn btn-indigo btn-circle">{key+1}</div>
                
               </div>
             
@@ -81,18 +117,19 @@ function Register() {
         </div> */}
       </div>
     </div>
-
-      <div>
+    
+        <div>
         <h3 className="my-5">
           <span style={{ color: "#7A7A7A" }}></span>
           {questionBank[currentQuestion]}
         </h3>
         <div>
-          <input
+          {/* <input
             ref={answerRef}
             className="inputField"
             placeholder="Enter Your Name"
-          />
+          /> */}
+          {components[currentQuestion + 1]}
         </div>
       </div>
       <div className="my-5">
@@ -133,6 +170,8 @@ function Register() {
 
         <div></div>
       </div>
+      
+      
     </div>
   );
 }

@@ -17,9 +17,6 @@ import Register from './components/Register'
 import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from "./contexts/AuthContext";
 
-import './fonts/Brice-Bold.otf';
-import './fonts/Brice-SemiBold.otf';
-import './fonts/Brice-Regular.otf'
 function App() {
   const [token,setToken] = useState("")
   const {currentUser} = useAuth();

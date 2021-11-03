@@ -4,7 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./contexts/AuthContext";
-import './fonts/Brice Font Family.rar';
+
+
+import './fonts/Brice-Bold.otf';
+import './fonts/Brice-SemiBold.otf';
+import './fonts/Brice-Regular.otf'
 
 ReactDOM.render(
   <React.StrictMode>

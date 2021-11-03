@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+
+@font-face {
+  font-family: "BriceBold";
+  src: local("BriceBold") , url("./fonts/Brice-Bold.otf") format("otf");
+}
+
+@font-face {
+  font-family: "BriceRegular";
+  src: local("BriceRegular") , url(./fonts/Brice-Regular.otf) format("truetype");
+}
+
+@font-face {
+  font-family: 'BriceSemiBold';
+  src: local('BriceSemiBold') , url(./fonts/Brice-SemiBold.otf) format('truetype');
+}
