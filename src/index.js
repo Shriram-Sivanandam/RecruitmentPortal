@@ -9,6 +9,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import './fonts/Brice-Bold.otf';
 import './fonts/Brice-SemiBold.otf';
 import './fonts/Brice-Regular.otf'
+import './fonts/ApocLCTrial-LightSans.otf'
 
 ReactDOM.render(
   <React.StrictMode>

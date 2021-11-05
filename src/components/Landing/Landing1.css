@@ -1,7 +1,255 @@
-*{
-    background: #FFF5F1;
 
-}
 .register_now{
     background-image: url(../../assets/Frame38.png);
+}
+@media screen and (min-width: 600px) {
+    #navshit{
+        display: flex;
+    }
+    #weare{
+        font-size: 52px;
+    }
+    #team{
+        font-size: 52px;
+    }
+    #wegiveout{
+        font-size: 52px;
+    }
+    #cool{
+        font-size: 52px;
+    }
+    #opportunities{
+        font-size: 52px;
+        font-family: 'Changa one',cursive;
+        font-style: italic;
+    }
+    #talented{
+        font-size: 52px;
+        font-family: 'Ramabhadra',sans-serif;
+    }
+    #people{
+        font-size: 52px;
+        font-family: 'Rubik Mono One',sans-serif;
+        margin-top: -50px;
+    }
+    #really1{
+        /* position: absolute;
+        margin-left: 38vw; */
+        font-family: 'Apoc',sans-serif;
+        font-size:50px;
+        font-weight: 500;
+    }
+    #for{
+        font-family: 'Apoc',sans-serif;
+        font-size:50px;
+        font-weight: 500;
+
+    }
+    #mobileonly1{
+        display: none;
+    }
+    #mobile_roadmap{
+        display: none;
+    }
+    #ilus_grid{
+        position: absolute;
+      margin-left: -10vw;
+    }
+    #wearestc{
+        margin-left: 10vw ;
+    }
+   
+}
+@media screen and (max-width: 600px) {
+    #navshit{
+        display: block;
+    }
+    #arrow{
+        width: 35px;
+        
+       
+       
+    }
+    #really{
+        width: 50px;
+        height: 40px;
+    }
+    #wegiveout{
+        font-size: 23px;
+    }
+    #cool{
+        font-size: 26px;
+    }
+    #opportunities{
+        font-size: 24px;
+        font-family: 'Changa one',cursive;
+        font-style: italic;
+        margin-top: 10px;
+    }
+    #for{
+        /* width: 30px; */
+        font-size: 26px;;
+    }
+    #for1{
+        width: 30px;
+    }
+    #really1{
+        font-size:26px;
+        /* width: 60px;
+        margin-left: 10px; */
+
+       
+        
+    }
+    #talented{
+        font-size: 23px;
+        font-family: 'Ramabhadra',sans-serif;
+    }
+    #people{
+        font-size: 23px;
+        font-family: 'Rubik Mono One',sans-serif;
+      
+    }
+    #smiley{
+        display: none
+    }
+    #ilus_grid{
+        display: none;
+    }
+    #col2{
+        display: none;
+    }
+    #laptop_roadmap{
+        display: none;
+    }
+
+}
+@media screen and (max-width: 325px) {
+    #opportunities{
+        font-size: 18px;
+        font-family: 'Changa one',cursive;
+        font-style: italic;
+        margin-top: 10px;
+    }
+    #talented{
+        font-size: 22px;
+        font-family: 'Ramabhadra',sans-serif;
+    }
+    #people{
+        font-size: 22px;
+        font-family: 'Rubik Mono One',sans-serif;
+      
+    }
+    #loginsvg{
+        width: 120px;
+    }
+    #for{
+        font-size:18px;
+    }
+    #really1{
+        font-size:18px;
+    }
+    
+}
+
+
+#aa {
+
+    
+  
+  
+    position: relative;
+  }
+  button:focus {
+    outline: none;
+}
+
+  #aa:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  #aa:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+ .b1{
+     background-color: transparent;
+     border: none;
+ }
+ .b2{
+    background-color: transparent;
+    border: none;
+ }
+ .b3{
+    background-color: transparent;
+    border: none;
+ }
+
+  
+  #second, #third {
+    display: none
+  }
+  
+  button {
+    outline: none;
+  }
+  @media screen and (max-width: 600px) {
+    #svg0{
+        width: 13vw;
+    }
+    #svg21{
+        width: 19vw;
+    }
+    #svg2{
+        width: 13vw;
+    }
+    #weare{
+        font-size: 26px;
+        margin-top: 20px;
+    }
+    #team{
+        font-size: 26px;
+    }
+}
+
+#weare{
+    font-family: 'Josefin-Sans',sans-serif;
+  
+  
+}
+#wegiveout{
+    font-family: 'Inter',sans-serif
+}
+#cool{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 800
+}
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Inter&family=Josefin+Sans&family=Paytone+One&family=Poppins&family=Ramabhadra&family=Rubik+Mono+One&display=swap');
+#team{
+    font-family: 'Paytone One', sans-serif;
+   
+}
+h1{
+    color: white;
+}
+.request-animation__block{
+    transform: translateY(193.232%);
+}
+.request-animation__track{
+    transform: scale(2) rotate(15deg) translateX(0px);
+}
+ul{
+    list-style: none;
+    list-style-type: none;
+}
+li{
+    list-style-type: none;
 }

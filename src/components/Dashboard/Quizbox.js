@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./Quizbox.css";
 import { Link } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
 import Options from './Options'
+import axios from 'axios'
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -12,6 +13,21 @@ function Quizbox() {
   const [showEndBtn, setEndBtn] = useState(false);
   // var answersArray = [];
   const [answersArray, setAnswersArray] = useState([]);
+  const [loading , setLoading] = useState(false)
+
+
+  useEffect(() => {
+    console.log("hello");
+    setLoading(true);
+
+   
+      axios.get('http://localhost:3000/student/start_test').then((response) =>{
+        console.log(response.data)
+      }).catch((err) => {
+        console.log(err)
+        console.log("because of ishaan")
+      })
+  }, []);
 
   const optionsForm = {
     1 : "A",
@@ -221,8 +237,8 @@ function Quizbox() {
               //     </label>
               //   </div>
               // </div>
-              <div  onClick={() => handleOptionClick(answerOption.optionSelected)} >
-                <Options option={optionsForm[answerOption.optionSelected]} text={answerOption.optionText} />
+              <div  onClick={() => handleOptionClick(answerOption.optionText)} >
+                <Options currentOption={currentOption}  option={optionsForm[answerOption.optionSelected]} text={answerOption.optionText} />
                 
 
               </div>

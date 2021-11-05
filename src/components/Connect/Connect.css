@@ -1,0 +1,217 @@
+.mainCont {
+  background-color: #fff5f1;
+  
+}
+
+.connectCont {
+  display: flex;
+  max-width: 1440px;
+}
+
+@media only screen and (max-width: 900px) {
+  .connectCont {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headingCont {
+    display: flex;
+    justify-content: center;
+  }
+
+  .connect_info {
+    display: flex;
+    justify-content: center;
+  }
+
+  .connect_heading {
+    width: 70%;
+  }
+
+  .mobileinfo {
+    width: 80%;
+  }
+
+  .laptopinfo {
+    display: none;
+  }
+
+  .connect_logos {
+    display: flex;
+    height: 30vw;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .connect_linkdinLogo,
+  .connect_instaLogo,
+  .connect_websiteLogo,
+  .connect_gitLogo {
+    width: 90%;
+  }
+
+  .connect_linkdinLogo:hover,
+  .connect_instaLogo:hover,
+  .connect_websiteLogo:hover,
+  .connect_gitLogo:hover {
+    animation-name: stickerAnimation2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .mainCont {
+    display: flex;
+    justify-content: center;
+  }
+
+  .connectCont {
+    margin: 3%;
+  }
+
+  .mobileinfo {
+    display: none;
+  }
+
+  .laptopinfo {
+    width: 80%;
+  }
+
+  .connect_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .connect_linkdinLogo,
+  .connect_instaLogo,
+  .connect_websiteLogo,
+  .connect_gitLogo {
+    width: 40%;
+  }
+
+  .connect_linkdinLogo {
+    transform: translate(23%, 50%);
+  }
+
+  .connect_linkdinLogo:hover {
+    animation-name: stickerLinkdin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .connect_instaLogo {
+    z-index: 100;
+    transform: translate(0%, 20%);
+  }
+  .connect_instaLogo:hover {
+    animation-name: stickerInsta;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .connect_websiteLogo {
+    transform: translate(20%, -60%);
+  }
+  .connect_websiteLogo:hover {
+    animation-name: stickerWebsite;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .connect_gitLogo {
+    z-index: 3;
+    transform: translate(-3%, -17%);
+  }
+  .connect_gitLogo:hover {
+    animation-name: stickerGitBig;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1040px) {
+  .connect_instaLogo {
+    z-index: 100;
+  }
+  .connect_gitLogo {
+    z-index: 3;
+    transform: translate(-3%, -30%);
+  }
+  .connect_gitLogo:hover {
+    animation-name: stickerGitMedium;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .connectCont {
+    margin-left: 10%;
+  }
+}
+
+@keyframes stickerAnimation2 {
+  from {
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes stickerLinkdin {
+  from {
+  }
+  to {
+    transform: translate(23%, 50%) rotate(20deg);
+  }
+}
+
+@keyframes stickerInsta {
+  from {
+  }
+  to {
+    transform: translate(0%, 20%) rotate(20deg);
+  }
+}
+
+@keyframes stickerWebsite {
+  from {
+  }
+  to {
+    transform: translate(20%, -60%) rotate(20deg);
+  }
+}
+
+@keyframes stickerGitBig {
+  from {
+  }
+  to {
+    transform: translate(-3%, -17%) rotate(20deg);
+  }
+}
+
+@keyframes stickerGitMedium {
+  from {
+  }
+  to {
+    transform: translate(-3%, -30%) rotate(20deg);
+  }
+}
+@media only screen and (max-width:425px){
+  #connect_anchors{
+    height: 20vh;
+   }
+}
+
+

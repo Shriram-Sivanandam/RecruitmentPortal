@@ -1,4 +1,6 @@
 .stiWallDiv {
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-color: #000000;
   overflow: hidden;
   display: flex;
@@ -27,6 +29,13 @@
 
 .sticker2:hover {
   animation-name: stickerAnimation2;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.stiTicket:hover {
+  animation-name: stickerAnimationticket;
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -93,7 +102,43 @@
   transform: translate(500%, -80%);
 }
 
-/* @keyframes stickerAnimation2 {
+.barcodeDiv1 {
+  width: 400vw;
+  transform: rotate(-3.5deg);
+}
+
+.barcodeDiv2 {
+  width: 400vw;
+  transform: rotate(2.5deg);
+}
+
+.barcode {
+  width: 100vw;
+  padding-right: -10px;
+  animation-name: infiLoop;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* transform: rotate(0.5deg); */
+}
+
+/* .firstBar {
+  transform: translateY(-25px);
+}
+
+.secondBar {
+  transform: translateY(25px);
+} */
+
+@keyframes infiLoop {
+  from {
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes stickerAnimation2 {
   from {
   }
   to {
@@ -101,10 +146,17 @@
   }
 }
 
-@keyframes stickerAnimation1 {
+@keyframes stickerAnimationticket {
   from {
   }
   to {
-    transform: scale(1.5);
+    transform: translate(-62%, 10%) rotate(20deg);
+  }
+}
+
+/* @media only screen and (max-width: 900px) {
+  .stiWallDiv {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 } */

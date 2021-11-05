@@ -13,3 +13,9 @@
   /* border-width: 3px !important; */
   /* background-color: black; */
 }
+
+.selectedOption {
+  border-style: solid !important;
+  border-color: black !important;
+
+}

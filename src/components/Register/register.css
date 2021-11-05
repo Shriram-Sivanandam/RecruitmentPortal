@@ -29,7 +29,9 @@
 .steps-form {
     display: table;
     width: 100%;
-    position: relative; }
+    position: relative; 
+    overflow-x: auto !important;
+}
 .steps-row {
     display: table-row; }
  .steps-row:before {
@@ -90,3 +92,62 @@
     margin-right: 15px;
     margin-bottom: 10px;
 }
+
+.button1{
+    font-size:17px;
+}
+
+.button2{
+    font-size: 23;
+    font-weight: 700;
+    
+}
+
+.button3{
+    font-size: 14px;
+}
+
+.sets{
+    background-color: #F05127 ; 
+    color:white;
+    border: 2px solid ;
+    border-color: #F48152;
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+   
+
+}
+
+.buts{
+    background-color: #FFF5F1;
+    border: 2px solid ;
+    border-color: #F48152;
+    color: #F48152;
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    
+
+}
+
+
+
+@media only screen and (max-width: 420px) {
+    .steps-form{
+        width: 100%;
+    }
+    .steps-row{
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: justify-between;
+        overflow: auto !important;
+        content: " " ;
+        
+    }
+  
+  }
+  

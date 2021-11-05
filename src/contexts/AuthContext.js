@@ -27,14 +27,14 @@ export function AuthProvider({ children }) {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // userCredential.user.sendEmailVerification();
-        sendSignInLinkToEmail(auth1, email, actionCodeSettings)
-          .then(() => {
-            window.localStorage.setItem("emailForSignIn", email);
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-          });
+        // sendSignInLinkToEmail(auth1, email, actionCodeSettings)
+        //   .then(() => {
+        //     window.localStorage.setItem("emailForSignIn", email);
+        //   })
+        //   .catch((error) => {
+        //     const errorCode = error.code;
+        //     const errorMessage = error.message;
+        //   });
         // auth.signOut();
         alert("Email sent for verification");
       })

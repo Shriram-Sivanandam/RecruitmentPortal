@@ -29,3 +29,21 @@
   body{
     background-color: #FFF5F1;
   }
+
+  .heading2{
+    font-family:"BriceRegular";
+    font-size:43px;
+    text-align: center;
+    width: 100%;
+    font-weight: 200;
+  }
+
+  .scheduled{
+    font-weight: 700;
+    font-family: "BriceBold" !important;
+  }
+
+  .headings{
+    text-align: center;
+    width: 100%;
+  }

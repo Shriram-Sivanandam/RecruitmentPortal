@@ -5,8 +5,8 @@ import AdminDashboard from "./components/admin/Dashboard/AdminDashboard";
 import QuesUpload from "./components/admin/Dashboard/UploadQuestions";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Quizbox from "./components/Dashboard/Quizbox";
-import ForgotPassword from "./components/ForgotPassword";
-import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import Login from "./components/Login/Login";
 import ManagementQuiz from "./components/ManagementQuiz/ManagementQuiz";
 import PrivateRoute from "./components/PrivateRoute";
 import SignUp from "./components/SignUp";
@@ -16,39 +16,55 @@ import ThankYou from "./components/ThankYou/ThankYou";
 import Register from './components/Register'
 import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from "./contexts/AuthContext";
+import Constants from './components/constants'
+import Landing1 from './components/Landing/Landing1'
 
 function App() {
+
   const [token,setToken] = useState("")
   const {currentUser} = useAuth();
-  console.log(currentUser)
   if (currentUser){
-    currentUser.getIdToken(true).then(async (response) => {
-      await setToken(response)
-      console.log(token)
+    currentUser.getIdToken().then((response) => {
+      setToken(response)
     })
+
 
     
   }
+  console.log(token)
+//   var common_axios = axios.create({
+//     baseURL: 'http://localhost:3000'
+// });
 
-  // const studentRegister = () => {
-  //   axios.post('http://localhost:3001/student/register', {
-  //     name: "Shriram",
-  //     regno: "20BCT0262",
-  //     phone_no:"9300486523",
-  //     domains: ["MGMT", "TECH"]
+// // Set default headers to common_axios ( as Instance )
+// common_axios.defaults.headers.common['Authorization'] =  `Bearer ${token}` ;
+// // Check your Header
+// console.log(common_axios.defaults.headers);
+//   // const {token} = Constants()
+//   // console.log(token)
+
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 
-  //   },{
-  //     headers: {
-  //       'Authorization': `Bearer ${token}` 
-  //     }
-  //   }).then(() => {
-  //     console.log("success")
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
+  const studentRegister = () => {
+    axios.post('http://localhost:3000/student/register', {
+      email: "prerit.rawtani2020@vitstudent.ac.in",
+      password: "Password1234",
+      name: "Prerit",
+      regno: "20BCT0262",
+      phone_no:"9300486573",
+      domains: ["TECH"]
 
-  // }
+
+    }).then(() => {
+      alert("hello")
+      console.log("success")
+    }).catch((err) => {
+      alert("error")
+      console.log(err)
+    })
+
+  }
 
   // const slotBook = () => {
   //   axios.post('http://localhost:3001/student/apti_test', {
@@ -62,10 +78,10 @@ function App() {
   //   axios.post('http://localhost:3001/student/apti_test' , {
   //     test_id:"TEST102"
 
-  //   }, {
-  //     headers: {
-  //             'Authorization': `Bearer ${token}` 
-  //           }
+    // }, {
+    //   headers: {
+    //           'Authorization': `Bearer ${token}` 
+    //         }
 
       
   //   }).then(() => {
@@ -93,28 +109,47 @@ function App() {
   //   })
 
   // }
+  const defaultOptions = {
+    baseURL: "http://localhost:3000",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
 
-  // const getUser = () => {
-  //   axios.get('http://localhost:3001/student/profile', {
-  //     headers: {
-  //                         'Authorization': `Bearer ${token}` 
-  //                       }
-      
+  // Create instance
+  let instance = axios.create(defaultOptions);
 
-  //   }
-    
-  //   ).then((response) =>{
-  //     console.log("hello")
-  //     console.log(response.data)
-  //   }).catch((err) =>{
-  //     console.log(err)
+  // Set the AUTH token for any request
+  instance.interceptors.request.use(function (config) {
+    config.headers.Authorization =  token ? `Bearer ${token}` : '';
+    return config;
+  });
 
-  //   })
-  // }
+
+
+
+  const getUser =  () => {
+    try{
+       axios.get('http://localhost:3000/student/profile').then((response) => {
+         alert("hey")
+                
+                console.log(token)
+        console.log(response.data)
+      }).catch((err) =>{
+        alert("error")
+        console.log(err)
+  
+      })
+
+    }catch(err){
+      console.log(err)
+    }
+   
+  }
 
 
   // const getQuestions = () => {
-  //   axios.get('http://localhost:3001/student/start_test', {
+  //   axios.get('http://localhost:3000/student/start_test', {
   //     headers: {
   //                               'Authorization': `Bearer ${token}` 
   //                             }
@@ -145,7 +180,7 @@ function App() {
   //   })
   // }
 
-
+  
 
   
 
@@ -159,12 +194,12 @@ function App() {
   return (
     <div className="App">
       {/* <Landing1 /> */}
-      {/* <button onClick={scoreCalculate}>Hello</button> */}
+      {/* <button onClick={getUser}>Hello</button> */}
     
       <Router>
         <AuthProvider>
           <Switch>
-            <PrivateRoute exact path="/" component={Dashboard} />
+            <PrivateRoute exact path="/quiz-dashboard" component={Dashboard} />
             <PrivateRoute
               exact
               path="/management-quiz"
@@ -180,7 +215,7 @@ function App() {
               path="/upload-questions"
               component={QuesUpload}
             />
-            <PrivateRoute exact path="/stickers" component={StickerWall} />
+            {/* <PrivateRoute exact path="/stickers" component={StickerWall} /> */}
             <PrivateRoute exact path="/student-list" component={StudentList} />
             <PrivateRoute exact path="/apt-quiz" component={Quizbox} />
             <PrivateRoute path="/thankyou" component={ThankYou} />
@@ -188,6 +223,7 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
+             <Route path="/" component={Landing1} />
           </Switch>
         </AuthProvider>
       </Router>

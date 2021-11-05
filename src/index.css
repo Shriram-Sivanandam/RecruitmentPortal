@@ -16,7 +16,7 @@ code {
 
 @font-face {
   font-family: "BriceBold";
-  src: local("BriceBold") , url("./fonts/Brice-Bold.otf") format("otf");
+  src: local("BriceBold") , url(./fonts/Brice-Bold.otf) format("truetype");
 }
 
 @font-face {
@@ -27,4 +27,8 @@ code {
 @font-face {
   font-family: 'BriceSemiBold';
   src: local('BriceSemiBold') , url(./fonts/Brice-SemiBold.otf) format('truetype');
+}
+@font-face {
+  font-family: 'Apoc';
+  src: local('Apoc') , url(./fonts/ApocLCTrial-LightSans.otf) format('truetype');
 }
