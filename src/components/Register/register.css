@@ -132,6 +132,26 @@
     
 
 }
+/* .scheduledQuizzes {
+    display: flex;
+    flex-direction: column;
+    
+} */
+
+.buttonsRegister{
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.arrows{
+    background-color: #FFF5F1;
+    border: 2px solid ;
+    border-color: #B0B0B0;
+    border-radius:4px;
+
+
+}
 
 
 

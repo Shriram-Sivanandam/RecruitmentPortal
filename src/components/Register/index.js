@@ -6,6 +6,11 @@ import { useAuth } from "../../contexts/AuthContext";
 import { auth , db} from "../../firebase";
 import Constants from '../constants'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  import toastError from '../ToastError'
+  import upArrow from '../../assets/upArrow.svg'
+  import downArrow from '../../assets/downArrow.svg'
 function Register() {
   // const token = <Constants />
   const {token} = Constants()
@@ -47,7 +52,8 @@ function Register() {
     // console.log(value)
     // console.log(error)
     if (value !== null){
-        setAnswersArray([...answersArray, value]);
+        // setAnswersArray([...answersArray, value]);
+        answersArray[currentQuestion] = value
         setValue(null)
         setCurrentQuestion(currentQuestion + 1);
         if (currentQuestion === 6) {
@@ -55,13 +61,21 @@ function Register() {
           setEndBtn(true);
         }
     }else{
-        alert("Pls Enter Valid Value")
-        
-
+      if (error === null){
+        console.log(error)
+        setError("Pls Enter Valid Value")
+        toastError("Pls Enter Valid Value")
+      }else{
+        console.log(error)
+        toastError(error)
+      }
     }
 
+
+
     if (error !== null) {
-        alert(error)
+      
+        
         setError(null)
     }
 
@@ -87,25 +101,29 @@ function Register() {
 
   const studentRegister = async () => {
     try{
-      await axios.post('http://localhost:3000/student/register', {
-        email: answersArray[2],
-        password: answersArray[4],
-        name: answersArray[0],
-        regno: answersArray[1],
-        phone_no:answersArray[3],
-        domains: answersArray[5],
+      if (error === null){
+        await axios.post('http://localhost:3000/student/register', {
+          email: answersArray[2],
+          password: answersArray[4],
+          name: answersArray[0],
+          regno: answersArray[1],
+          phone_no:answersArray[3],
+          domains: answersArray[5],
+  
+    
+    
+        }).then(() => {
+          console.log("success")
+          toast.success("Successfuly Registered")
+  
+        }).catch((err) => {
+          console.log(err.message)
+        })
 
-  
-  
-      },{
-        headers: {
-          'Authorization': `Bearer ${token}` 
-        }
-      }).then(() => {
-        console.log("success")
-      }).catch((err) => {
-        console.log(err)
-      })
+      }else{
+        toastError(error)
+      }
+     
 
     }catch(err) {
       console.log(err)
@@ -133,7 +151,7 @@ function Register() {
   const components = {
       1 : <Name setValue={setValue} setError={setError} placeholder="Enter your name"  /> , 
       2 : <Name setValue={setValue} setError={setError} placeholder="Enter your Registration Number" /> , 
-      3 : <Email setValue={setValue} setError={setError} placeholder="Enter Your Email" /> , 
+      3 : <Email setValue={setValue} setError={setError} error={error} placeholder="Enter Your Email" /> , 
       4: <PhoneNo setValue={setValue} setError={setError} placeholder="Enter your Phone Number" /> , 
       5 : <Password setValue={setValue} setError={setError} placeholder="Enter your Password" /> ,
       6: <DomainChoose value={value} setValue={setValue} setError={setError}  />,
@@ -218,8 +236,8 @@ function Register() {
       <div className="my-5">
         {/* <button className="btn btn-primary bg-dark px-4">Next</button> */}
         {showNextBtn ? (
-          <div className="row my-5">
-            <div className="">
+          // <div className="row my-5">
+            <div className=" buttonsRegister">
               <button
                 type="button"
                 className="btn btn-primary  bg-dark mb-5"
@@ -228,8 +246,33 @@ function Register() {
               >
                 Next Question
               </button>
+              <div>
+              <button onClick={(e) => {
+                e.preventDefault();
+                setCurrentQuestion(currentQuestion + 1);
+
+
+              }} className="arrows mr-2 py-1 px-2">
+                <img src={upArrow} alt="up" />
+              </button>
+              <button  onClick={(e) => {
+                e.preventDefault();
+                if (currentQuestion !== 0){
+                  setCurrentQuestion(currentQuestion - 1);
+
+                }
+              
+
+
+              }} className="arrows py-1 px-2 ">
+                <img src={downArrow} alt="down" />
+              </button>
+
+              </div>
+
+             
             </div>
-          </div>
+          // </div>
         ) : (
           ""
         )}
@@ -243,9 +286,7 @@ function Register() {
                     style={{ backgroundColor: "#5E72E4" }}
                     onClick={(e) => {
                         e.preventDefault();
-                        studentRegister().then(() => {
-                          slotBooking()
-                        })
+                        studentRegister()
                         
 
                     }}

@@ -24,6 +24,8 @@
   .btn{
     background-color: #C33D59;
     /* opacity: 50%; */
+    color: white;
+   
 
   }
   body{
@@ -36,6 +38,7 @@
     text-align: center;
     width: 100%;
     font-weight: 200;
+    color: black;
   }
 
   .scheduled{
@@ -46,4 +49,17 @@
   .headings{
     text-align: center;
     width: 100%;
+  }
+
+  .quizheading{
+    font-family:"BriceRegular";
+
+  }
+  .first{
+    position: absolute;
+  }
+  .second{
+    position: relative;
+    top:320px;
+
   }

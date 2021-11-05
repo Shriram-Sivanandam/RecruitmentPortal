@@ -29,11 +29,12 @@ export const Name = ({ setValue, setError, placeholder }) => {
     </div>
   );
 };
-export const Email = ({ setValue, setError, placeholder }) => {
+export const Email = ({ setValue, setError,error, placeholder }) => {
   const email = useRef();
 
   const handleSubmit = () => {
-    if (email.current.value !== undefined) {
+    if (email.current.value !== null) {
+      console.log("hello")
       if (email.current.value.endsWith("@vitstudent.ac.in")) {
         setError(null);
         setValue(email.current.value);
@@ -41,9 +42,12 @@ export const Email = ({ setValue, setError, placeholder }) => {
         setError("Please Enter Valid VIT Email");
       }
     } else {
+      console.log("hello")
       setError("Please Enter Email");
+     
     }
   };
+  console.log(error)
   return (
     <div>
       <input
@@ -65,7 +69,7 @@ export const PhoneNo = ({ setValue, setError, placeholder }) => {
   // const answerRef1 = useRef();
 
   const handleSubmit = () => {
-    if (phoneNo.current.value !== undefined) {
+    if (phoneNo.current.value !== null) {
       setValue(phoneNo.current.value);
     } else {
       setError("Please Enter Phone Number");
@@ -95,7 +99,8 @@ export const Password = ({ setValue, setError, placeholder }) => {
   const handleSubmit = () => {
     if (
       password.current.value !== undefined &&
-      password.current.value === confirmPassword.current.value
+      password.current.value === confirmPassword.current.value &&
+      password.current.value.localeCompare(confirmPassword.current.value) !== -1
     ) {
       setError(null);
       setValue(password.current.value);
@@ -151,13 +156,16 @@ export const DomainChoose = ({ setValue, setError }) => {
       // selected.splice(index,1)
       setSelected(selected.filter((item) => item !== component[domain]));
     } else {
+      console.log(domain)
       setSelected([...selected, component[domain]]);
     }
 
-    if (selected !== []) {
-      setValue(selected);
-    }
+    
   };
+  if (selected !== []) {
+    console.log(selected)
+    setValue(selected);
+  }
   console.log(selected);
 
   return (
@@ -232,10 +240,15 @@ export const DateChoose = ({ setValue, setError }) => {
     });
     console.log(selected);
 
-    if (selected !== {}) {
-      setValue(selected);
-    }
+    
   };
+  if (selected !== {
+    month: "",
+    date: "",
+    day: "",
+  }) {
+    setValue(selected);
+  }
 
   return (
     <div>
@@ -273,10 +286,11 @@ export const TimeSlot = ({ setValue, setError }) => {
   const handleSubmit = (slot) => {
     setSelected(slot);
 
-    if (selected !== []) {
-      setValue(selected);
-    }
   };
+
+  if (selected !== "") {
+    setValue(selected);
+  }
 
   console.log(selected);
 

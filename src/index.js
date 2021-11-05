@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ToastContainer } from 'react-toastify';
 
 
 import './fonts/Brice-Bold.otf';
@@ -15,6 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
     <App />
+    <ToastContainer />
 
     </AuthProvider>
    
