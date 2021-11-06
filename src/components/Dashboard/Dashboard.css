@@ -50,6 +50,18 @@
     text-align: center;
     width: 100%;
   }
+  .rules{
+    font-family:"BriceRegular";
+    font-size:14px;
+    color: black;
+  }
+
+  .startTest{
+    font-family:"BriceRegular";
+    font-size:20px;
+    color: white;
+
+  }
 
   .quizheading{
     font-family:"BriceRegular";
