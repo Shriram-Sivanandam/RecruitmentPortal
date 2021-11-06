@@ -156,10 +156,18 @@ function Landing1() {
               </div>
             </ul>
           </div>
-          <Link to="/quiz-dashboard" >
-            <li class="nav-item mr-auto" style={{textDecoration:"none !important"}}>
-              <a href="#0 " className="button" style={{textDecoration:"none !important"}}>
-                <svg id="loginsvg"
+          <Link to="/quiz-dashboard">
+            <li
+              class="nav-item mr-auto"
+              style={{ textDecoration: "none !important" }}
+            >
+              <a
+                href="#0 "
+                className="button"
+                style={{ textDecoration: "none !important" }}
+              >
+                <svg
+                  id="loginsvg"
                   width="169"
                   height="48"
                   viewBox="0 0 169 48"
@@ -196,14 +204,14 @@ function Landing1() {
               </div>
             </div>
             <div className="col-lg-8 col-md-12 container" id="wearestc">
-              <div className="row my-lg-3 my-md-1 mx-lg-auto mx-xs-1 mx-md-auto" >
-                <h1 className="my-auto" id="weare">
+              <div className="row my-lg-3 my-md-1 mx-lg-auto mx-xs-1 mx-md-auto">
+                <h1 className="my-auto aniWeAre" id="weare">
                   WE ARE{" "}
                 </h1>
 
                 <svg
                   id="arrow"
-                  className="my-auto mx-lg-3 mx-1" 
+                  className="my-auto mx-lg-3 mx-1 aniArrow"
                   width="70"
                   height="70"
                   viewBox="0 0 70 70"
@@ -217,15 +225,21 @@ function Landing1() {
                   />
                 </svg>
 
-                <h1 className="my-auto" id="team"> Team STC </h1>
+                <h1 className="my-auto aniTeam" id="team">
+                  {" "}
+                  Team STC{" "}
+                </h1>
               </div>
 
               <div className="row my-lg-3 my-md-1 mx-lg-auto mx-xs-1 mx-md-auto">
-                <h1 id="wegiveout"> WE GIVE OUT </h1>
+                <h1 className="aniGive" id="wegiveout">
+                  {" "}
+                  WE GIVE OUT{" "}
+                </h1>
 
                 <svg
-                  className="my-lg-3 mx-2" id="really"
-
+                  className="my-lg-3 mx-2 aniReallyOne"
+                  id="really"
                   width="178"
                   height="37"
                   viewBox="0 0 178 37"
@@ -238,16 +252,22 @@ function Landing1() {
                   />
                 </svg>
 
-                <h1 id="cool"> COOL</h1>
+                <h1 className="aniCool" id="cool">
+                  {" "}
+                  COOL
+                </h1>
               </div>
 
               <br />
               <div className="row my-lg-2 mx-lg-auto mx-xs-1 mx-md-auto">
-                <h1 id="opportunities"> OPPORTUNITIES </h1>
+                <h1 className="aniOpp" id="opportunities">
+                  {" "}
+                  OPPORTUNITIES{" "}
+                </h1>
 
                 <svg
                   id="for1"
-                  className="mx-1"
+                  className="mx-1 aniStar"
                   width="73"
                   height="67"
                   viewBox="0 0 73 67"
@@ -275,7 +295,9 @@ function Landing1() {
                     fill="#FBFFFE"
                   />
                 </svg> */}
-                <h1 id="for" className="mr-2">FOR</h1>
+                <h1 id="for" className="mr-2 aniFor">
+                  FOR
+                </h1>
 
                 {/* <svg
                   id="really1"
@@ -290,14 +312,19 @@ function Landing1() {
                     fill="#FBFFFE"
                   />
                 </svg> */}
-                <h1 id="really1">REALLY</h1>
+                <h1 className="aniReally" id="really1">
+                  REALLY
+                </h1>
               </div>
 
-              <div className="row my-lg-3 my-md-1 mx-lg-auto mx-xs-1 mx-md-auto" >
-                <h1 id="talented"> TALENTED </h1>
+              <div className="row my-lg-3 my-md-1 mx-lg-auto mx-xs-1 mx-md-auto">
+                <h1 className="aniTalented" id="talented">
+                  {" "}
+                  TALENTED{" "}
+                </h1>
                 <div className="col">
                   <svg
-                    className="mx-2"
+                    className="mx-2 aniSmiley"
                     id="smiley"
                     width="52"
                     height="52"
@@ -312,7 +339,7 @@ function Landing1() {
                       stroke-width="0.845848"
                     />
                   </svg>
-                  <h1 className="mx-lg-5 pl-3" id="people">
+                  <h1 className="mx-lg-5 pl-3 aniPeople" id="people">
                     {" "}
                     PEOPLE{" "}
                   </h1>
