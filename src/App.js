@@ -66,6 +66,12 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
   }
 
+  const totalTests = () => {
+    axios.get('http://localhost:3000/student/test').then((response) => {
+      console.log(response.data)
+    })
+  }
+
   // const slotBook = () => {
   //   axios.post('http://localhost:3001/student/apti_test', {
 
@@ -74,22 +80,15 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
   
 
-  // const assignTest = () => {
-  //   axios.post('http://localhost:3001/student/apti_test' , {
-  //     test_id:"TEST102"
-
-    // }, {
-    //   headers: {
-    //           'Authorization': `Bearer ${token}` 
-    //         }
-
-      
-  //   }).then(() => {
-  //     console.log("hogya assign")
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
-  // }
+  const assignTest = () => {
+    axios.post('http://localhost:3000/student/apti_test' , {
+      test_id:"TEST101"
+    }).then(() => {
+      console.log("hogya assign")
+    }).catch((err) => {
+      console.log(err.message)
+    })
+  }
 
   // const updateUser = () => {
   //   axios.patch('http://localhost:3001/student/profile/update', {
@@ -148,37 +147,49 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }
 
 
-  // const getQuestions = () => {
-  //   axios.get('http://localhost:3000/student/start_test', {
-  //     headers: {
-  //                               'Authorization': `Bearer ${token}` 
-  //                             }
-            
-  //   }).then((response) =>{
-  //     console.log(response.data)
-  //   }).catch((err) => {
-  //     console.log(err)
-  //     console.log("because of ishaan")
-  //   })
-  // }
+  const getQuestions = () => {
+    axios.get('http://localhost:3000/student/start_test').then((response) =>{
+      console.log(response.data)
+    }).catch((err) => {
+      console.log(err)
+      console.log("because of ishaan")
+    })
+  }
 
-  // const scoreCalculate = () => {
-  //   axios.post('http://localhost:3001/student/score', {
-  //     answers:["4test","1test2"]
-  //   }, {
-  //     headers: {
-  //       'Authorization': `Bearer ${token}` 
-  //     }
+  const scoreCalculate = () => {
+    axios.post('http://localhost:3000/student/score', {
+      answers:["11:09","Brother","Uncle", "2°" , "7" , "564" , "121" , "The cost price is Rs.50" , "20m" , "9-Apr"]
+    }, {
+      headers: {
+        'Authorization': `Bearer ${token}` 
+      }
                             
 
-  //   }).then((response) =>{
-  //     console.log(response.data)
+    }).then((response) =>{
+      console.log(response.data)
 
-  //   }).catch((err) => {
-  //     console.log(err)
+    }).catch((err) => {
+      console.log(err)
 
-  //   })
-  // }
+    })
+  }
+
+  const managementQuiz = () => {
+    axios.post('http://localhost:3000/student/mgmt_quiz',{
+      
+        "answer1":"Hwssdwdwdwdw",
+        "answer2":"Idwdwwddwds",
+        "answer3":"Chdwdwdwdwwota Ustaad",
+        "answer4":"Becdwdwdwdause I am",
+        "answer5":"A Gdwdwdwwdwdwenius"
+    
+    }).then((response) => {
+      console.log(response.data)
+
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 
   
 
@@ -194,7 +205,7 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   return (
     <div className="App">
       {/* <Landing1 /> */}
-      {/* <button onClick={getUser}>Hello</button> */}
+      <button onClick={assignTest}>Hello</button>
     
       <Router>
         <AuthProvider>

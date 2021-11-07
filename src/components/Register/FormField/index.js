@@ -194,7 +194,7 @@ export const DomainChoose = ({ setValue, setError }) => {
           e.preventDefault();
           onToggle("Management");
         }}
-        className={selected.indexOf("MGMT") !== -1 ? "selected" : "buttons"}
+        className={selected.indexOf("MANAGEMENT") !== -1 ? "selected" : "buttons"}
       >
         Management
       </button>
@@ -202,35 +202,35 @@ export const DomainChoose = ({ setValue, setError }) => {
   );
 };
 
-export const DateChoose = ({ setValue, setError }) => {
+export const DateChoose = ({ day , dates  ,setValue, setError }) => {
   const [selected, setSelected] = useState({
     month: "",
     date: "",
     day: "",
   });
 
-  const dates = [
-    {
-      month: "October",
-      date: "03",
-      day: "Sun",
-    },
-    {
-      month: "October",
-      date: "04",
-      day: "Mon",
-    },
-    {
-      month: "October",
-      date: "05",
-      day: "Tues",
-    },
-    {
-      month: "October",
-      date: "06",
-      day: "Wed",
-    },
-  ];
+  // const dates = [
+  //   {
+  //     month: "October",
+  //     date: "03",
+  //     day: "Sun",
+  //   },
+  //   {
+  //     month: "October",
+  //     date: "04",
+  //     day: "Mon",
+  //   },
+  //   {
+  //     month: "October",
+  //     date: "05",
+  //     day: "Tues",
+  //   },
+  //   {
+  //     month: "October",
+  //     date: "06",
+  //     day: "Wed",
+  //   },
+  // ];
 
   const handleSubmit = (month, date, day) => {
     setSelected({
@@ -257,14 +257,14 @@ export const DateChoose = ({ setValue, setError }) => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              handleSubmit(date.month, date.date, date.day);
+              handleSubmit("October" ,date , day[index] );
             }}
-            className={selected.date === date.date ? "selected" : "buttons"}
+            className={selected.date === date ? "selected" : "buttons"}
           >
             <div>
-              <h3 className="button1">{date.month}</h3>
-              <h3 className="button2">{date.date}</h3>
-              <h3 className="button3">{date.day}</h3>
+              <h3 className="button1">October</h3>
+              <h3 className="button2"> {date} </h3>
+              <h3 className="button3">{day[index]}</h3>
             </div>
           </button>
         );
@@ -273,8 +273,11 @@ export const DateChoose = ({ setValue, setError }) => {
   );
 };
 
-export const TimeSlot = ({ setValue, setError }) => {
-  const [selected, setSelected] = useState("");
+export const TimeSlot = ({time ,minutes , setValue, setError }) => {
+  const [selected, setSelected] = useState({
+    time: "",
+    minutes:""
+  });
 
   const slots = [
     "13:00 - 16:00",
@@ -283,8 +286,11 @@ export const TimeSlot = ({ setValue, setError }) => {
     "18:00 - 20:00",
   ];
 
-  const handleSubmit = (slot) => {
-    setSelected(slot);
+  const handleSubmit = (slot , minutes) => {
+    setSelected({
+      time: slot,
+      minutes: minutes
+    });
 
   };
 
@@ -296,16 +302,16 @@ export const TimeSlot = ({ setValue, setError }) => {
 
   return (
     <div>
-      {slots.map((slot) => {
+      {time.map((slot,index) => {
         return (
           <button
             onClick={(e) => {
               e.preventDefault();
-              handleSubmit(slot);
+              handleSubmit(slot , minutes[index]);
             }}
-            className={selected === slot ? "sets" : "buts"}
+            className={selected.time === slot ? "sets" : "buts"}
           >
-            {slot}
+            {slot}:{minutes[index]} - {slot + 1}:{minutes[index]}
           </button>
         );
       })}

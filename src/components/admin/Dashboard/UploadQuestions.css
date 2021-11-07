@@ -7,6 +7,13 @@ height: 175px ;
 .uploadbox{
     border-radius: 6px;
 }
+
+fileUpload{
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
 /* WE ARE */
 
 

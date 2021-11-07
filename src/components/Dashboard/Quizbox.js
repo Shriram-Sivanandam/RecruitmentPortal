@@ -13,131 +13,159 @@ function Quizbox() {
   const [showEndBtn, setEndBtn] = useState(false);
   // var answersArray = [];
   const [answersArray, setAnswersArray] = useState([]);
+  const [questionBank , setQuestionBank] = useState([])
   const [loading , setLoading] = useState(false)
+  const [status , setStatus] = useState("")
+
 
 
   useEffect(() => {
     console.log("hello");
-    setLoading(true);
+    // setLoading(true);
 
    
       axios.get('http://localhost:3000/student/start_test').then((response) =>{
         console.log(response.data)
+        if (response.data === "INACTIVE TEST" ){
+          setStatus("Given")
+        }else{
+          setQuestionBank(response.data)
+
+        }
+       
+        // setLoading(false)
+
+
       }).catch((err) => {
         console.log(err)
-        console.log("because of ishaan")
       })
   }, []);
 
-  const optionsForm = {
-    1 : "A",
-    2: "B",
-    3: "C",
-    4: "D"
+  const handleSubmit = () => {
+    
+      axios.post('http://localhost:3000/student/score', {
+        answers: answersArray
+      }).then((response) =>{
+        console.log(response.data)
+  
+      }).catch((err) => {
+        console.log(err)
+  
+      })
+    
   }
 
-  const questionBank = [
-    {
-      id: "1",
-      questionText: "What is the shortcut for adding Auto Layout in Figma1?",
-      answerOptions: [
-        { optionText: "opt 11", optionSelected: 1 },
-        { optionText: "opt 21", optionSelected: 2 },
-        { optionText: "opt 31", optionSelected: 3 },
-        { optionText: "opt 41", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "2",
-      questionText: "What is the shortcut for adding Auto Layout in Figma2?",
-      answerOptions: [
-        { optionText: "opt 12", optionSelected: 1 },
-        { optionText: "opt 22", optionSelected: 2 },
-        { optionText: "opt 32", optionSelected: 3 },
-        { optionText: "opt 42", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "3",
-      questionText: "What is the shortcut for adding Auto Layout in Figma3?",
-      answerOptions: [
-        { optionText: "opt 16", optionSelected: 1 },
-        { optionText: "opt 27", optionSelected: 2 },
-        { optionText: "opt 38", optionSelected: 3 },
-        { optionText: "opt 49", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "4",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "5",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "6",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "7",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "8",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "9",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-    {
-      id: "10",
-      questionText: "What is the shortcut for adding Auto Layout in Figma4?",
-      answerOptions: [
-        { optionText: "opt 14", optionSelected: 1 },
-        { optionText: "opt 24", optionSelected: 2 },
-        { optionText: "opt 34", optionSelected: 3 },
-        { optionText: "opt 44", optionSelected: 4 },
-      ],
-    },
-  ];
+  const optionsForm = {
+    Option1 : "A",
+    Option2: "B",
+    Option3: "C",
+    Option4: "D"
+  }
+
+  // const questionBank = [
+  //   {
+  //     id: "1",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma1?",
+  //     answerOptions: [
+  //       { optionText: "opt 11", optionSelected: 1 },
+  //       { optionText: "opt 21", optionSelected: 2 },
+  //       { optionText: "opt 31", optionSelected: 3 },
+  //       { optionText: "opt 41", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "2",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma2?",
+  //     answerOptions: [
+  //       { optionText: "opt 12", optionSelected: 1 },
+  //       { optionText: "opt 22", optionSelected: 2 },
+  //       { optionText: "opt 32", optionSelected: 3 },
+  //       { optionText: "opt 42", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "3",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma3?",
+  //     answerOptions: [
+  //       { optionText: "opt 16", optionSelected: 1 },
+  //       { optionText: "opt 27", optionSelected: 2 },
+  //       { optionText: "opt 38", optionSelected: 3 },
+  //       { optionText: "opt 49", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "4",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "5",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "6",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "7",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "8",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "9",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  //   {
+  //     id: "10",
+  //     questionText: "What is the shortcut for adding Auto Layout in Figma4?",
+  //     answerOptions: [
+  //       { optionText: "opt 14", optionSelected: 1 },
+  //       { optionText: "opt 24", optionSelected: 2 },
+  //       { optionText: "opt 34", optionSelected: 3 },
+  //       { optionText: "opt 44", optionSelected: 4 },
+  //     ],
+  //   },
+  // ];
+
+
 
   
   function handleOptionClick(optionSelected) {
@@ -163,6 +191,11 @@ function Quizbox() {
   return (
     <>
       {/* <Nav2 /> */}
+      {  status === "Given" ? 
+      null : 
+      
+    
+     
       <div className="container quizpage  p-5 " >
         {/* <div className="row my-5">
           <div className="mr-auto">
@@ -215,13 +248,15 @@ function Quizbox() {
             </div>
             
           </div>
-
-          <div className=" my-3 ">
-            <h5> <span style={{ color:"#7A7A7A" }}>Q{currentQuestion + 1}:</span> {questionBank[currentQuestion].questionText}</h5>
+          {  questionBank !== [] ? 
+          <>
+           <div className=" my-3 ">
+            <h5> <span style={{ color:"#7A7A7A" }}>Q{currentQuestion + 1}:</span> {questionBank[currentQuestion]?.Question}</h5>
           </div>
           <div className="col">
-            {questionBank[currentQuestion].answerOptions.map((answerOption) => (
-              // <div
+            {/* {questionBank[currentQuestion].answerOptions.map((answerOption) => ( */}
+
+              {/* // <div
               //   onClick={() => handleOptionClick(answerOption.optionSelected)}
               //   className="row my-2"
               // >
@@ -236,15 +271,38 @@ function Quizbox() {
               //       {answerOption.optionText}
               //     </label>
               //   </div>
-              // </div>
-              <div  onClick={() => handleOptionClick(answerOption.optionText)} >
-                <Options currentOption={currentOption}  option={optionsForm[answerOption.optionSelected]} text={answerOption.optionText} />
+              // </div> */}
+              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option1)} >
+                <Options currentOption={currentOption}  option={optionsForm["Option1"]} text={questionBank[currentQuestion]?.Option1} />
+                
+
+              </div>
+              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option2)} >
+                <Options currentOption={currentOption}  option={optionsForm["Option2"]} text={questionBank[currentQuestion]?.Option2} />
+                
+
+              </div>
+              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option3)} >
+                <Options currentOption={currentOption}  option={optionsForm["Option3"]} text={questionBank[currentQuestion]?.Option3} />
+                
+
+              </div>
+              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option4)} >
+                <Options currentOption={currentOption}  option={optionsForm["Option4"]} text={questionBank[currentQuestion]?.Option4} />
                 
 
               </div>
               
-            ))}
+            {/* // ))} */}
           </div>
+
+          </>
+          
+        
+        :null}
+
+         
+         
           {showNextBtn ? (
             <div className="row my-5">
               <div className="ml-auto">
@@ -269,6 +327,7 @@ function Quizbox() {
                     type="button"
                     className="btn btn-primary"
                     style={{ backgroundColor: "#5E72E4" }}
+                    onClick={handleSubmit}
                   >
                     End Test
                   </button>
@@ -280,6 +339,7 @@ function Quizbox() {
           )}
         </div>
       </div>
+}
     </>
   );
 }

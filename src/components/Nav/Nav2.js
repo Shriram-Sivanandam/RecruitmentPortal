@@ -21,7 +21,7 @@ function Nav() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-dark "
+        className=" mt-3 navbar navbar-expand-lg navbar-dark  "
         id="nav"
         style={{ backgroundColor: "#FFF5F1" }}
       >

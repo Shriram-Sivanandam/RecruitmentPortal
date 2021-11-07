@@ -17,6 +17,7 @@ function Dashboard() {
   const [loading , setLoading] = useState(false)
   const [quizSelected , setQuizSelected] = useState("")
   const [show, setShow] = useState(false);
+  const [status , setStatus] = useState("INACTIVE TEST")
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   if (currentUser){
@@ -27,6 +28,9 @@ function Dashboard() {
 
     
   }
+
+
+
   const styles = () => {
     const customStyles = {
       content: {
@@ -76,6 +80,16 @@ function Dashboard() {
           console.log("error")
         console.log(err);
       });
+
+
+
+      axios.get('http://localhost:3000/student/start_test').then((response) =>{
+        console.log(response.data)
+        setStatus(response.data)
+      }).catch((err) => {
+        console.log(err)
+        console.log("because of ishaan")
+      })
    
 
   
@@ -468,21 +482,25 @@ function Dashboard() {
              
                
               {/* <Link to="/apt-quiz"> */}
-                <button
-                  type="button"
-                  className="btn mx-auto"
-                  data-toggle="modal"
-                  data-target="#exampleModal"
-                  style={{ margin: "0 0  0 100% " }}
-                  onClick={(e) => {
-                      e.preventDefault();
-                      handleShow()
-                      setQuizSelected("tech")
-                  }}
-                >
-                  <span className="quizheading">Take Quiz</span>
-                 
-                </button>
+              { status !== "INACTIVE TEST" ? 
+              <button
+              type="button"
+              className="btn mx-auto"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              style={{ margin: "0 0  0 100% " }}
+              onClick={(e) => {
+                  e.preventDefault();
+                  handleShow()
+                  setQuizSelected("tech")
+              }}
+            >
+              <span className="quizheading">Take Quiz</span>
+             
+            </button>
+              
+            : null}
+                
               {/* </Link> */}
                
               {/* <div className="mr-auto">
@@ -658,7 +676,8 @@ function Dashboard() {
 
             <div className="row mx-auto">
               {/* <Link to="/management-quiz"> */}
-                <button
+              {  status !== "INACTIVE TEST" ?
+              <button
                   type="button"
                   className="btn mx-auto"
                   style={{ margin: "0 0 0 100%" }}
@@ -671,6 +690,10 @@ function Dashboard() {
                 }}
                 >
                     <span className="quizheading">Take Quiz</span>
+                    </button>
+              
+            :null}
+                
                   {/* <svg
                     width="115"
                     height="14"
@@ -684,7 +707,7 @@ function Dashboard() {
                       fill="#FFF5F1"
                     />
                   </svg> */}
-                </button>
+                {/* </button> */}
               {/* </Link> */}
               {/* <div className="mr-auto">
               <h6 className="mr-auto my-2">

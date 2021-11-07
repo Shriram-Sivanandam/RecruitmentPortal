@@ -3,6 +3,9 @@ import Nav2 from "../Nav/Nav2";
 import "./ManagementQuiz.css";
 import { Link } from "react-router-dom";
 import Group45 from '../../assets/Group45.svg'
+import axios from 'axios'
+import { ToastContainer, toast } from "react-toastify";
+import toastError from "../ToastError";
 function ManagementQuiz() {
   const answerRef = useRef();
   const [userAnswer, setUserAnswer] = useState("");
@@ -19,13 +22,36 @@ function ManagementQuiz() {
     setAnswersArray([...answersArray, answerRef.current.value]);
     // setUserAnswer("");
     answerRef.current.value = "";
-    console.log(answersArray);
+    
     setCurrentQuestion(currentQuestion + 1);
-    if (currentQuestion === 8) {
+    if (currentQuestion === 3) {
       setShowNextBtn(false);
       setEndBtn(true);
     }
   }
+  console.log(answersArray);
+
+  const managementQuiz = async () => {
+    console.log(answersArray);
+    await axios.post('http://localhost:3000/student/mgmt_quiz',{
+      
+        "answer1":answersArray[0],
+        "answer2":answersArray[1],
+        "answer3":answersArray[2],
+        "answer4":answersArray[3],
+        "answer5":answerRef.current.value
+    
+    }).then((response) => {
+      console.log(response.data)
+      console.log("success")
+      toast.success("Successfuly Registered");
+
+    }).catch((err) => {
+      console.log(err)
+      toastError(err);
+    })
+  }
+
 
   const questionBank = [
     "What is the shortcut for adding Auto Layout in Figma?1",
@@ -33,11 +59,6 @@ function ManagementQuiz() {
     "What is the shortcut for adding Auto Layout in Figma?3",
     "What is the shortcut for adding Auto Layout in Figma?4",
     "What is the shortcut for adding Auto Layout in Figma?5",
-    "What is the shortcut for adding Auto Layout in Figma?6",
-    "What is the shortcut for adding Auto Layout in Figma?7",
-    "What is the shortcut for adding Auto Layout in Figma?8",
-    "What is the shortcut for adding Auto Layout in Figma?9",
-    "What is the shortcut for adding Auto Layout in Figma?10",
   ];
 
   return (
@@ -62,11 +83,11 @@ function ManagementQuiz() {
             <img src={Group45} alt="logo" className="logo" />
             <div>
               <h5 className="completedText">
-                Total Test Completed - {((currentQuestion + 1) / 10) * 100}%
+                Total Test Completed - {((currentQuestion + 1) / 5) * 100}%
               </h5>
               <div className="bar">
                 <div
-                  style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
+                  style={{ width: `${((currentQuestion + 1) / 5) * 100}%` }}
                   className="completedbar"
                 ></div>
               </div>
@@ -124,6 +145,11 @@ function ManagementQuiz() {
                     type="button"
                     class="btn btn-primary"
                     style={{ backgroundColor: "#5E72E4" }}
+                    onClick={() => {
+                      setAnswersArray([...answersArray, answerRef.current.value]);
+                      managementQuiz()
+
+                    }}
                   >
                     End Test
                   </button>
