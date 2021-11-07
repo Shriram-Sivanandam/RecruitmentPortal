@@ -1,6 +1,16 @@
 .register_now {
   background-image: url(../../assets/Frame38.png);
 }
+.registerButton:hover {
+  transform: scale(0.8);
+  transition: all 0.1s ease;
+}
+.heroSection {
+  display: "flex" !important;
+  flex-direction: "column" !important;
+  justify-content: "center" !important;
+  margin-left: "13.25rem" !important;
+}
 @media screen and (min-width: 600px) {
   #navshit {
     display: flex;
