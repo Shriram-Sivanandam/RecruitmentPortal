@@ -1,255 +1,417 @@
-
-.register_now{
-    background-image: url(../../assets/Frame38.png);
+.register_now {
+  background-image: url(../../assets/Frame38.png);
 }
 @media screen and (min-width: 600px) {
-    #navshit{
-        display: flex;
-    }
-    #weare{
-        font-size: 52px;
-    }
-    #team{
-        font-size: 52px;
-    }
-    #wegiveout{
-        font-size: 52px;
-    }
-    #cool{
-        font-size: 52px;
-    }
-    #opportunities{
-        font-size: 52px;
-        font-family: 'Changa one',cursive;
-        font-style: italic;
-    }
-    #talented{
-        font-size: 52px;
-        font-family: 'Ramabhadra',sans-serif;
-    }
-    #people{
-        font-size: 52px;
-        font-family: 'Rubik Mono One',sans-serif;
-        margin-top: -50px;
-    }
-    #really1{
-        /* position: absolute;
+  #navshit {
+    display: flex;
+  }
+  #weare {
+    font-size: 52px;
+  }
+  #team {
+    font-size: 52px;
+  }
+  #wegiveout {
+    font-size: 52px;
+  }
+  #cool {
+    font-size: 52px;
+  }
+  #opportunities {
+    font-size: 52px;
+    font-family: "Changa one", cursive;
+    font-style: italic;
+  }
+  #talented {
+    font-size: 52px;
+    font-family: "Ramabhadra", sans-serif;
+  }
+  #people {
+    font-size: 52px;
+    font-family: "Rubik Mono One", sans-serif;
+    margin-top: -50px;
+  }
+  #really1 {
+    /* position: absolute;
         margin-left: 38vw; */
-        font-family: 'Apoc',sans-serif;
-        font-size:50px;
-        font-weight: 500;
-    }
-    #for{
-        font-family: 'Apoc',sans-serif;
-        font-size:50px;
-        font-weight: 500;
-
-    }
-    #mobileonly1{
-        display: none;
-    }
-    #mobile_roadmap{
-        display: none;
-    }
-    #ilus_grid{
-        position: absolute;
-      margin-left: -10vw;
-    }
-    #wearestc{
-        margin-left: 10vw ;
-    }
-   
+    font-family: "Apoc", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  #for {
+    font-family: "Apoc", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  #mobileonly1 {
+    display: none;
+  }
+  #mobile_roadmap {
+    display: none;
+  }
+  #ilus_grid {
+    position: absolute;
+    margin-left: -10vw;
+  }
+  #wearestc {
+    margin-left: 10vw;
+  }
 }
 @media screen and (max-width: 600px) {
-    #navshit{
-        display: block;
-    }
-    #arrow{
-        width: 35px;
-        
-       
-       
-    }
-    #really{
-        width: 50px;
-        height: 40px;
-    }
-    #wegiveout{
-        font-size: 23px;
-    }
-    #cool{
-        font-size: 26px;
-    }
-    #opportunities{
-        font-size: 24px;
-        font-family: 'Changa one',cursive;
-        font-style: italic;
-        margin-top: 10px;
-    }
-    #for{
-        /* width: 30px; */
-        font-size: 26px;;
-    }
-    #for1{
-        width: 30px;
-    }
-    #really1{
-        font-size:26px;
-        /* width: 60px;
+  #navshit {
+    display: block;
+  }
+  #arrow {
+    width: 35px;
+  }
+  #really {
+    width: 50px;
+    height: 40px;
+  }
+  #wegiveout {
+    font-size: 23px;
+  }
+  #cool {
+    font-size: 26px;
+  }
+  #opportunities {
+    font-size: 24px;
+    font-family: "Changa one", cursive;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  #for {
+    /* width: 30px; */
+    font-size: 26px;
+  }
+  #for1 {
+    width: 30px;
+  }
+  #really1 {
+    font-size: 26px;
+    /* width: 60px;
         margin-left: 10px; */
-
-       
-        
-    }
-    #talented{
-        font-size: 23px;
-        font-family: 'Ramabhadra',sans-serif;
-    }
-    #people{
-        font-size: 23px;
-        font-family: 'Rubik Mono One',sans-serif;
-      
-    }
-    #smiley{
-        display: none
-    }
-    #ilus_grid{
-        display: none;
-    }
-    #col2{
-        display: none;
-    }
-    #laptop_roadmap{
-        display: none;
-    }
-
+  }
+  #talented {
+    font-size: 23px;
+    font-family: "Ramabhadra", sans-serif;
+  }
+  #people {
+    font-size: 23px;
+    font-family: "Rubik Mono One", sans-serif;
+  }
+  #smiley {
+    display: none;
+  }
+  #ilus_grid {
+    display: none;
+  }
+  #col2 {
+    display: none;
+  }
+  #laptop_roadmap {
+    display: none;
+  }
 }
 @media screen and (max-width: 325px) {
-    #opportunities{
-        font-size: 18px;
-        font-family: 'Changa one',cursive;
-        font-style: italic;
-        margin-top: 10px;
-    }
-    #talented{
-        font-size: 22px;
-        font-family: 'Ramabhadra',sans-serif;
-    }
-    #people{
-        font-size: 22px;
-        font-family: 'Rubik Mono One',sans-serif;
-      
-    }
-    #loginsvg{
-        width: 120px;
-    }
-    #for{
-        font-size:18px;
-    }
-    #really1{
-        font-size:18px;
-    }
-    
+  #opportunities {
+    font-size: 18px;
+    font-family: "Changa one", cursive;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  #talented {
+    font-size: 22px;
+    font-family: "Ramabhadra", sans-serif;
+  }
+  #people {
+    font-size: 22px;
+    font-family: "Rubik Mono One", sans-serif;
+  }
+  #loginsvg {
+    width: 120px;
+  }
+  #for {
+    font-size: 18px;
+  }
+  #really1 {
+    font-size: 18px;
+  }
 }
-
 
 #aa {
-
-    
-  
-  
-    position: relative;
-  }
-  button:focus {
-    outline: none;
+  position: relative;
+}
+button:focus {
+  outline: none;
 }
 
-  #aa:after {    
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #fff;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-  #aa:hover:after { 
-    width: 100%; 
-    left: 0; 
-  }
- .b1{
-     background-color: transparent;
-     border: none;
- }
- .b2{
-    background-color: transparent;
-    border: none;
- }
- .b3{
-    background-color: transparent;
-    border: none;
- }
-
-  
-  #second, #third {
-    display: none
-  }
-  
-  button {
-    outline: none;
-  }
-  @media screen and (max-width: 600px) {
-    #svg0{
-        width: 13vw;
-    }
-    #svg21{
-        width: 19vw;
-    }
-    #svg2{
-        width: 13vw;
-    }
-    #weare{
-        font-size: 26px;
-        margin-top: 20px;
-    }
-    #team{
-        font-size: 26px;
-    }
+#aa:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+#aa:hover:after {
+  width: 100%;
+  left: 0;
+}
+.b1 {
+  background-color: transparent;
+  border: none;
+}
+.b2 {
+  background-color: transparent;
+  border: none;
+}
+.b3 {
+  background-color: transparent;
+  border: none;
 }
 
-#weare{
-    font-family: 'Josefin-Sans',sans-serif;
-  
-  
+#second,
+#third {
+  display: none;
 }
-#wegiveout{
-    font-family: 'Inter',sans-serif
+
+button {
+  outline: none;
 }
-#cool{
-    font-family: 'Poppins',sans-serif;
-    font-weight: 800
+@media screen and (max-width: 600px) {
+  #svg0 {
+    width: 13vw;
+  }
+  #svg21 {
+    width: 19vw;
+  }
+  #svg2 {
+    width: 13vw;
+  }
+  #weare {
+    font-size: 26px;
+    margin-top: 20px;
+  }
+  #team {
+    font-size: 26px;
+  }
 }
-@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Inter&family=Josefin+Sans&family=Paytone+One&family=Poppins&family=Ramabhadra&family=Rubik+Mono+One&display=swap');
-#team{
-    font-family: 'Paytone One', sans-serif;
-   
+
+#weare {
+  font-family: "Josefin-Sans", sans-serif;
 }
-h1{
-    color: white;
+#wegiveout {
+  font-family: "Inter", sans-serif;
 }
-.request-animation__block{
-    transform: translateY(193.232%);
+#cool {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
 }
-.request-animation__track{
-    transform: scale(2) rotate(15deg) translateX(0px);
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Inter&family=Josefin+Sans&family=Paytone+One&family=Poppins&family=Ramabhadra&family=Rubik+Mono+One&display=swap");
+#team {
+  font-family: "Paytone One", sans-serif;
 }
-ul{
-    list-style: none;
-    list-style-type: none;
+h1 {
+  color: white;
 }
-li{
-    list-style-type: none;
+.request-animation__block {
+  transform: translateY(193.232%);
+}
+.request-animation__track {
+  transform: scale(2) rotate(15deg) translateX(0px);
+}
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+li {
+  list-style-type: none;
+}
+
+.aniWeAre:hover {
+  animation-name: compressanimate;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  /* animation-iteration-count: infinite; */
+}
+
+.aniArrow:hover {
+  animation-name: rightanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniTeam:hover {
+  animation-name: zoominanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniGive:hover {
+  animation-name: zoominanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniReallyOne:hover {
+  animation-name: reallyanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniCool:hover {
+  animation-name: zoominrotateanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniOpp:hover {
+  animation-name: leftanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniStar:hover {
+  animation-name: staranimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniFor:hover {
+  animation-name: foranimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniReally:hover {
+  animation-name: forreallyanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniTalented:hover {
+  animation-name: zoominanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniSmiley:hover {
+  animation-name: smileyanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.aniPeople:hover {
+  animation-name: compressanimate;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+@keyframes rightanimate {
+  from {
+  }
+  to {
+    transform: translateX(40%);
+  }
+}
+
+@keyframes reallyanimate {
+  from {
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes foranimate {
+  from {
+  }
+  to {
+    transform: translateY(50%) rotate(10deg);
+  }
+}
+
+@keyframes forreallyanimate {
+  from {
+  }
+  to {
+    transform: translateY(-50%) rotate(-10deg);
+  }
+}
+
+@keyframes leftanimate {
+  from {
+  }
+  to {
+    transform: translateX(-30%);
+  }
+}
+
+@keyframes compressanimate {
+  from {
+  }
+  to {
+    transform: scaleX(40%);
+  }
+}
+
+@keyframes zoominanimate {
+  from {
+  }
+  to {
+    transform: scaleX(1.2);
+  }
+}
+
+@keyframes staranimate {
+  from {
+  }
+  to {
+    transform: scale(1.8);
+  }
+}
+
+@keyframes smileyanimate {
+  from {
+  }
+  to {
+    transform: scale(1.8) rotate(30deg);
+  }
+}
+
+@keyframes zoominrotateanimate {
+  from {
+  }
+  to {
+    transform: scaleX(1.8) rotate(30deg);
+  }
 }
