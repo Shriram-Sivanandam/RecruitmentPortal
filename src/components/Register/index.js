@@ -72,15 +72,15 @@ function Register() {
       if (dates !== []) {
         for (let i = 0; i < response.data.length; i++) {
           const date = new Date(response.data[i].date_time);
-          console.log(date);
+          // console.log(date);
           if (dates.indexOf(date) === -1) {
             setFullDates(response.data);
-            console.log(date[0]);
+            // console.log(date[0]);
             // const d = date.split(" ")
             day.push(days[date.getDay()]);
             dates.push(date.getDate());
 
-            console.log(days[date.getDay()]);
+            // console.log(days[date.getDay()]);
 
            
 
@@ -132,11 +132,11 @@ function Register() {
 
   // } , [answersArray])
 
-  console.log("dates", dates);
-  console.log("day", day);
+  // console.log("dates", dates);
+  // console.log("day", day);
 
-  console.log("time", time);
-  console.log("minutes", minutes);
+  // console.log("time", time);
+  // console.log("minutes", minutes);
 
   function nextQues() {
     // answersArray.splice(currentQuestion, 0, answerRef.current.value);
@@ -223,9 +223,9 @@ function Register() {
     for (let z = 0; z < fulldates?.length; z++) {
       try{
         const date = new Date(fulldates[z]?.date_time);
-        console.log("days =>" , days[date.getDay()])
-        console.log(date.getHours())
-        console.log(date.getMinutes())
+        // console.log("days =>" , days[date.getDay()])
+        // console.log(date.getHours())
+        // console.log(date.getMinutes())
         if (
           days[date.getDay()] === answersArray[6].day && date.getHours() === answersArray[7].time
         ) {
