@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Name,
+  RegNo , 
   Email,
   PhoneNo,
   Password,
@@ -19,6 +20,8 @@ import "react-toastify/dist/ReactToastify.css";
 import toastError from "../ToastError";
 import upArrow from "../../assets/upArrow.svg";
 import downArrow from "../../assets/downArrow.svg";
+import TeamStc from "../../assets/team_stc.svg";
+import LetsGetStarted from '../../assets/letsgo.svg'
 import { array } from "yup";
 function Register() {
   // const token = <Constants />
@@ -271,7 +274,7 @@ function Register() {
       />
     ),
     2: (
-      <Name
+      <RegNo
         setValue={setValue}
         setError={setError}
         placeholder="Enter your Registration Number"
@@ -330,12 +333,23 @@ function Register() {
 
   return (
     <div
-      className="container registerPage "
+      className=" registerPage container "
       style={{ width: "100vw", height: "100vh" }}
     >
-      <h1 className="heading mb-5">Lets Get Started</h1>
-      <div class="steps-form">
-        <div class="steps-row setup-panel mobilebar">
+      <img src={TeamStc} alt="watermark" className="watermark img-fluid mx-auto"  />
+      <div className="heading mx-auto  ">
+        {/* <div> */}
+        <h1 className="heading mb-5  mx-auto ">Lets Get Started  <img className="  " src={LetsGetStarted} alt="watermark" /></h1>
+
+        {/* </div> */}
+      
+     
+
+
+      </div>
+     
+      <div class="steps-form ">
+        <div class="steps-row setup-panel mobilebar  ">
           {[0, 1, 2, 3, 4, 5, 6].map((key) => {
             return (
               <>

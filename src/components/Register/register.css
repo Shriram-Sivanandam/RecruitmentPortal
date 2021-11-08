@@ -2,18 +2,87 @@
 
 .registerPage{
     background-color: #FFF5F1;
-    padding: 100px;
+    padding-top: 100px;
+    
     font-family:"BriceRegular";
+    /* position: relative; */
+    /* background :url(../../assets/team_stc.svg);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    z-index: -1; */
+    
+
+    /* background :url(../../assets/Team\ STC.svg);  */
+     /* position: relative;
+  height: 100%;
+  width: 100vw !important;
+  background :url(../../assets/Team\ STC.svg);
+  background-position: center;  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  object-fit:cover;
+  z-index: -1; */
+
     
 
 
 }
+
+.watermark {
+    height: 100%;
+
+     /* position: absolute;
+    background-position: center;  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1; */
+    
+ /* opacity:0.2; */
+ 
+    /* object-fit:cover; */
+
+
+    position:fixed;
+ bottom:20px;
+ right:5px;
+ z-index:-99;
+ background-repeat: no-repeat;
+
+    
+
+} 
+/* 
+.registerPage:before {
+    content: '  ';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background :url(../../assets/Team\ STC.svg);
+  background-position: center;  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+} */
+
 .heading{
    
     text-align: center;
     font-weight: 700;
     color: #F05127;
+    /* display: grid;
+    place-items: center; */
+    /* display: flex;
+    justify-content:center; */
+    
+    /* grid-auto-flow: column;   */
+    
    
+}
+
+.img{
+    margin: -20px;
 }
 
 .inputField{
@@ -23,6 +92,7 @@
     padding:5px;
     background-color:#FFF5F1;
     width:100%;
+
     
 }
 
@@ -163,7 +233,7 @@
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: justify-between;
+        justify-content: space-between;
         overflow: auto !important;
         content: " " ;
         
