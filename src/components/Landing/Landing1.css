@@ -229,7 +229,7 @@ button {
   .stiWallDiv {
     padding-top: 1rem !important;
   }
-  .registerButtonMobile{
+  .registerButtonMobile {
     margin-bottom: 2rem;
     height: 20px;
   }
@@ -367,6 +367,18 @@ li {
   animation-timing-function: linear;
   animation-iteration-count: 2;
   animation-direction: alternate;
+}
+
+.enoughBtn {
+  margin-top: -35%;
+  height: 80px;
+}
+
+@media screen and (max-width: 800px) {
+  .enoughBtn {
+    margin-top: -35%;
+    height: 60px;
+  }
 }
 
 @keyframes rightanimate {

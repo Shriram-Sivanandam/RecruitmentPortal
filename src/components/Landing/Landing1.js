@@ -99,14 +99,12 @@ function Landing1() {
               />
             </svg>
           </a>
-         
-          {width < 991 &&
-          <div className="ml-auto mr-1">
-            <Button />
 
-          </div>
-           
-           }
+          {width < 991 && (
+            <div className="ml-auto mr-1">
+              <Button />
+            </div>
+          )}
           <button
             className="navbar-toggler"
             type="button"
@@ -523,21 +521,20 @@ function Landing1() {
             </div>
           </div>
         </div>
-       
-     
-      <Enough />
-      <Link to="/register">
+
+        <Enough />
+        <Link to="/register">
           <div className="row container mx-auto mb-3 mt-n5">
             <div className="mx-auto">
               <img
                 src={registerbutton}
                 alt="registerButton"
-                className="registerButton"
+                className="registerButton enoughBtn"
               ></img>
             </div>
           </div>
         </Link>
-        </section>
+      </section>
       <Connect />
     </>
   );

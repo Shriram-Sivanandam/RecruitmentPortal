@@ -10,7 +10,7 @@ import { useHorizontalScroll } from "../useHorizontalScroll";
 
 function Enough() {
   useEffect(() => {
-    AOS.init({ duration: 1000, delay: 3000 });
+    AOS.init({ duration: 1000, delay: 2000 });
   }, []);
   const scrollRef = useHorizontalScroll();
   return (
@@ -20,6 +20,11 @@ function Enough() {
           <img className="enoughHand" src={nowHand}></img>
         </div>
         <img className="enoughImg" src={enoughSent}></img>
+      </div>
+
+      <div className="imgContMobile">
+        <img className="enoughImgMobile" src={enoughSent}></img>
+        <img className="enoughImgMobile" src={enoughSent}></img>
       </div>
     </div>
   );
