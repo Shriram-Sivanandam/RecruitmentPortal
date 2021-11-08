@@ -20,6 +20,7 @@ import mgmtmobile from "../../assets/Group 350.png";
 
 import registerbutton from "../../assets/Group 246 (2).svg";
 import Connect from "../Connect/Connect";
+import Enough from "../Enough/Enough";
 
 function Landing1() {
   const myFunction1 = () => {
@@ -506,6 +507,7 @@ function Landing1() {
           </div>
         </Link>
       </section>
+      <Enough />
       <Connect />
     </>
   );

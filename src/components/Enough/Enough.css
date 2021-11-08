@@ -1,0 +1,41 @@
+.enoughCont {
+  height: 50vh;
+  display: flex;
+  /* align-items: center;
+  justify-self: center; */
+  background-color: #000000;
+}
+
+.imgCont {
+  /* height: 10%; */
+  display: flex;
+  align-items: center;
+  width: 140vw;
+  overflow: hidden;
+}
+
+.enoughImg {
+  height: 20%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+@media screen and (max-width: 600px) {
+  .enoughCont {
+    height: 34vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .enoughCont {
+    height: 80vh;
+  }
+
+  .imgCont {
+    /* height: 10%; */
+    display: flex;
+    align-items: center;
+    width: 180vw;
+    overflow: hidden;
+  }
+}
