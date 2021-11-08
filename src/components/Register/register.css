@@ -5,11 +5,11 @@
     padding-top: 100px;
     
     font-family:"BriceRegular";
-    /* position: relative; */
-    /* background :url(../../assets/team_stc.svg);
+    /* position: relative; 
+     background :url(../../assets/team_stc.svg);
     background-position: center; 
     background-repeat: no-repeat; 
-    z-index: -1; */
+    z-index: -99; */
     
 
     /* background :url(../../assets/Team\ STC.svg);  */
@@ -28,6 +28,8 @@
 
 }
 
+
+
 .watermark {
     height: 100%;
 
@@ -42,29 +44,34 @@
     /* object-fit:cover; */
 
 
-    position:fixed;
+    /* position:fixed;
  bottom:20px;
  right:5px;
- z-index:-99;
- background-repeat: no-repeat;
+ z-index:1;
+ background-repeat: no-repeat; */
+ /* position:relative; */
 
     
 
 } 
-/* 
+
 .registerPage:before {
-    content: '  ';
-  position: absolute;
+   content: 'Team STC';
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background :url(../../assets/Team\ STC.svg);
-  background-position: center;  
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  z-index: -1;
+  color: #0d745e;
+  font-size: 100px;
+  font-weight: 500px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  opacity: 0.2;
   
-} */
+}
 
 .heading{
    
@@ -92,6 +99,7 @@
     padding:5px;
     background-color:#FFF5F1;
     width:100%;
+    z-index: 2;
 
     
 }
@@ -161,6 +169,7 @@
     border-radius: 6px;
     margin-right: 15px;
     margin-bottom: 10px;
+    z-index: 100;
 }
 
 .button1{
