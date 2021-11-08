@@ -98,7 +98,14 @@ function Landing1() {
               />
             </svg>
           </a>
-          {width < 991 && <Button />}
+         
+          {width < 991 &&
+          <div className="ml-auto mr-1">
+            <Button />
+
+          </div>
+           
+           }
           <button
             className="navbar-toggler"
             type="button"
