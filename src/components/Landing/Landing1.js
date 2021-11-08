@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Landing1.css";
 import { Link } from "react-router-dom";
 import developer from "../../assets/Group 3.svg";
@@ -9,19 +9,26 @@ import registerhover from "../../assets/Group 246.png";
 import instagram from "../../assets/Group 257.svg";
 import stclogo from "../../assets/Group 45.svg";
 import StickerWall from "../StickerWall/StickerWall";
-import technical from "../../assets/Group 349.png";
+import technical from "../../assets/TechnicalRoadMap.png";
+import ManagementRoadMap from "../../assets/ManagementRoadMap.png";
 // import mgmt from '../../assets/mgmt.png'
-import design from "../../assets/design.png";
+import design from "../../assets/DesignRoadMap.png";
 import tech1 from "../../assets/Technicaltext1.svg";
 import mgmt1 from "../../assets/mgmttext1.svg";
 import designtext1 from "../../assets/designtext1.svg";
-import techmobile from "../../assets/Group 350.png";
-import mgmtmobile from "../../assets/Group 350.png";
-
+import techmobile from "../../assets/techRoadMapmobile.png";
+import mgmtmobile from "../../assets/managementRoadMapMobile.png";
+import Button from "../Button";
 import registerbutton from "../../assets/Group 246 (2).svg";
 import Connect from "../Connect/Connect";
 
 function Landing1() {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  });
   const myFunction1 = () => {
     document.getElementById("first").style.display = "block";
     document.getElementById("first").style.color = "white";
@@ -30,15 +37,17 @@ function Landing1() {
     document.getElementById("mgmttext").style.color = "#AFAFAF";
     document.getElementById("techtext").style.color = "#F4B5C2";
     document.getElementById("destext").style.color = "#AFAFAF";
+    document.getElementById("first").style.animation = "fadein 1.3s ease";
   };
 
   const myFunction2 = () => {
     document.getElementById("second").style.display = "block";
     document.getElementById("first").style.display = "none";
     document.getElementById("third").style.display = "none";
-    document.getElementById("mgmttext").style.color = "#B6E8F3";
+    document.getElementById("mgmttext").style.color = "#B6E8F3 ";
     document.getElementById("techtext").style.color = "#AFAFAF";
     document.getElementById("destext").style.color = "#AFAFAF";
+    document.getElementById("second").style.animation = "fadein 1.3s ease";
   };
 
   const myFunction3 = () => {
@@ -47,18 +56,19 @@ function Landing1() {
     document.getElementById("second").style.display = "none";
     document.getElementById("mgmttext").style.color = "#AFAFAF";
     document.getElementById("techtext").style.color = "#AFAFAF";
-    document.getElementById("destext").style.color = "#F77655";
+    document.getElementById("destext").style.color = "#F77655 ";
+    document.getElementById("third").style.animation = "fadein 1.3s ease";
   };
 
   return (
     <>
       <section style={{ backgroundColor: "black" }} className="pb-5">
         <nav
-          className="navbar navbar-expand-lg navbar-dark"
+          className="navbar navbar-expand-lg navbar-dark container"
           id="nav"
           style={{ backgroundColor: "transparent" }}
         >
-          <a className="navbar-brand ml-lg-5 pl-lg-5 ml-xs-0 pl-xs-0" href="/">
+          <a className="navbar-brand ml-xs-0 pl-xs-0" href="/">
             <svg
               width="43"
               height="45"
@@ -88,6 +98,7 @@ function Landing1() {
               />
             </svg>
           </a>
+          {width < 991 && <Button />}
           <button
             className="navbar-toggler"
             type="button"
@@ -96,13 +107,14 @@ function Landing1() {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            style={{ marginRight: "1rem" }}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-              <div className="" id="navshit">
+              <div id="navshit" style={{ marginRight: "3rem" }}>
                 <li className="nav-item  mx-3 my-3">
                   <a href="  " className="button current" id="aa">
                     <svg
@@ -156,46 +168,20 @@ function Landing1() {
               </div>
             </ul>
           </div>
-          <Link to="/quiz-dashboard">
-            <li
-              class="nav-item mr-auto"
-              style={{ textDecoration: "none !important" }}
-            >
-              <a
-                href="#0 "
-                className="button"
-                style={{ textDecoration: "none !important" }}
-              >
-                <svg
-                  id="loginsvg"
-                  width="169"
-                  height="48"
-                  viewBox="0 0 169 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="1.00004"
-                    y="1.00004"
-                    width="167"
-                    height="45.9999"
-                    fill="#F05127"
-                    stroke="#FBFFFE"
-                    stroke-width="2.00008"
-                  />
-                  <path
-                    d="M63.6189 30.6154C64.1293 30.6154 64.7218 30.4878 65.0499 30.3602C65.3781 30.2235 65.7153 30.0777 65.7518 30.0686L65.7883 25.4017C64.977 25.903 63.8377 26.1491 62.3702 26.1491H58.6604V21.9289C58.6604 20.1242 58.8062 18.5655 59.107 17.2621H53.9935C54.1211 17.8454 54.2214 18.5746 54.3034 19.4588C54.3855 20.3429 54.4219 21.1815 54.4219 21.9927V25.6113C54.4219 26.4408 54.3855 27.3341 54.3034 28.3003C54.2214 29.2756 54.112 30.0412 53.9935 30.6154C54.3672 30.4058 54.8686 30.2235 55.4975 30.0503C56.1264 29.8771 56.8192 29.7951 57.5757 29.7951C59.7997 29.7586 61.7503 30.6519 63.6189 30.6154ZM72.6609 30.5972C74.7027 30.5972 76.3342 30.0503 77.3186 29.1388C78.2939 28.2273 78.8044 27.0424 78.8044 25.666C78.8044 24.2897 78.2939 23.1047 77.3186 22.1932C76.3342 21.2818 74.7118 20.7349 72.6791 20.7349C70.6374 20.7349 69.0058 21.2818 68.0305 22.1932C67.0461 23.1047 66.5357 24.2897 66.5357 25.666C66.5357 27.0424 67.0461 28.2273 68.0305 29.1388C69.0058 30.0503 70.6283 30.5972 72.6609 30.5972ZM72.6609 27.8719C72.0138 27.8719 71.4942 27.6622 71.0931 27.2429C70.6921 26.8328 70.4916 26.3041 70.4916 25.666C70.4916 25.028 70.6921 24.4993 71.0931 24.08C71.4942 23.6699 72.0138 23.4602 72.6609 23.4602C73.3263 23.4602 73.855 23.6699 74.256 24.08C74.648 24.4902 74.8485 25.0189 74.8485 25.666C74.8485 26.3132 74.648 26.8419 74.256 27.252C73.855 27.6622 73.3263 27.8719 72.6609 27.8719ZM86.0052 34.5896C89.6785 34.5896 92.9872 33.0036 92.9872 29.9592C92.9872 29.467 92.8596 28.9839 92.6135 28.519V25.7207C92.6135 23.8248 92.7593 22.2479 93.0419 20.9992H87.9467C88.1198 21.4276 88.2292 21.774 88.293 22.0474C88.3477 22.33 88.3751 22.6763 88.3751 23.0865V23.2962H88.129C87.5 21.7284 86.1419 20.7349 84.2095 20.7349C82.7603 20.7349 81.6027 21.2909 80.9099 22.2024C80.2081 23.1139 79.8435 24.3079 79.8435 25.6843C79.8435 27.0606 80.2081 28.2365 80.9099 29.1388C81.6027 30.0503 82.7603 30.5972 84.2095 30.5972C86.1875 30.5972 87.5365 29.5672 88.129 27.9995H88.3386C88.7214 28.4005 88.9128 28.838 88.9128 29.3211C88.9128 30.1506 88.5756 30.7886 87.9102 31.2444C87.2448 31.691 86.3424 31.9189 85.2213 31.9189C84.2369 31.9189 83.2342 31.773 82.2134 31.4723C81.1925 31.1715 80.4086 30.7795 79.8617 30.2964L79.8799 33.8421C80.6 34.07 81.5297 34.2523 82.6691 34.389C83.8085 34.5258 84.9205 34.5896 86.0052 34.5896ZM86.0599 27.9448C85.358 27.9448 84.802 27.7351 84.3918 27.3067C83.9725 26.8783 83.7629 26.3405 83.7629 25.6843C83.7629 25.0098 83.9725 24.4538 84.3918 24.0254C84.802 23.5969 85.358 23.3873 86.0599 23.3873C86.7435 23.3873 87.2813 23.6061 87.6914 24.0345C88.1016 24.4629 88.3021 25.0189 88.3021 25.6843C88.3021 26.3132 88.0925 26.851 87.6732 27.2885C87.2539 27.726 86.7161 27.9448 86.0599 27.9448ZM98.8937 19.9601C99.3039 19.5864 99.5044 19.1124 99.5044 18.5382C99.5044 17.9548 99.3039 17.4717 98.8937 17.098C98.4835 16.7243 97.9366 16.542 97.2439 16.542C96.5512 16.542 96.0043 16.7243 95.6032 17.098C95.193 17.4717 94.9925 17.9548 94.9925 18.5382C94.9925 19.1124 95.193 19.5864 95.6032 19.9601C96.0043 20.3338 96.5512 20.5161 97.2439 20.5161C97.9366 20.5161 98.4835 20.3338 98.8937 19.9601ZM99.8052 30.3329C99.5226 29.0841 99.3768 27.5073 99.3768 25.6113V23.0318C99.3768 22.175 99.4224 21.5005 99.5044 20.9992C98.9848 21.3729 98.2557 21.5643 97.2986 21.5643C96.3415 21.5643 95.585 21.3729 95.0107 20.9992C95.0928 21.4002 95.1383 22.0748 95.1383 23.0318V25.6113C95.1383 27.5073 94.9925 29.0841 94.7099 30.3329H99.8052ZM106.578 30.3329C106.432 29.9774 106.322 29.3849 106.249 28.5737C106.177 27.7625 106.14 27.0606 106.14 26.4682L106.122 25.5749C106.122 24.9642 106.322 24.4538 106.714 24.0436C107.106 23.6334 107.626 23.4238 108.255 23.4238C109.467 23.4238 110.178 24.2897 110.178 25.5749V26.4317C110.178 27.7807 110.032 29.0841 109.75 30.3329H114.863C114.562 29.1115 114.416 27.6622 114.416 25.9851V24.9915C114.416 23.6699 114.052 22.6308 113.314 21.8742C112.575 21.1177 111.518 20.7349 110.142 20.7349C108.291 20.7349 107.033 21.6099 106.368 23.3508H106.14V23.1047C106.14 22.2935 106.313 21.5917 106.651 20.9992H101.455C101.738 22.175 101.883 23.5514 101.883 25.1283V26.6596C101.883 27.4343 101.847 28.0815 101.783 28.601C101.719 29.1297 101.61 29.704 101.455 30.3329H106.578Z"
-                    fill="#FBFFFE"
-                  />
-                </svg>
-              </a>
-            </li>
+          <Link to="/quiz-dashboard" style={{ textDecoration: "none" }}>
+            <li class="nav-item mr-auto">{width > 991 && <Button />}</li>
           </Link>
         </nav>
 
         <div className="container my-3">
-          <div className="row mx-auto">
-            <div className="col-2" id="ilus_grid">
+          <div className="row mobilehero">
+            <div
+              className="col-2"
+              id="ilus_grid"
+              style={{
+                marginLeft: "-4rem",
+              }}
+            >
               <div className="row">
                 <img src={designer} className=" img-fluid" alt="d"></img>
               </div>
@@ -203,7 +189,10 @@ function Landing1() {
                 <img src={developer} className=" img-fluid" alt="d"></img>
               </div>
             </div>
-            <div className="col-lg-8 col-md-12 container" id="wearestc">
+            <div
+              className="col-lg-8 col-md-12 container heroSection"
+              id="wearestc"
+            >
               <div className="row my-lg-3 my-md-1 mx-lg-auto mx-xs-1 mx-md-auto">
                 <h1 className="my-auto aniWeAre" id="weare">
                   WE ARE{" "}
@@ -259,8 +248,15 @@ function Landing1() {
               </div>
 
               <br />
-              <div className="row my-lg-2 mx-lg-auto mx-xs-1 mx-md-auto">
-                <h1 className="aniOpp" id="opportunities">
+              <div
+                className="row mb-lg-2 mx-lg-auto mx-xs-1 mx-md-auto"
+                style={{ marginTop: "-1.5rem" }}
+              >
+                <h1
+                  className="aniOpp"
+                  id="opportunities"
+                  style={{ marginRight: "5px" }}
+                >
                   {" "}
                   OPPORTUNITIES{" "}
                 </h1>
@@ -295,23 +291,28 @@ function Landing1() {
                     fill="#FBFFFE"
                   />
                 </svg> */}
-                <h1 id="for" className="mr-2 aniFor">
+
+                <h1
+                  id="for"
+                  className="mr-2 aniFor"
+                  style={{ marginLeft: "5px" }}
+                >
                   FOR
                 </h1>
 
                 {/* <svg
-                  id="really1"
-                  width="182"
-                  height="39"
-                  viewBox="0 0 182 39"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.2477 38.9043V38.3043L8.49771 36.7043V20.9043H12.3477L22.3477 36.9543L18.7477 38.3043V38.9043H31.6977V38.3043L26.9977 36.7043L16.8977 20.6043C23.8977 20.0043 28.3977 16.1043 28.3977 10.4543C28.3977 3.90429 22.0977 0.904294 15.9477 0.904294H0.497705V1.5043L4.24771 3.0543V36.7043L0.497705 38.3043V38.9043H12.2477ZM8.49771 2.80429H14.6977C20.0477 2.80429 24.0977 4.7543 24.0977 10.5043C24.0977 16.0043 20.4477 19.0043 14.6977 19.0043H8.49771V2.80429ZM56.8114 38.9043L58.5614 31.1543H57.8614L54.2114 36.9043H41.2614V19.6043H49.7114L51.1614 23.8543H52.0614V13.4543H51.1614L49.7114 17.7043H41.2614V2.75429H53.7114L57.3614 8.6543H58.0614L56.3114 0.904294H33.2614V1.5043L37.0114 3.0543V36.7043L33.2614 38.3043V38.9043H56.8114ZM69.5782 38.9043V38.3043L64.7282 37.1043L70.2782 23.5043H84.9282L90.7282 37.1043L86.6282 38.3043V38.9043H99.3782V38.3043L95.5782 37.1043L79.6782 0.504297H75.5782L76.7782 3.25429L62.7782 37.1043L58.8282 38.3043V38.9043H69.5782ZM77.4282 5.9043L84.1282 21.6043H71.0282L77.4282 5.9043ZM123.111 38.9043L124.861 31.1543H124.161L120.511 36.9043H107.961V3.0543L111.711 1.5043V0.904294H99.9606V1.5043L103.711 3.0543V36.7043L99.9606 38.3043V38.9043H123.111ZM150.161 38.9043L151.911 31.1543H151.211L147.561 36.9043H135.011V3.0543L138.761 1.5043V0.904294H127.011V1.5043L130.761 3.0543V36.7043L127.011 38.3043V38.9043H150.161ZM170.308 38.9043V38.3043L166.558 36.7043V24.5543L177.358 2.9043L181.058 1.5043V0.904294H171.108V1.5043L175.708 2.80429L165.908 22.7543L155.558 2.7043L159.158 1.5043V0.904294H147.208V1.5043L150.808 2.8543L162.308 24.8543V36.7043L158.558 38.3043V38.9043H170.308Z"
-                    fill="#FBFFFE"
-                  />
-                </svg> */}
+                id="really1"
+                width="182"
+                height="39"
+                viewBox="0 0 182 39"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.2477 38.9043V38.3043L8.49771 36.7043V20.9043H12.3477L22.3477 36.9543L18.7477 38.3043V38.9043H31.6977V38.3043L26.9977 36.7043L16.8977 20.6043C23.8977 20.0043 28.3977 16.1043 28.3977 10.4543C28.3977 3.90429 22.0977 0.904294 15.9477 0.904294H0.497705V1.5043L4.24771 3.0543V36.7043L0.497705 38.3043V38.9043H12.2477ZM8.49771 2.80429H14.6977C20.0477 2.80429 24.0977 4.7543 24.0977 10.5043C24.0977 16.0043 20.4477 19.0043 14.6977 19.0043H8.49771V2.80429ZM56.8114 38.9043L58.5614 31.1543H57.8614L54.2114 36.9043H41.2614V19.6043H49.7114L51.1614 23.8543H52.0614V13.4543H51.1614L49.7114 17.7043H41.2614V2.75429H53.7114L57.3614 8.6543H58.0614L56.3114 0.904294H33.2614V1.5043L37.0114 3.0543V36.7043L33.2614 38.3043V38.9043H56.8114ZM69.5782 38.9043V38.3043L64.7282 37.1043L70.2782 23.5043H84.9282L90.7282 37.1043L86.6282 38.3043V38.9043H99.3782V38.3043L95.5782 37.1043L79.6782 0.504297H75.5782L76.7782 3.25429L62.7782 37.1043L58.8282 38.3043V38.9043H69.5782ZM77.4282 5.9043L84.1282 21.6043H71.0282L77.4282 5.9043ZM123.111 38.9043L124.861 31.1543H124.161L120.511 36.9043H107.961V3.0543L111.711 1.5043V0.904294H99.9606V1.5043L103.711 3.0543V36.7043L99.9606 38.3043V38.9043H123.111ZM150.161 38.9043L151.911 31.1543H151.211L147.561 36.9043H135.011V3.0543L138.761 1.5043V0.904294H127.011V1.5043L130.761 3.0543V36.7043L127.011 38.3043V38.9043H150.161ZM170.308 38.9043V38.3043L166.558 36.7043V24.5543L177.358 2.9043L181.058 1.5043V0.904294H171.108V1.5043L175.708 2.80429L165.908 22.7543L155.558 2.7043L159.158 1.5043V0.904294H147.208V1.5043L150.808 2.8543L162.308 24.8543V36.7043L158.558 38.3043V38.9043H170.308Z"
+                  fill="#FBFFFE"
+                />
+              </svg> */}
                 <h1 className="aniReally" id="really1">
                   REALLY
                 </h1>
@@ -346,16 +347,25 @@ function Landing1() {
                 </div>
               </div>
               <Link to="/register">
-                <div className="row my-4">
-                  <div className="mx-auto">
-                    <img src={registerbutton}></img>
+                <div className="row my-4" style={{ marginRight: "2rem" }}>
+                  <div className="mx-auto registerButtonMobile">
+                    <img
+                      src={registerbutton}
+                      alt="register"
+                      className="registerButton"
+                    ></img>
                   </div>
                 </div>
               </Link>
             </div>
 
-            <div className="col-2" id="col2">
-              <img src={manager} className="mb-5 pb-5 img-fluid" alt="d"></img>
+            <div className="col-2" id="col2" style={{ marginRight: "-4rem" }}>
+              <img
+                src={manager}
+                className="mb-5 pb-5 img-fluid"
+                alt="d"
+                style={{ marginTop: "8rem" }}
+              ></img>
             </div>
           </div>
           <div className="row mx-auto" id="mobileonly1">
@@ -383,6 +393,7 @@ function Landing1() {
                       fontWeight: "bold",
                       color: "#F4B5C2",
                       fontSize: "48px",
+                      cursor: "pointer",
                     }}
                   >
                     Technical
@@ -398,6 +409,7 @@ function Landing1() {
                       fontWeight: "bold",
                       color: "#AFAFAF",
                       fontSize: "48px",
+                      cursor: "pointer",
                     }}
                   >
                     Management
@@ -414,6 +426,7 @@ function Landing1() {
                       fontWeight: "bold",
                       color: "#AFAFAF",
                       fontSize: "48px",
+                      cursor: "pointer",
                     }}
                   >
                     Design
@@ -424,14 +437,18 @@ function Landing1() {
           </div>
 
           <div class="content row my-3">
-            <div id="first">
-              <img src={technical} className="w-100 img-fluid" />{" "}
+            <div id="first" style={{ marginTop: "1rem" }}>
+              <img src={technical} className="w-100 img-fluid" alt="roadMap" />{" "}
             </div>
-            <div id="second">
-              <img src={technical} className="w-100 img-fluid" />{" "}
+            <div id="second" style={{ marginTop: "1rem" }}>
+              <img
+                src={ManagementRoadMap}
+                className="w-100 img-fluid"
+                alt="roadMap"
+              />{" "}
             </div>
-            <div id="third">
-              <img src={design} className="w-100 img-fluid" />{" "}
+            <div id="third" style={{ marginTop: "1rem" }}>
+              <img src={design} className="w-100 img-fluid" alt="roadMap" />{" "}
             </div>
           </div>
         </div>
@@ -501,7 +518,11 @@ function Landing1() {
         <Link to="/register">
           <div className="row container mx-auto my-3">
             <div className="mx-auto">
-              <img src={registerbutton}></img>
+              <img
+                src={registerbutton}
+                alt="registerButton"
+                className="registerButton"
+              ></img>
             </div>
           </div>
         </Link>
