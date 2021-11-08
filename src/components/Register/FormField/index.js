@@ -29,6 +29,41 @@ export const Name = ({ setValue, setError, placeholder }) => {
     </div>
   );
 };
+export const RegNo = ({ setValue, setError, placeholder }) => {
+  const name = useRef();
+
+  const handleSubmit = () => {
+    if (name.current.value !== null) {
+      if (name.current.value.length === 9){
+        setValue(name.current.value);
+
+      }else{
+        setError("Please Enter Valid Registration Number")
+      }
+    
+    } else {
+      console.log("hello");
+      setError("Please Enter Correct register number");
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          ref={name}
+          className="inputField"
+          placeholder={placeholder}
+          required={true}
+          onChange={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        />
+      </form>
+    </div>
+  );
+};
 export const Email = ({ setValue, setError,error, placeholder }) => {
   const email = useRef();
 
@@ -66,23 +101,34 @@ export const Email = ({ setValue, setError,error, placeholder }) => {
 
 export const PhoneNo = ({ setValue, setError, placeholder }) => {
   const phoneNo = useRef();
+  const pincode = useRef();
   // const answerRef1 = useRef();
 
   const handleSubmit = () => {
-    if (phoneNo.current.value !== null) {
-      setValue(phoneNo.current.value);
+    if (phoneNo.current.value !== null && pincode.current.value !== null) {
+      setValue(pincode.current.value.concat(phoneNo.current.value)  );
+      
     } else {
       setError("Please Enter Phone Number");
     }
   };
+  
   return (
-    <div>
+    <div className="d-flex">
       {/* <input
             ref={answerRef1} 
             /> */}
+            <input 
+            ref={pincode}
+            style={{width: "3rem"}}
+            className="inputField"
+            // value="+91"
+            defaultValue="+91"
+            
+            />
       <input
         ref={phoneNo}
-        className="inputField"
+        className="inputField ml-3"
         placeholder={placeholder}
         onChange={(e) => {
           e.preventDefault();
@@ -103,7 +149,13 @@ export const Password = ({ setValue, setError, placeholder }) => {
       password.current.value.localeCompare(confirmPassword.current.value) !== -1
     ) {
       setError(null);
-      setValue(password.current.value);
+      if (password.current.value.length >= 6){
+        setValue(password.current.value);
+
+      }else{
+        setError("Minimum Six Characters Required")
+      }
+      
     } else {
       if (password.current.value !== confirmPassword.current.value) {
         setError("Please Make sure the Two Passwords Match");

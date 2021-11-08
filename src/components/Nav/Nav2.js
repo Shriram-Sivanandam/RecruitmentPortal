@@ -3,7 +3,7 @@ import profile_pic from "../../assets/undraw_profile_pic_ic5t.svg";
 import "./Nav2.css";
 import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import stclogo from '../../assets/Group 45.svg'
+import stclogo from "../../assets/Group 45.svg";
 
 function Nav() {
   const { currentUser, logout } = useAuth();
@@ -26,7 +26,7 @@ function Nav() {
         style={{ backgroundColor: "#FFF5F1" }}
       >
         <a className="navbar-brand ml-lg-5 pl-lg-5 ml-xs-0 pl-xs-0" href="/">
-         <img src={stclogo}></img>
+          <img src={stclogo}></img>
         </a>
         <button
           className="navbar-toggler"
