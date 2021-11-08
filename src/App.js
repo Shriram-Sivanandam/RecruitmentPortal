@@ -18,10 +18,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from "./contexts/AuthContext";
 import Constants from "./components/constants";
 import Landing1 from "./components/Landing/Landing1";
-<<<<<<< HEAD
 import Enough from "./components/Enough/Enough";
-=======
->>>>>>> 972949264cb1b117b008a643133933965dc39239
 
 function App() {
   const [token, setToken] = useState("");
