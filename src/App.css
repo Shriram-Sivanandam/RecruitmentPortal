@@ -1,3 +1,7 @@
 .font-face-gm {
   font-family: "Brice Font Family";
 }
+
+.app {
+  overflow-x: hidden;
+}

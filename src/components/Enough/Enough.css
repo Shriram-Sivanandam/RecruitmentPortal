@@ -1,5 +1,5 @@
 .enoughCont {
-  height: 50vh;
+  height: 80vh;
   display: flex;
   /* align-items: center;
   justify-self: center; */
@@ -10,19 +10,26 @@
   /* height: 10%; */
   display: flex;
   align-items: center;
-  width: 140vw;
+  width: 180vw;
   overflow: hidden;
 }
 
 .enoughImg {
-  height: 20%;
-  margin-left: 2%;
-  margin-right: 2%;
+  /* height: 20%;  */
+  margin-right: 5%;
 }
 
-@media screen and (max-width: 600px) {
+.enoughHand {
+  transform: translate(1960%, -90%);
+  animation-name: handAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* @media screen and (max-width: 600px) {
   .enoughCont {
-    height: 34vh;
+    height: 80vh;
   }
 }
 
@@ -32,10 +39,51 @@
   }
 
   .imgCont {
-    /* height: 10%; */
     display: flex;
     align-items: center;
     width: 180vw;
     overflow: hidden;
+  }
+} */
+
+@media screen and (max-width: 600px) {
+  .enoughImg {
+    /* height: 20%;  */
+    margin-left: -10%;
+    margin-right: 5%;
+  }
+  .enoughCont {
+    height: 50vh;
+  }
+
+  .enoughImg {
+    height: 80px;
+  }
+
+  .enoughHand {
+    height: 110px;
+    transform: translate(1980%, -90%);
+    animation-name: handAnimation2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+@keyframes handAnimation {
+  from {
+    transform: translate(1950%, -90%);
+  }
+  to {
+    transform: translate(1950%, -93%) rotate(5deg);
+  }
+}
+
+@keyframes handAnimation2 {
+  from {
+    transform: translate(1980%, -90%);
+  }
+  to {
+    transform: translate(1970%, -93%) rotate(5deg);
   }
 }
