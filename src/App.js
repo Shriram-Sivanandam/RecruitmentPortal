@@ -18,6 +18,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from "./contexts/AuthContext";
 import Constants from "./components/constants";
 import Landing1 from "./components/Landing/Landing1";
+import Enough from "./components/Enough/Enough";
 
 function App() {
   const [token, setToken] = useState("");
@@ -203,6 +204,7 @@ function App() {
     <div className="App">
       {/* <Landing1 /> */}
       {/* <button onClick={assignTest}>Hello</button> */}
+      {/* <Enough /> */}
       <Router>
         <AuthProvider>
           <Switch>
@@ -222,7 +224,6 @@ function App() {
               path="/upload-questions"
               component={QuesUpload}
             />
-            {/* <PrivateRoute exact path="/stickers" component={StickerWall} /> */}
             <PrivateRoute exact path="/student-list" component={StudentList} />
             <PrivateRoute exact path="/apt-quiz" component={Quizbox} />
             <PrivateRoute path="/thankyou" component={ThankYou} />

@@ -116,10 +116,9 @@
   width: 100vw;
   padding-right: -10px;
   animation-name: infiLoop;
-  animation-duration: 10s;
+  animation-duration: 15s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  /* transform: rotate(0.5deg); */
 }
 
 /* .firstBar {

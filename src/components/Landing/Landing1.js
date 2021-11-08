@@ -21,6 +21,7 @@ import mgmtmobile from "../../assets/managementRoadMapMobile.png";
 import Button from "../Button";
 import registerbutton from "../../assets/Group 246 (2).svg";
 import Connect from "../Connect/Connect";
+import Enough from "../Enough/Enough";
 
 function Landing1() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -534,6 +535,7 @@ function Landing1() {
           </div>
         </Link>
       </section>
+      <Enough />
       <Connect />
     </>
   );
