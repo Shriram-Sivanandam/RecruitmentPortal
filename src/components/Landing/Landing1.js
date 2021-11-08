@@ -523,8 +523,11 @@ function Landing1() {
             </div>
           </div>
         </div>
-        <Link to="/register">
-          <div className="row container mx-auto my-3">
+       
+     
+      <Enough />
+      <Link to="/register">
+          <div className="row container mx-auto mb-3 mt-n5">
             <div className="mx-auto">
               <img
                 src={registerbutton}
@@ -534,8 +537,7 @@ function Landing1() {
             </div>
           </div>
         </Link>
-      </section>
-      <Enough />
+        </section>
       <Connect />
     </>
   );
