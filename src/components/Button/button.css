@@ -1,0 +1,26 @@
+.btn-component {
+  display: flex;
+  justify-content: center;
+  background-color: #f05127;
+  font-family: "BriceBold";
+  font-size: 1.5rem;
+  line-height: 26px;
+  color: #fbfffe;
+  padding: 10px 53px;
+  height: 3rem;
+  border: 2px solid white;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+.btn-component:hover {
+  background-color: #da380e;
+  transition: all 0.4s ease;
+}
+@media screen and (max-width: 991px) {
+  .btn-component {
+    height: 2.5rem;
+    font-size: 1.5rem;
+    padding: 10px 40px;
+    line-height: 22px;
+  }
+}

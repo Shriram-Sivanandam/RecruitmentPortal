@@ -1,8 +1,25 @@
 .mainCont {
   background-color: #fff5f1;
-  
 }
-
+.connect_instaLogo {
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+.connect_linkdinLogo {
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+.connect_websiteLogo {
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+.connect_gitLogo {
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+.connect_text {
+  margin-left: 6rem;
+  margin-top: 10rem;
+}
+.connect_logos {
+  margin-top: -7rem;
+}
 .connectCont {
   display: flex;
   max-width: 1440px;
@@ -208,10 +225,15 @@
     transform: translate(-3%, -30%) rotate(20deg);
   }
 }
-@media only screen and (max-width:425px){
-  #connect_anchors{
+@media only screen and (max-width: 425px) {
+  #connect_anchors {
     height: 20vh;
-   }
+  }
+  .connect_text {
+    margin-left: 0rem;
+    margin-top: 2rem;
+  }
+  .connect_logos {
+    margin-top: -0rem;
+  }
 }
-
-

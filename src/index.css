@@ -12,23 +12,36 @@ code {
     monospace;
 }
 
-
-
 @font-face {
   font-family: "BriceBold";
-  src: local("BriceBold") , url(./fonts/Brice-Bold.otf) format("truetype");
+  src: local("BriceBold"), url(./fonts/Brice-Bold.otf) format("truetype");
 }
 
 @font-face {
   font-family: "BriceRegular";
-  src: local("BriceRegular") , url(./fonts/Brice-Regular.otf) format("truetype");
+  src: local("BriceRegular"), url(./fonts/Brice-Regular.otf) format("truetype");
 }
 
 @font-face {
-  font-family: 'BriceSemiBold';
-  src: local('BriceSemiBold') , url(./fonts/Brice-SemiBold.otf) format('truetype');
+  font-family: "BriceSemiBold";
+  src: local("BriceSemiBold"),
+    url(./fonts/Brice-SemiBold.otf) format("truetype");
 }
 @font-face {
-  font-family: 'Apoc';
-  src: local('Apoc') , url(./fonts/ApocLCTrial-LightSans.otf) format('truetype');
+  font-family: "Apoc";
+  src: local("Apoc"), url(./fonts/ApocLCTrial-LightSans.otf) format("truetype");
+}
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c02b4a;
+  border-top-left-radius: 1000px;
+  border-bottom-left-radius: 1000px;
 }

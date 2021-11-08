@@ -1,11 +1,11 @@
 import React from "react";
 import "./Connect.css";
-import instagram from "../../assets/Group 257.svg";
+import instagram from "../../assets/insta.svg";
 import mobileinfo from "../../assets/mobileinfo.svg";
 
 function Connect() {
   return (
-    <div className="mainCont">
+    <div className="mainCont" style={{ height: "23rem" }}>
       <div className="connectCont">
         <div className="connect_text">
           <div className="headingCont">
@@ -23,7 +23,7 @@ function Connect() {
               />
             </svg>
           </div>
-          <div className="connect_info">
+          <div className="connect_info" style={{ marginTop: "2rem" }}>
             <svg
               className="laptopinfo"
               width="609"
@@ -50,7 +50,8 @@ function Connect() {
           </div>
         </div>
         <div className="connect_logos" id="connect_logos_laptop">
-          <a id="connect_anchors"
+          <a
+            id="connect_anchors"
             href="https://www.linkedin.com/company/micvitvellore/mycompany/"
             target="_blank"
           >
@@ -60,7 +61,8 @@ function Connect() {
               height="243"
               viewBox="0 0 224 243"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"  id="connect_anchors"
+              xmlns="http://www.w3.org/2000/svg"
+              id="connect_anchors"
             >
               <rect
                 x="53.1818"
@@ -99,12 +101,21 @@ function Connect() {
           </a>
 
           <a
-           href="https://www.instagram.com/stcvit/" target="_blank" rel="noreferrer">
-            <img src={instagram} alt="insta" className="connect_instaLogo" id="connect_anchors" />
+            href="https://www.instagram.com/stcvit/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={instagram}
+              alt="insta"
+              className="connect_instaLogo"
+              id="connect_anchors"
+            />
           </a>
 
           <a href="https://stcvit.in/" target="_blank">
-            <svg  id="connect_anchors"
+            <svg
+              id="connect_anchors"
               className="connect_websiteLogo"
               width="297"
               height="210"
@@ -161,9 +172,9 @@ function Connect() {
             </svg>
           </a>
 
-          <a
-          href="https://github.com/STCVIT" target="_blank">
-            <svg  id="connect_anchors"
+          <a href="https://github.com/STCVIT" target="_blank">
+            <svg
+              id="connect_anchors"
               className="connect_gitLogo"
               width="293"
               height="273"
@@ -194,7 +205,6 @@ function Connect() {
             </svg>
           </a>
         </div>
-    
       </div>
     </div>
   );

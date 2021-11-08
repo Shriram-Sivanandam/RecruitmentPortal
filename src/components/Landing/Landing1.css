@@ -5,12 +5,22 @@
   transform: scale(0.8);
   transition: all 0.1s ease;
 }
-.heroSection {
-  display: "flex" !important;
-  flex-direction: "column" !important;
-  justify-content: "center" !important;
-  margin-left: "13.25rem" !important;
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 13.25rem;
+}
+
 @media screen and (min-width: 600px) {
   #navshit {
     display: flex;
@@ -62,9 +72,6 @@
   #ilus_grid {
     position: absolute;
     margin-left: -10vw;
-  }
-  #wearestc {
-    margin-left: 10vw;
   }
 }
 @media screen and (max-width: 600px) {
@@ -121,6 +128,9 @@
   }
   #laptop_roadmap {
     display: none;
+  }
+  #wearestc {
+    margin-left: 1.5rem !important;
   }
 }
 @media screen and (max-width: 325px) {
@@ -209,6 +219,19 @@ button {
   }
   #team {
     font-size: 26px;
+  }
+  #nav {
+    margin-left: 1rem;
+  }
+  .mobilehero {
+    margin-left: 0.15rem;
+  }
+  .stiWallDiv {
+    padding-top: 1rem !important;
+  }
+  .registerButtonMobile{
+    margin-bottom: 2rem;
+    height: 20px;
   }
 }
 
