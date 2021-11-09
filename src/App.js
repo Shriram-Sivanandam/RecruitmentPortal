@@ -19,6 +19,8 @@ import { useAuth } from "./contexts/AuthContext";
 import Constants from "./components/constants";
 import Landing1 from "./components/Landing/Landing1";
 import Enough from "./components/Enough/Enough";
+import CountdownTimer from "./components/CountdownTimer/CountdownTimer";
+import Countdown2 from "./components/CountdownTimer/Countdown2";
 
 function App() {
   const [token, setToken] = useState("");
@@ -205,7 +207,9 @@ function App() {
       {/* <Landing1 /> */}
       {/* <button onClick={assignTest}>Hello</button> */}
       {/* <Enough /> */}
-      <Router>
+      {/* <CountdownTimer /> */}
+      <Countdown2 />
+      {/* <Router>
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/quiz-dashboard" component={Dashboard} />
@@ -234,7 +238,7 @@ function App() {
             <Route path="/" component={Landing1} />
           </Switch>
         </AuthProvider>
-      </Router>
+      </Router> */}
     </div>
   );
 }
