@@ -84,7 +84,7 @@ function Dashboard() {
 
 
       axios.get('http://localhost:3000/student/start_test').then((response) =>{
-        console.log(response.data)
+        console.log("data" , response.data)
         setStatus(response.data)
       }).catch((err) => {
         console.log(err)
@@ -482,7 +482,7 @@ function Dashboard() {
              
                
               {/* <Link to="/apt-quiz"> */}
-              { status !== "INACTIVE TEST" ? 
+              { status !== "INACTIVE TEST" && status !== "CANNOT GIVE TEST" ? 
               <button
               type="button"
               className="btn mx-auto"
@@ -676,7 +676,7 @@ function Dashboard() {
 
             <div className="row mx-auto">
               {/* <Link to="/management-quiz"> */}
-              {  status !== "INACTIVE TEST" ?
+              {  status !== "INACTIVE TEST"  ?
               <button
                   type="button"
                   className="btn mx-auto"

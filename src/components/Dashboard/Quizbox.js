@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./Quizbox.css";
-import { Link } from "react-router-dom";
+import {Redirect, Link } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
 import Options from './Options'
 import axios from 'axios'
+import Countdown2 from '../CountdownTimer/CountdownTimer'
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -16,6 +17,7 @@ function Quizbox() {
   const [questionBank , setQuestionBank] = useState([])
   const [loading , setLoading] = useState(false)
   const [status , setStatus] = useState("")
+  const [startTime , setStartTime] = useState(0)
 
 
 
@@ -26,10 +28,16 @@ function Quizbox() {
    
       axios.get('http://localhost:3000/student/start_test').then((response) =>{
         console.log(response.data)
-        if (response.data === "INACTIVE TEST" ){
+        if (response.data === "INACTIVE TEST" || response.data === "CANNOT GIVE TEST"){
           setStatus("Given")
         }else{
-          setQuestionBank(response.data)
+          setQuestionBank(response.data.question)
+          if (startTime 
+            === 0){
+              setStartTime(response.data.start_time)
+            
+          }
+        
 
         }
        
@@ -192,7 +200,9 @@ function Quizbox() {
     <>
       {/* <Nav2 /> */}
       {  status === "Given" ? 
-      null : 
+      <Redirect to="/quiz-dashboard" />
+      
+      : 
       
     
      
@@ -244,7 +254,7 @@ function Quizbox() {
           <div className="d-flex justify-content-between">
             <h5 style={{ color:"#7A7A7A" }}> {10 -  currentQuestion - 1  } questions to go</h5>
             <div className="logo">
-              Time to Go : 20:00{" "}
+              Time to Go : <Countdown2/>{" "}
             </div>
             
           </div>

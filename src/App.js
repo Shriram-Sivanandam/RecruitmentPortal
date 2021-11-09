@@ -23,6 +23,8 @@ import Enough from "./components/Enough/Enough";
 function App() {
   const [token, setToken] = useState("");
   const { currentUser } = useAuth();
+
+  console.log(currentUser)
   if (currentUser) {
     currentUser.getIdToken().then((response) => {
       setToken(response);
@@ -45,12 +47,12 @@ function App() {
   const studentRegister = () => {
     axios
       .post("http://localhost:3000/student/register", {
-        email: "prerit.rawtani2020@vitstudent.ac.in",
-        password: "Password1234",
-        name: "Prerit",
-        regno: "20BCT0262",
-        phone_no: "9300486573",
-        domains: ["TECH"],
+        email:"aryajay.wadhwani2020@vitstudent.ac.in",
+    password:"abcd1234",
+    name:"Arya Wadhwani",
+    regno:"20BCE0399",
+    phone_no:"7722043607",
+    domains:["MANAGEMENT","TECH"]
       })
       .then(() => {
         alert("hello");
@@ -58,7 +60,7 @@ function App() {
       })
       .catch((err) => {
         alert("error");
-        console.log(err);
+        console.log(err.message);
       });
   };
 
@@ -203,7 +205,7 @@ function App() {
   return (
     <div className="App">
       {/* <Landing1 /> */}
-      {/* <button onClick={assignTest}>Hello</button> */}
+      {/* <button onClick={studentRegister}>Hello</button> */}
       {/* <Enough /> */}
       <Router>
         <AuthProvider>
