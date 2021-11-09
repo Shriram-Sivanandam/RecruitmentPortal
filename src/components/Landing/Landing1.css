@@ -5,6 +5,48 @@
   transform: scale(0.8);
   transition: all 0.1s ease;
 }
+.technical {
+  font-family: BriceRegular;
+  font-weight: bold;
+  font-size: 48px;
+  color: #afafaf;
+}
+.management {
+  font-family: BriceRegular;
+  font-weight: bold;
+  font-size: 48px;
+  color: #afafaf;
+}
+.design {
+  font-family: BriceRegular;
+  font-weight: bold;
+  font-size: 48px;
+  color: #afafaf;
+}
+.technical-active {
+  font-family: BriceRegular;
+  font-weight: bold;
+  font-size: 48px;
+  color: #f4b5c2;
+}
+
+.management-active {
+  font-family: BriceRegular;
+  font-weight: bold;
+  font-size: 48px;
+  color: #b6e8f3;
+}
+
+.design-active {
+  font-family: BriceRegular;
+  font-weight: bold;
+  font-size: 48px;
+  color: #f77655;
+}
+
+.roadMaps {
+  animation: fadein 1.3s ease;
+}
 
 @keyframes fadein {
   from {
@@ -126,13 +168,29 @@
   #col2 {
     display: none;
   }
-  #laptop_roadmap {
-    display: none;
-  }
   #wearestc {
     margin-left: 1.5rem !important;
   }
+  .technical {
+    font-size: 20px;
+  }
+  .management {
+    font-size: 20px;
+  }
+  .design {
+    font-size: 20px;
+  }
+  .technical-active {
+    font-size: 20px;
+  }
+  .management-active {
+    font-size: 20px;
+  }
+  .design-active {
+    font-size: 20px;
+  }
 }
+
 @media screen and (max-width: 325px) {
   #opportunities {
     font-size: 18px;
@@ -220,16 +278,14 @@ button {
   #team {
     font-size: 26px;
   }
-  #nav {
-    margin-left: 1rem;
-  }
+
   .mobilehero {
     margin-left: 0.15rem;
   }
   .stiWallDiv {
     padding-top: 1rem !important;
   }
-  .registerButtonMobile{
+  .registerButtonMobile {
     margin-bottom: 2rem;
     height: 20px;
   }

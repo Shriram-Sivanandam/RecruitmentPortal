@@ -10,9 +10,12 @@ import instagram from "../../assets/Group 257.svg";
 import stclogo from "../../assets/Group 45.svg";
 import StickerWall from "../StickerWall/StickerWall";
 import technical from "../../assets/TechnicalRoadMap.png";
-import ManagementRoadMap from "../../assets/ManagementRoadMap.png";
+import management from "../../assets/ManagementRoadMap.png";
 // import mgmt from '../../assets/mgmt.png'
 import design from "../../assets/DesignRoadMap.png";
+import technicalmobile from "../../assets/technicalmobile.png";
+import managementmobile from "../../assets/managementmobile.png";
+import designmobile from "../../assets/designmobile.png";
 import tech1 from "../../assets/Technicaltext1.svg";
 import mgmt1 from "../../assets/mgmttext1.svg";
 import designtext1 from "../../assets/designtext1.svg";
@@ -24,41 +27,13 @@ import Connect from "../Connect/Connect";
 
 function Landing1() {
   const [width, setWidth] = useState(window.innerWidth);
+  const [active, setActive] = useState("technical");
+  const domain = ["technical", "management", "design"];
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
   });
-  const myFunction1 = () => {
-    document.getElementById("first").style.display = "block";
-    document.getElementById("first").style.color = "white";
-    document.getElementById("second").style.display = "none";
-    document.getElementById("third").style.display = "none";
-    document.getElementById("mgmttext").style.color = "#AFAFAF";
-    document.getElementById("techtext").style.color = "#F4B5C2";
-    document.getElementById("destext").style.color = "#AFAFAF";
-    document.getElementById("first").style.animation = "fadein 1.3s ease";
-  };
-
-  const myFunction2 = () => {
-    document.getElementById("second").style.display = "block";
-    document.getElementById("first").style.display = "none";
-    document.getElementById("third").style.display = "none";
-    document.getElementById("mgmttext").style.color = "#B6E8F3 ";
-    document.getElementById("techtext").style.color = "#AFAFAF";
-    document.getElementById("destext").style.color = "#AFAFAF";
-    document.getElementById("second").style.animation = "fadein 1.3s ease";
-  };
-
-  const myFunction3 = () => {
-    document.getElementById("third").style.display = "block";
-    document.getElementById("first").style.display = "none";
-    document.getElementById("second").style.display = "none";
-    document.getElementById("mgmttext").style.color = "#AFAFAF";
-    document.getElementById("techtext").style.color = "#AFAFAF";
-    document.getElementById("destext").style.color = "#F77655 ";
-    document.getElementById("third").style.animation = "fadein 1.3s ease";
-  };
 
   return (
     <>
@@ -381,139 +356,53 @@ function Landing1() {
           </div>
         </div>
         <StickerWall />
-        <div className="container my-5" id="laptop_roadmap">
-          <div class=" my-3">
-            <div class="row">
-              <div class="col mx-auto">
-                <button class="b1 mx-auto" onClick={myFunction1}>
-                  <h1
-                    id="techtext"
-                    style={{
-                      fontFamily: "BriceRegular",
-                      fontWeight: "bold",
-                      color: "#F4B5C2",
-                      fontSize: "48px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Technical
-                  </h1>
-                </button>
-              </div>
-              <div class="col mx-auto">
-                <button class="b2 mx-auto" onClick={myFunction2}>
-                  <h1
-                    id="mgmttext"
-                    style={{
-                      fontFamily: "BriceRegular",
-                      fontWeight: "bold",
-                      color: "#AFAFAF",
-                      fontSize: "48px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Management
-                  </h1>
-                </button>
-              </div>
-              <div class="col">
-                <button class="b3 ml-lg-5 pl-lg-5" onClick={myFunction3}>
-                  <h1
-                    id="destext"
-                    className=""
-                    style={{
-                      fontFamily: "BriceRegular",
-                      fontWeight: "bold",
-                      color: "#AFAFAF",
-                      fontSize: "48px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Design
-                  </h1>
-                </button>
-              </div>
-            </div>
+        <div className="container my-5">
+          <div className="d-flex justify-content-around">
+            {domain.map((field) => {
+              return (
+                <div
+                  className={active === field ? `${field}-active` : `${field}`}
+                  style={{
+                    fontFamily: "BriceRegular",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                    textTransform: "capitalize",
+                  }}
+                  onClick={() => {
+                    setActive(field);
+                  }}
+                >
+                  {field}
+                </div>
+              );
+            })}
           </div>
-
-          <div class="content row my-3">
-            <div id="first" style={{ marginTop: "1rem" }}>
-              <img src={technical} className="w-100 img-fluid" alt="roadMap" />{" "}
-            </div>
-            <div id="second" style={{ marginTop: "1rem" }}>
-              <img
-                src={ManagementRoadMap}
-                className="w-100 img-fluid"
-                alt="roadMap"
-              />{" "}
-            </div>
-            <div id="third" style={{ marginTop: "1rem" }}>
-              <img src={design} className="w-100 img-fluid" alt="roadMap" />{" "}
-            </div>
+          <div className={window.innerWidth < 600 ? "d-none" : ""}>
+            <img
+              src={
+                active === "technical"
+                  ? technical
+                  : active === "design"
+                  ? design
+                  : management
+              }
+              className="w-100 img-fluid"
+              alt="roadMap"
+            />
           </div>
         </div>
-        <div className="container my-5" id="mobile_roadmap">
-          <div class="container my-3">
-            <div class="row">
-              <div class="col mx-auto">
-                <button class="b1 mx-auto" onClick={myFunction1}>
-                  <h1
-                    id="techtext"
-                    style={{
-                      fontFamily: "BriceRegular",
-                      fontWeight: "bold",
-                      color: "#F4B5C2",
-                      fontSize: "26px",
-                    }}
-                  >
-                    Technical
-                  </h1>
-                </button>
-              </div>
-              <div class="col mx-auto">
-                <button class="b2 mx-auto" onClick={myFunction2}>
-                  <h1
-                    id="mgmttext"
-                    style={{
-                      fontFamily: "BriceRegular",
-                      fontWeight: "bold",
-                      color: "#AFAFAF",
-                      fontSize: "26px",
-                    }}
-                  >
-                    Management
-                  </h1>
-                </button>
-              </div>
-              <div class="col">
-                <button class="b3 ml-auto" onClick={myFunction3}>
-                  <h1
-                    id="destext"
-                    style={{
-                      fontFamily: "BriceRegular",
-                      fontWeight: "bold",
-                      color: "#AFAFAF",
-                      fontSize: "26px",
-                    }}
-                  >
-                    Design
-                  </h1>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="content row my-3">
-            <div id="first">
-              <img src={techmobile} className="w-100 img-fluid" />{" "}
-            </div>
-            <div id="second">
-              <img src={mgmtmobile} className="w-100 img-fluid" />{" "}
-            </div>
-            <div id="third">
-              <img src={techmobile} className="w-100 img-fluid" />{" "}
-            </div>
-          </div>
+        <div className={window.innerWidth > 600 ? "d-none" : ""}>
+          <img
+            src={
+              active === "technical"
+                ? technicalmobile
+                : active === "design"
+                ? designmobile
+                : managementmobile
+            }
+            className="w-100 img-fluid"
+            alt="roadMap"
+          />
         </div>
         <Link to="/register">
           <div className="row container mx-auto my-3">
