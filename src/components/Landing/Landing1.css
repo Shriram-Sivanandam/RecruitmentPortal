@@ -278,7 +278,9 @@ button {
   #team {
     font-size: 26px;
   }
-
+  /* #nav {
+    margin-left: 1rem;
+  } */
   .mobilehero {
     margin-left: 0.15rem;
   }
@@ -423,6 +425,18 @@ li {
   animation-timing-function: linear;
   animation-iteration-count: 2;
   animation-direction: alternate;
+}
+
+.enoughBtn {
+  margin-top: -35%;
+  height: 80px;
+}
+
+@media screen and (max-width: 800px) {
+  .enoughBtn {
+    margin-top: -35%;
+    height: 60px;
+  }
 }
 
 @keyframes rightanimate {

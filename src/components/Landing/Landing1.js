@@ -24,6 +24,7 @@ import mgmtmobile from "../../assets/managementRoadMapMobile.png";
 import Button from "../Button";
 import registerbutton from "../../assets/Group 246 (2).svg";
 import Connect from "../Connect/Connect";
+import Enough from "../Enough/Enough";
 
 function Landing1() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -73,7 +74,12 @@ function Landing1() {
               />
             </svg>
           </a>
-          {width < 991 && <Button />}
+
+          {width < 991 && (
+            <div className="ml-auto mr-1">
+              <Button />
+            </div>
+          )}
           <button
             className="navbar-toggler"
             type="button"
@@ -404,13 +410,15 @@ function Landing1() {
             alt="roadMap"
           />
         </div>
+
+        <Enough />
         <Link to="/register">
-          <div className="row container mx-auto my-3">
+          <div className="row container mx-auto mb-3 mt-n5">
             <div className="mx-auto">
               <img
                 src={registerbutton}
                 alt="registerButton"
-                className="registerButton"
+                className="registerButton enoughBtn"
               ></img>
             </div>
           </div>

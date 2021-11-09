@@ -16,8 +16,8 @@ function CountdownTimer() {
     var minutesIST = ISTTime.getMinutes();
     var secondsIST = ISTTime.getSeconds();
 
-    setHours(19 - hoursIST);
-    setMinutes(60 - minutesIST);
+    setHours(22 - hoursIST);
+    setMinutes(30 - minutesIST);
     setSeconds(60 - secondsIST);
   }
 

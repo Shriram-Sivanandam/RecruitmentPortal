@@ -336,7 +336,11 @@ function Register() {
       className=" registerPage container "
       style={{ width: "100vw", height: "100vh" }}
     >
-      <img src={TeamStc} alt="watermark" className="watermark img-fluid mx-auto"  />
+      
+      {/* <img src={TeamStc} alt="watermark" className="watermark img-fluid mx-auto"  /> */}
+
+     
+      
       <div className="heading mx-auto  ">
         {/* <div> */}
         <h1 className="heading mb-5  mx-auto ">Lets Get Started  <img className="  " src={LetsGetStarted} alt="watermark" /></h1>
