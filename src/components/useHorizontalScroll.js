@@ -17,7 +17,7 @@ export function useHorizontalScroll() {
           e.preventDefault();
         }
         el.scrollTo({
-          left: el.scrollLeft + 5 * e.deltaY,
+          left: el.scrollLeft + 3 * e.deltaY,
           behavior: "smooth",
         });
       };
