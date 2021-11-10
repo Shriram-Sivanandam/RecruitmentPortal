@@ -210,7 +210,6 @@ function App() {
       {/* <button onClick={studentRegister}>Hello</button> */}
       {/* <Enough /> */}
       {/* <CountdownTimer /> */}
-      {/* <Countdown2 /> */}
       <Router>
         <AuthProvider>
           <Switch>

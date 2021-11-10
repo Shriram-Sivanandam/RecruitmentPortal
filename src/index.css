@@ -31,6 +31,9 @@ code {
   font-family: "Apoc";
   src: local("Apoc"), url(./fonts/ApocLCTrial-LightSans.otf) format("truetype");
 }
+body {
+  overflow-x: hidden;
+}
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 5px;
