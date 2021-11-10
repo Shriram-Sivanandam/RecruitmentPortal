@@ -26,7 +26,7 @@ export default function Login() {
       await login(email.current.value, password.current.value);
       if (email.current.value === "1234@1234.com")
         history.push("/admin-dashboard");
-      else history.push("/");
+      else history.push("/quiz-dashboard");
     } catch {
       setError("Failed to log in");
     }
@@ -55,17 +55,10 @@ export default function Login() {
     //       Log In
     //     </button>
     //   </form>
-      // <div className="mt">
-      //   <Link className="custom" to="/forgot-password">
-      //     Forgot Password?
-      //   </Link>
-      // </div>
-      // <div className="login__signUpLink">
-      //   Need an account?{" "}
-      //   <Link className="custom zz" to="/signup">
-      //     Sign Up
-      //   </Link>
-      // </div>
+    // <div className="mt">
+    //   <Link className="custom" to="/forgot-password">
+    //     Forgot Password?
+    //   </Link>
     // </div>
     <div className="loginPage container "> 
     <img className="mx-auto letsgo2" src={letsgo}  alt="lets go" />
@@ -90,9 +83,6 @@ export default function Login() {
           Sign Up
         </Link>
       </div>
-          
-         </div>
-
     </div>
   );
 }

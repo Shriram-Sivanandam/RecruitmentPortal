@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Enough.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import enoughSent from "../../assets/enoughSent.svg";
+import enoughSent from "../../assets/enoughTape.svg";
 import nowHand from "../../assets/nowHand.png";
 import HorizontalScroll from "react-scroll-horizontal";
 // import { Element } from "react-scroll";

@@ -27,7 +27,7 @@ function App() {
   const [token, setToken] = useState("");
   const { currentUser } = useAuth();
 
-  console.log(currentUser)
+  console.log(currentUser);
   if (currentUser) {
     currentUser.getIdToken().then((response) => {
       setToken(response);
@@ -211,6 +211,8 @@ function App() {
       {/* <button onClick={assignTest}>Hello</button> */}
       {/* <Enough /> */}
       {/* <CountdownTimer /> */}
+      {/* <Countdown2 /> */}
+      {/* <Quizbox /> */}
       <Router>
         <AuthProvider>
           <Switch>

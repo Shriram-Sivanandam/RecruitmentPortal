@@ -1,21 +1,19 @@
 .dot {
-    height: 25px;
-    width: 25px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    
-  }
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
 
-.option:hover{
+.option:hover {
   border-style: solid !important;
-  border-color: black !important;
+  border-color: #c33d59 !important;
   /* border-width: 3px !important; */
   /* background-color: black; */
 }
 
 .selectedOption {
   border-style: solid !important;
-  border-color: black !important;
-
+  border-color: #c33d59 !important;
 }
