@@ -210,8 +210,8 @@ function App() {
       {/* <button onClick={studentRegister}>Hello</button> */}
       {/* <Enough /> */}
       {/* <CountdownTimer /> */}
-      <Countdown2 />
-      {/* <Router>
+      {/* <Countdown2 /> */}
+      <Router>
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/quiz-dashboard" component={Dashboard} />
@@ -240,7 +240,7 @@ function App() {
             <Route path="/" component={Landing1} />
           </Switch>
         </AuthProvider>
-      </Router> */}
+      </Router>
     </div>
   );
 }
