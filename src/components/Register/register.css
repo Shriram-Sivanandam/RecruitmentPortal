@@ -19,6 +19,11 @@
   color: #f05127;
 }
 
+.question{
+  font-size: 23px;
+}
+
+
 .img {
   margin: -20px;
 }
@@ -34,6 +39,7 @@
   width: 100%;
   z-index: 2;
   color: black;
+  Outline: none
 }
 
 .steps-form {
@@ -53,7 +59,7 @@
     content: " ";
     width: 100%;
     height: 2px;
-    background-color: #ccc; 
+    background-color: #f05127; 
 }
 .steps-step {
     display: table-cell;
@@ -185,10 +191,62 @@
   }
   .steps-row {
     width: 100%;
-    display: flex;
+    /* display: flex; */
     flex-wrap: nowrap;
     justify-content: space-between;
     overflow: auto !important;
     content: " ";
   }
+  .letsgo{
+
+    transform: translate(+50%, -40%) !important;
+    display:hidden;
+    display: grid;
+    place-items: center;
+
+  }
+  .heading{
+    font-size:14px;
+  }
+}
+.labels{
+  font-size: 14px;
+  /* font-weight: 700; */
+  color: #6B6B6B;
+  
+}
+
+
+.letsgo{
+  /* position: relative; */
+  transform: translate(+100%, -20%);
+  display: grid;
+  place-items: center;
+
+}
+.headingTop{
+  font-size: 38px;
+  font-weight: 700;
+  color: #f05127;
+  margin-top: -20px;
+}
+
+.headingDesign{
+  padding-bottom: 20px;
+  color: #f05127;
+}
+
+button[disabled]{
+  color:gray;
+  opacity: 0.5;
+  border-color: gray;
+ 
+}
+
+.TimeSlotLabel{
+  font-size:18px
+}
+
+.greyLabel{
+  color:#747474;
 }

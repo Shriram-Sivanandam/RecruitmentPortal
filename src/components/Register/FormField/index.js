@@ -225,7 +225,7 @@ export const DomainChoose = ({ setValue, setError }) => {
 
   return (
     <div>
-      <h3>You may select one or more than one domain(s)</h3>
+      <h3 className="labels">You may select one or more than one domain(s)</h3>
       <button
         onClick={(e) => {
           e.preventDefault();
@@ -257,7 +257,7 @@ export const DomainChoose = ({ setValue, setError }) => {
   );
 };
 
-export const DateChoose = ({ day , dates  ,setValue, setError }) => {
+export const DateChoose = ({ day , dates  ,setValue, setError , disabled }) => {
   const [selected, setSelected] = useState({
     month: "",
     date: "",
@@ -307,6 +307,9 @@ export const DateChoose = ({ day , dates  ,setValue, setError }) => {
 
   return (
     <div>
+      { disabled && (
+        <h3 className="headingDesign" >People applying for just the design domain can skip this section.</h3>
+       ) }
       {dates.map((date, index) => {
         return (
           <button
@@ -315,8 +318,10 @@ export const DateChoose = ({ day , dates  ,setValue, setError }) => {
               handleSubmit("October" ,date , day[index] );
             }}
             className={selected.date === date ? "selected" : "buttons"}
+            disabled={disabled}
           >
-            <div>
+            
+            <div   >
               <h3 className="button1">October</h3>
               <h3 className="button2"> {date} </h3>
               <h3 className="button3">{day[index]}</h3>
@@ -328,7 +333,7 @@ export const DateChoose = ({ day , dates  ,setValue, setError }) => {
   );
 };
 
-export const TimeSlot = ({time ,minutes , setValue, setError }) => {
+export const TimeSlot = ({time ,minutes , setValue, setError , disabled }) => {
   const [selected, setSelected] = useState({
     time: "",
     minutes:""
@@ -357,6 +362,10 @@ export const TimeSlot = ({time ,minutes , setValue, setError }) => {
 
   return (
     <div>
+       { disabled && (
+        <h3 className="headingDesign" >People applying for just the design domain can skip this section. </h3>
+       ) }
+       <h3 className="TimeSlotLabel">Select Time Slot <span className="greyLabel">The time slots follow 24hr format</span></h3>
       {time.map((slot,index) => {
         return (
           <button
@@ -364,6 +373,7 @@ export const TimeSlot = ({time ,minutes , setValue, setError }) => {
               e.preventDefault();
               handleSubmit(slot , minutes[index]);
             }}
+            disabled={disabled}
             className={selected.time === slot ? "sets" : "buts"}
           >
             {slot}:{minutes[index]} - {slot + 1}:{minutes[index]}

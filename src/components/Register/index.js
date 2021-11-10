@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Name,
-  RegNo , 
+  RegNo,
   Email,
   PhoneNo,
   Password,
@@ -21,7 +21,7 @@ import toastError from "../ToastError";
 import upArrow from "../../assets/upArrow.svg";
 import downArrow from "../../assets/downArrow.svg";
 import TeamStc from "../../assets/team_stc.svg";
-import LetsGetStarted from '../../assets/letsgo.svg'
+import LetsGetStarted from "../../assets/letsgo.svg";
 function Register() {
   // const token = <Constants />
   // const { token } = Constants();
@@ -32,15 +32,14 @@ function Register() {
   const [fulldates, setFullDates] = useState([]);
   const { login } = useAuth();
 
-  const [token,setToken] = useState("")
-  const {currentUser} = useAuth();
+  const [token, setToken] = useState("");
+  const { currentUser } = useAuth();
   // console.log(currentUser)
-  if (currentUser){
+  if (currentUser) {
     currentUser.getIdToken().then(async (response) => {
-      await setToken(response)
+      await setToken(response);
       // console.log(token)
-    })
-
+    });
   }
   const answerRef = useRef();
   const [value, setValue] = useState(null);
@@ -51,7 +50,8 @@ function Register() {
   const [answersArray, setAnswersArray] = useState([]);
   const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
-  const [timeset , setTimeSet] = useState(false)
+  const [timeset, setTimeSet] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const days = [
     "Sunday",
@@ -85,13 +85,13 @@ function Register() {
 
             // console.log(days[date.getDay()]);
 
-           
-
             if (answersArray[6]?.day === days[date.getDay()]) {
-             
               // time.push(date.getHours());
-              setTime((previousTime) => [...previousTime , date.getHours()] )
-              setMinutes((previousTime) => [...previousTime , date.getMinutes()])
+              setTime((previousTime) => [...previousTime, date.getHours()]);
+              setMinutes((previousTime) => [
+                ...previousTime,
+                date.getMinutes(),
+              ]);
 
               // minutes.push(date.getMinutes());
             } else {
@@ -102,11 +102,17 @@ function Register() {
       }
     });
   }, [answersArray[6]]);
+
+  useEffect(() => {
+    if (answersArray[5]?.includes("DESIGN") && answersArray[5]?.length === 1) {
+      setDisabled(true);
+    }
+  }, [answersArray[5]]);
   // })
 
   // for (let i = 0; i < fulldates.lengthlength; i++) {
   //   const date = new Date(fulldates[i].date_time);
-    
+
   //     if (answersArray[6].day === days[date.getDay()] ) {
   //       // time.push(date.getHours());
   //       setTime((previousTime) => [...previousTime , date.getHours()] )
@@ -115,14 +121,12 @@ function Register() {
   //       console.log(days[date.getDay()]);
   //     }
   //   }
-  
-
 
   // useEffect(() => {
   //   if (dates !== []) {
   //     for (let i = 0; i < fulldates.lengthlength; i++) {
   //       const date = new Date(fulldates[i].date_time);
-        
+
   //         if (answersArray[6].day === days[date.getDay()]) {
   //           // time.push(date.getHours());
   //           setTime((previousTime) => [...previousTime , date.getHours()] )
@@ -155,7 +159,6 @@ function Register() {
       if (currentQuestion === 6) {
         setShowNextBtn(false);
         setEndBtn(true);
-        
       }
     } else {
       if (error === null) {
@@ -200,13 +203,20 @@ function Register() {
           })
           .then(() => {
             console.log("success");
-            console.log(token)
+            console.log(token);
             login(answersArray[2], answersArray[4]).then(() => {
-              slotBooking()
-            })
+              if (
+                answersArray[5]?.includes("DESIGN") &&
+                answersArray[5]?.length === 1
+              ) {
+                setDisabled(true);
+                toast.success("You have successfully registered");
+              } else {
+                slotBooking();
+              }
+            });
 
             // slotBooking()
-           
           })
           .catch((err) => {
             console.log(err.message);
@@ -219,8 +229,7 @@ function Register() {
     }
   };
 
-  console.log(new Date(fulldates[1]?.date_time).getDay())
-  
+  console.log(new Date(fulldates[1]?.date_time).getDay());
 
   const slotBooking = async () => {
     // const timeslot = answersArray[7].split(" ")
@@ -230,17 +239,18 @@ function Register() {
     // const date = dates.indexOf(answersArray[6].date);
 
     for (let z = 0; z < fulldates?.length; z++) {
-      try{
+      try {
         const date = new Date(fulldates[z]?.date_time);
         // console.log("days =>" , days[date.getDay()])
         // console.log(date.getHours())
         // console.log(date.getMinutes())
         if (
-          days[date.getDay()] === answersArray[6].day && date.getHours() === answersArray[7].time
+          days[date.getDay()] === answersArray[6].day &&
+          date.getHours() === answersArray[7].time
         ) {
-          console.log("hello")
-          console.log(z)
-          console.log(fulldates[z].test_id)
+          console.log("hello");
+          console.log(z);
+          console.log(fulldates[z].test_id);
           await axios
             .post("http://localhost:3000/student/apti_test", {
               test_id: fulldates[z].test_id,
@@ -248,20 +258,17 @@ function Register() {
             .then(() => {
               console.log("hogya assign");
               toast.success("Successfuly Registered");
-  
             })
             .catch((err) => {
               console.log(err.message);
             });
-        }else{
-          console.log("test")
+        } else {
+          console.log("test");
         }
-      }catch(err) {
+      } catch (err) {
         console.log(err.message);
       }
-
-      }
-     
+    }
 
     // try{
     //   await axios.post("http://localhost:3000/student/register" , {
@@ -272,6 +279,8 @@ function Register() {
 
     // }
   };
+
+  console.log(disabled);
 
   const components = {
     1: (
@@ -317,9 +326,17 @@ function Register() {
         dates={dates}
         setValue={setValue}
         setError={setError}
+        disabled={disabled}
       />
     ),
-    8: <TimeSlot time={time} minutes={minutes} setValue={setValue} />,
+    8: (
+      <TimeSlot
+        time={time}
+        minutes={minutes}
+        setValue={setValue}
+        disabled={disabled}
+      />
+    ),
   };
 
   //   console.log(error)
@@ -344,25 +361,20 @@ function Register() {
       className=" registerPage container "
       style={{ width: "100vw", height: "100vh" }}
     >
-      
+      <img className="mx-auto letsgo" src={LetsGetStarted} alt="lets go" />
+
       {/* <img src={TeamStc} alt="watermark" className="watermark img-fluid mx-auto"  /> */}
 
-     
-      
       <div className="heading mx-auto  ">
         {/* <div> */}
-        <h1 className="heading mb-5  mx-auto ">Lets Get Started  <img className="  " src={LetsGetStarted} alt="watermark" /></h1>
+        <h1 className="headingTop mb-5  mx-auto ">Lets Get Started </h1>
 
         {/* </div> */}
-      
-     
-
-
       </div>
-     
+
       <div class="steps-form ">
         <div class="steps-row setup-panel mobilebar  ">
-          {[0, 1, 2, 3,4,5,6,7].map((key) => {
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((key) => {
             return (
               <>
                 {key - 1 < currentQuestion ? (
@@ -398,7 +410,7 @@ function Register() {
       </div>
 
       <div>
-        <h3 className="my-5">
+        <h3 className="my-5 question">
           <span style={{ color: "#7A7A7A" }}></span>
           {questionBank[currentQuestion]}
         </h3>
@@ -422,14 +434,16 @@ function Register() {
               onClick={nextQues}
               style={{ backgroundColor: "#5E72E4", borderColor: "#5E72E4" }}
             >
-              Next Question
+              Next {">"}
             </button>
             <div>
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                 
-                  setCurrentQuestion(currentQuestion + 1);
+                  nextQues();
+                  if (error !== null) {
+                    setCurrentQuestion(currentQuestion + 1);
+                  }
                 }}
                 className="arrows mr-2 p-1"
               >
@@ -455,31 +469,42 @@ function Register() {
         {showEndBtn ? (
           // <Link to="/">
           <div className="row my-5">
-            <div className="ml-auto">
+            <div className="mr-auto">
               <Link to="login">
-              <button
-                type="button"
-                class="btn btn-primary bg-dark"
-                style={{ backgroundColor: "#5E72E4" }}
+                <button
+                  type="button"
+                  class="btn btn-primary bg-dark mb-5 ml-3"
+                  style={{ backgroundColor: "#5E72E4" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    nextQues();
+                    setCurrentQuestion(7);
+                    console.log(answersArray);
+                    studentRegister().then(() => {
+                      console.log("1 complete");
+                      console.log(token);
+                      slotBooking();
+                    });
+                  }}
+                >
+                  Submit
+                </button>
+              </Link>
+            </div>
+            {/* <div>
+            <button
                 onClick={(e) => {
                   e.preventDefault();
-                 
-                  nextQues()
-                  setCurrentQuestion(7);
-                  console.log(answersArray)
-                   studentRegister().then( () => {
-                    console.log("1 complete");
-                    console.log(token)
-                    slotBooking()
-                  });
+                  if (currentQuestion !== 0) {
+                    setCurrentQuestion(currentQuestion - 1);
+                  }
                 }}
+                className="arrows py-1 px-2 "
               >
-                Submit
+                <img src={downArrow} alt="down" />
               </button>
-              
-               </Link>
-            
-            </div>
+            </div> */}
           </div>
         ) : (
           // </Link>

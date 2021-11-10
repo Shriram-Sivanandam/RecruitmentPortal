@@ -22,6 +22,7 @@ import Enough from "./components/Enough/Enough";
 import CountdownTimer from "./components/CountdownTimer/CountdownTimer";
 import Countdown2 from "./components/CountdownTimer/Countdown2";
 
+
 function App() {
   const [token, setToken] = useState("");
   const { currentUser } = useAuth();
@@ -54,7 +55,7 @@ function App() {
     name:"Arya Wadhwani",
     regno:"20BCE0399",
     phone_no:"7722043607",
-    domains:["MANAGEMENT","TECH"]
+    domains:["MANAGEMENT","TECH", "DESIGN"]
       })
       .then(() => {
         alert("hello");
@@ -207,7 +208,7 @@ function App() {
   return (
     <div className="App">
       {/* <Landing1 /> */}
-      {/* <button onClick={studentRegister}>Hello</button> */}
+      {/* <button onClick={assignTest}>Hello</button> */}
       {/* <Enough /> */}
       {/* <CountdownTimer /> */}
       <Router>

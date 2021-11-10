@@ -1,6 +1,6 @@
 .loginPage {
     background-color: #FFF5F1;
-    padding: 100px;
+    
     font-family:"BriceRegular" !important;
     /* position: absolute; */
     background-image: url(../../assets//team_stc.svg);
@@ -9,16 +9,40 @@
   background-size: contain;
 }
 
-.heading{
+.headingLogin{
     text-align: center;
     font-weight: 700;
     color: #F05127;
 }
 
-.letsgo{
+.letsgo2{
     /* position: relative; */
-    transform: translate(+80%, +10%);
+    transform: translate(+80%, +90%) !important;
     display: grid;
     place-items: center;
 
 }
+
+.star{
+    transform: translate(-160%, +220%) !important;
+    display: grid;
+    place-items: center;
+    
+}
+
+
+@media only screen and (max-width: 420px) {
+
+    .letsgo2{
+        transform: translate(+40%, +80%) !important;
+    }
+    
+    .star{
+        /* transform: translate(-120%, +160%) !important; */
+        display:none;
+    }
+    .headingLogin{
+        margin-top:30px;
+    }
+  
+  }

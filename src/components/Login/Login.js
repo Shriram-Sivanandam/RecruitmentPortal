@@ -3,7 +3,11 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 //import letsgo svg from assests  
 import letsgo from "../../assets/letsgo.svg";
+import star from '../../assets/star.svg'
+import { ToastContainer, toast } from "react-toastify";
+import toastError from "../ToastError";
 import './Login.css'
+
 
 export default function Login() {
   const email = useRef();
@@ -64,21 +68,25 @@ export default function Login() {
       // </div>
     // </div>
     <div className="loginPage container "> 
-    <img className="mx-auto letsgo" src={letsgo}  alt="lets go" />
-         <h1 className="heading mb-5">Log in</h1>
+    <img className="mx-auto letsgo2" src={letsgo}  alt="lets go" />
+    <img className="mx-auto star" src={star}  alt="star" />
+    
+         <h1 className="headingLogin mb-5">Log in</h1>
          <div>
-           {error && <alert variant="danger">{error}</alert>}
-           <input className="inputField my-4" placeholder="Enter your Email" ref={email}/>
-           <input className="inputField my-3" placeholder="Enter your Password" ref={password}/>
-           <button className="btn btn-primary bg-dark mt-5 mb-4" onClick={handleSubmit} disabled={loading}>Submit</button>
+           {error &&  <toastError error={error} />}
+           <label className="mt-3">Enter your VIT Email Id</label>
+           <input className="inputField my-2" placeholder="Enter your Email" ref={email}/>
+           <label className="mt-4">Password</label>
+           <input className="inputField my-2" placeholder="Enter your Password" ref={password}/>
+           <button className="btn btn-primary bg-dark border-dark  mt-5 mb-4" onClick={handleSubmit} disabled={loading}>Submit</button>
            <div className="mt">
-        <Link className="custom " to="/forgot-password">
+        <Link className="heading " to="/forgot-password">
           Forgot Password?
         </Link>
       </div>
       <div className="login__signUpLink mt-2">
         Need an account?{" "}
-        <Link className="custom zz" to="/register">
+        <Link className="heading" to="/register">
           Sign Up
         </Link>
       </div>
