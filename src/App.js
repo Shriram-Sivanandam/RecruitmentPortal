@@ -26,7 +26,7 @@ function App() {
   const [token, setToken] = useState("");
   const { currentUser } = useAuth();
 
-  console.log(currentUser)
+  console.log(currentUser);
   if (currentUser) {
     currentUser.getIdToken().then((response) => {
       setToken(response);
@@ -49,12 +49,12 @@ function App() {
   const studentRegister = () => {
     axios
       .post("http://localhost:3000/student/register", {
-        email:"aryajay.wadhwani2020@vitstudent.ac.in",
-    password:"abcd1234",
-    name:"Arya Wadhwani",
-    regno:"20BCE0399",
-    phone_no:"7722043607",
-    domains:["MANAGEMENT","TECH"]
+        email: "aryajay.wadhwani2020@vitstudent.ac.in",
+        password: "abcd1234",
+        name: "Arya Wadhwani",
+        regno: "20BCE0399",
+        phone_no: "7722043607",
+        domains: ["MANAGEMENT", "TECH"],
       })
       .then(() => {
         alert("hello");
@@ -210,11 +210,8 @@ function App() {
       {/* <button onClick={studentRegister}>Hello</button> */}
       {/* <Enough /> */}
       {/* <CountdownTimer /> */}
-<<<<<<< HEAD
       {/* <Countdown2 /> */}
       {/* <Quizbox /> */}
-=======
->>>>>>> 327abf3689dc91d1b0eeb462c15ea309f3ecbf7c
       <Router>
         <AuthProvider>
           <Switch>

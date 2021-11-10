@@ -1,38 +1,31 @@
-.quizpage{
-  background-color: #FFF5F1;
+.quizpage {
+  background-color: #fff5f1;
   height: 100%;
-  
-
 }
 
-.completedbar{
+.completedbar {
   height: 5px;
   width: 100%;
-  background-color: #C33D59 ;
+  background-color: #c33d59;
   border-radius: 20px;
 }
-.bar{
-  background-color: #C4C4C4 ;
+.bar {
+  background-color: #c4c4c4;
 }
 
 .quizbox {
   margin-top: 5vh;
-  align-self: center ;
+  align-self: center;
   background-color: white;
   border-radius: 12px;
   padding: 1.5rem 3rem 0.5rem 3rem;
- 
 }
-
 
 @media only screen and (max-width: 420px) {
-  .logo{
+  .logo {
     display: none;
-
   }
-  .completedText{
-    font-size:16px
+  .completedText {
+    font-size: 16px;
   }
-
 }
-
