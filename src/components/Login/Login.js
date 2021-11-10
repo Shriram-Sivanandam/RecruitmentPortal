@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import './Login.css'
+import "./Login.css";
 
 export default function Login() {
   const email = useRef();
@@ -20,7 +20,7 @@ export default function Login() {
       await login(email.current.value, password.current.value);
       if (email.current.value === "1234@1234.com")
         history.push("/admin-dashboard");
-      else history.push("/");
+      else history.push("/quiz-dashboard");
     } catch {
       setError("Failed to log in");
     }
@@ -49,39 +49,51 @@ export default function Login() {
     //       Log In
     //     </button>
     //   </form>
-      // <div className="mt">
-      //   <Link className="custom" to="/forgot-password">
-      //     Forgot Password?
-      //   </Link>
-      // </div>
-      // <div className="login__signUpLink">
-      //   Need an account?{" "}
-      //   <Link className="custom zz" to="/signup">
-      //     Sign Up
-      //   </Link>
-      // </div>
+    // <div className="mt">
+    //   <Link className="custom" to="/forgot-password">
+    //     Forgot Password?
+    //   </Link>
     // </div>
-    <div className="container loginPage"> 
-         <h1 className="heading mb-5">Log in</h1>
-         <div>
-           {error && <alert variant="danger">{error}</alert>}
-           <input className="inputField my-4" placeholder="Enter your Email" ref={email}/>
-           <input className="inputField my-3" placeholder="Enter your Password" ref={password}/>
-           <button className="btn btn-primary bg-dark mt-5 mb-4" onClick={handleSubmit} disabled={loading}>Submit</button>
-           <div className="mt">
-        <Link className="custom " to="/forgot-password">
-          Forgot Password?
-        </Link>
+    // <div className="login__signUpLink">
+    //   Need an account?{" "}
+    //   <Link className="custom zz" to="/signup">
+    //     Sign Up
+    //   </Link>
+    // </div>
+    // </div>
+    <div className="container loginPage">
+      <h1 className="heading mb-5">Log in</h1>
+      <div>
+        {error && <alert variant="danger">{error}</alert>}
+        <input
+          className="inputField my-4"
+          placeholder="Enter your Email"
+          ref={email}
+        />
+        <input
+          className="inputField my-3"
+          placeholder="Enter your Password"
+          ref={password}
+        />
+        <button
+          className="btn btn-primary bg-dark mt-5 mb-4"
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          Submit
+        </button>
+        <div className="mt">
+          <Link className="custom " to="/forgot-password">
+            Forgot Password?
+          </Link>
+        </div>
+        <div className="login__signUpLink mt-2">
+          Need an account?{" "}
+          <Link className="custom zz" to="/register">
+            Sign Up
+          </Link>
+        </div>
       </div>
-      <div className="login__signUpLink mt-2">
-        Need an account?{" "}
-        <Link className="custom zz" to="/register">
-          Sign Up
-        </Link>
-      </div>
-          
-         </div>
-
     </div>
   );
 }

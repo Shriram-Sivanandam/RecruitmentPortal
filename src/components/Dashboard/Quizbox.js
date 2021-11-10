@@ -3,8 +3,8 @@ import Nav2 from "../Nav/Nav2";
 import "./Quizbox.css";
 import { Link } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
-import Options from './Options'
-import axios from 'axios'
+import Options from "./Options";
+import axios from "axios";
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -13,54 +13,50 @@ function Quizbox() {
   const [showEndBtn, setEndBtn] = useState(false);
   // var answersArray = [];
   const [answersArray, setAnswersArray] = useState([]);
-  const [questionBank , setQuestionBank] = useState([])
-  const [loading , setLoading] = useState(false)
-  const [status , setStatus] = useState("")
-
-
+  const [questionBank, setQuestionBank] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     console.log("hello");
     // setLoading(true);
 
-   
-      axios.get('http://localhost:3000/student/start_test').then((response) =>{
-        console.log(response.data)
-        if (response.data === "INACTIVE TEST" ){
-          setStatus("Given")
-        }else{
-          setQuestionBank(response.data)
-
+    axios
+      .get("http://localhost:3000/student/start_test")
+      .then((response) => {
+        console.log(response.data);
+        if (response.data === "INACTIVE TEST") {
+          setStatus("Given");
+        } else {
+          setQuestionBank(response.data);
         }
-       
+
         // setLoading(false)
-
-
-      }).catch((err) => {
-        console.log(err)
       })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const handleSubmit = () => {
-    
-      axios.post('http://localhost:3000/student/score', {
-        answers: answersArray
-      }).then((response) =>{
-        console.log(response.data)
-  
-      }).catch((err) => {
-        console.log(err)
-  
+    axios
+      .post("http://localhost:3000/student/score", {
+        answers: answersArray,
       })
-    
-  }
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const optionsForm = {
-    Option1 : "A",
+    Option1: "A",
     Option2: "B",
     Option3: "C",
-    Option4: "D"
-  }
+    Option4: "D",
+  };
 
   // const questionBank = [
   //   {
@@ -165,9 +161,6 @@ function Quizbox() {
   //   },
   // ];
 
-
-
-  
   function handleOptionClick(optionSelected) {
     // answersArray.push(optionSelected);
     // console.log(answersArray);
@@ -176,7 +169,7 @@ function Quizbox() {
 
   function nextQues() {
     setCurrentQuestion(currentQuestion + 1);
-    setAnswersArray([...answersArray, currentOption])
+    setAnswersArray([...answersArray, currentOption]);
     // answersArray.push(currentOption);
     // console.log(answersArray);
 
@@ -186,18 +179,14 @@ function Quizbox() {
     }
   }
 
-  console.log(answersArray)
+  console.log(answersArray);
 
   return (
     <>
       {/* <Nav2 /> */}
-      {  status === "Given" ? 
-      null : 
-      
-    
-     
-      <div className="container quizpage  p-5 " >
-        {/* <div className="row my-5">
+      {status === "Given" ? null : (
+        <div className="container quizpage  p-5 ">
+          {/* <div className="row my-5">
           <div className="mr-auto">
             <h4 style={{ fontWeight: "600" }}>
               {" "}
@@ -218,45 +207,52 @@ function Quizbox() {
             </h4>
           </div>
         </div> */}
-        <div className="quizbox container">
-          <div className="d-flex justify-content-between">
-            <img className="logo" src={Group45} alt="logo" />
-            <div>
-              <h5 className="completedText">
-                Total Test Completed - {((currentQuestion + 1) / 10) * 100}%
-              </h5>
-              <div className="bar">
-                <div
-                  style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
-                  className="completedbar"
-                ></div>
+          <div className="quizbox container">
+            <div className="d-flex justify-content-between">
+              <img className="logo" src={Group45} alt="logo" />
+              <div>
+                <h5 className="completedText">
+                  Total Test Completed - {((currentQuestion + 1) / 10) * 100}%
+                </h5>
+                <div className="bar">
+                  <div
+                    style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
+                    className="completedbar"
+                  ></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="w-100 my-2 " style={{backgroundColor:"#E0E0E0", padding:"1px"}} >
-
-</div>
-          {/* <div className="row my-1">
+            <div
+              className="w-100 my-2 "
+              style={{ backgroundColor: "#E0E0E0", padding: "1px" }}
+            ></div>
+            {/* <div className="row my-1">
             <b>
               <h3>Question {currentQuestion + 1}</h3>
             </b>
           </div> */}
-          <div className="d-flex justify-content-between">
-            <h5 style={{ color:"#7A7A7A" }}> {10 -  currentQuestion - 1  } questions to go</h5>
-            <div className="logo">
-              Time to Go : 20:00{" "}
+            <div className="d-flex justify-content-between">
+              <h5 style={{ color: "#7A7A7A" }}>
+                {" "}
+                {10 - currentQuestion - 1} questions to go
+              </h5>
+              <div className="logo">Time to Go : 20:00 </div>
             </div>
-            
-          </div>
-          {  questionBank !== [] ? 
-          <>
-           <div className=" my-3 ">
-            <h5> <span style={{ color:"#7A7A7A" }}>Q{currentQuestion + 1}:</span> {questionBank[currentQuestion]?.Question}</h5>
-          </div>
-          <div className="col">
-            {/* {questionBank[currentQuestion].answerOptions.map((answerOption) => ( */}
+            {questionBank !== [] ? (
+              <>
+                <div className=" my-3 ">
+                  <h5>
+                    {" "}
+                    <span style={{ color: "#7A7A7A" }}>
+                      Q{currentQuestion + 1}:
+                    </span>{" "}
+                    {questionBank[currentQuestion]?.Question}
+                  </h5>
+                </div>
+                <div className="col">
+                  {/* {questionBank[currentQuestion].answerOptions.map((answerOption) => ( */}
 
-              {/* // <div
+                  {/* // <div
               //   onClick={() => handleOptionClick(answerOption.optionSelected)}
               //   className="row my-2"
               // >
@@ -272,74 +268,93 @@ function Quizbox() {
               //     </label>
               //   </div>
               // </div> */}
-              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option1)} >
-                <Options currentOption={currentOption}  option={optionsForm["Option1"]} text={questionBank[currentQuestion]?.Option1} />
-                
+                  <div
+                    onClick={() =>
+                      handleOptionClick(questionBank[currentQuestion].Option1)
+                    }
+                  >
+                    <Options
+                      currentOption={currentOption}
+                      option={optionsForm["Option1"]}
+                      text={questionBank[currentQuestion]?.Option1}
+                    />
+                  </div>
+                  <div
+                    onClick={() =>
+                      handleOptionClick(questionBank[currentQuestion].Option2)
+                    }
+                  >
+                    <Options
+                      currentOption={currentOption}
+                      option={optionsForm["Option2"]}
+                      text={questionBank[currentQuestion]?.Option2}
+                    />
+                  </div>
+                  <div
+                    onClick={() =>
+                      handleOptionClick(questionBank[currentQuestion].Option3)
+                    }
+                  >
+                    <Options
+                      currentOption={currentOption}
+                      option={optionsForm["Option3"]}
+                      text={questionBank[currentQuestion]?.Option3}
+                    />
+                  </div>
+                  <div
+                    onClick={() =>
+                      handleOptionClick(questionBank[currentQuestion].Option4)
+                    }
+                  >
+                    <Options
+                      currentOption={currentOption}
+                      option={optionsForm["Option4"]}
+                      text={questionBank[currentQuestion]?.Option4}
+                    />
+                  </div>
 
-              </div>
-              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option2)} >
-                <Options currentOption={currentOption}  option={optionsForm["Option2"]} text={questionBank[currentQuestion]?.Option2} />
-                
+                  {/* // ))} */}
+                </div>
+              </>
+            ) : null}
 
-              </div>
-              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option3)} >
-                <Options currentOption={currentOption}  option={optionsForm["Option3"]} text={questionBank[currentQuestion]?.Option3} />
-                
-
-              </div>
-              <div  onClick={() => handleOptionClick(questionBank[currentQuestion].Option4)} >
-                <Options currentOption={currentOption}  option={optionsForm["Option4"]} text={questionBank[currentQuestion]?.Option4} />
-                
-
-              </div>
-              
-            {/* // ))} */}
-          </div>
-
-          </>
-          
-        
-        :null}
-
-         
-         
-          {showNextBtn ? (
-            <div className="row my-5">
-              <div className="ml-auto">
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={nextQues}
-                  style={{ backgroundColor: "#5E72E4" }}
-                >
-                  Next Question
-                </button>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-          {showEndBtn ? (
-            <Link to="/thankyou">
+            {showNextBtn ? (
               <div className="row my-5">
                 <div className="ml-auto">
                   <button
                     type="button"
                     className="btn btn-primary"
+                    onClick={nextQues}
                     style={{ backgroundColor: "#5E72E4" }}
-                    onClick={handleSubmit}
                   >
-                    End Test
+                    Next Question
                   </button>
                 </div>
               </div>
-            </Link>
-          ) : (
-            ""
-          )}
+            ) : (
+              ""
+            )}
+            {showEndBtn ? (
+              <Link to="/thankyou">
+                <div className="row my-5">
+                  <div className="ml-auto">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      style={{ backgroundColor: "#5E72E4" }}
+                      onClick={handleSubmit}
+                    >
+                      End Test
+                    </button>
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
-      </div>
-}
+      )}
     </>
   );
 }
