@@ -122,8 +122,9 @@ export const PhoneNo = ({ setValue, setError, placeholder }) => {
             ref={pincode}
             style={{width: "3rem"}}
             className="inputField"
+            placeholder="+91"
             // value="+91"
-            defaultValue="+91"
+            // defaultValue="+91"
             
             />
       <input
@@ -173,6 +174,7 @@ export const Password = ({ setValue, setError, placeholder }) => {
         ref={password}
         className="inputField mb-5"
         placeholder="Enter Your Password"
+        type="password"
         onChange={(e) => {
           e.preventDefault();
           handleSubmit();
@@ -182,6 +184,7 @@ export const Password = ({ setValue, setError, placeholder }) => {
         ref={confirmPassword}
         className="inputField"
         placeholder="Confirm Password"
+        type="password"
         onChange={(e) => {
           e.preventDefault();
           handleSubmit();

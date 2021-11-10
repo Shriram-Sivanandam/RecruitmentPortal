@@ -1,59 +1,30 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, {useState , useEffect} from 'react'
+import LetsGetStarted from '../../../assets/letsgo.svg'
 import {
-  Name,
-  RegNo , 
-  Email,
-  PhoneNo,
-  Password,
-  DomainChoose,
-  DateChoose,
-  TimeSlot,
-} from "./FormField";
-import "./register.css";
-import { useAuth } from "../../contexts/AuthContext";
-import { auth, db } from "../../firebase";
-import Constants from "../constants";
-import axios from "axios";
+    DateChoose,
+    TimeSlot,
+  } from "../FormField";
+  import { useAuth } from "../../../contexts/AuthContext";
+import { auth, db } from "../../../firebase";
+import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import toastError from "../ToastError";
-import upArrow from "../../assets/upArrow.svg";
-import downArrow from "../../assets/downArrow.svg";
-import TeamStc from "../../assets/team_stc.svg";
-import LetsGetStarted from '../../assets/letsgo.svg'
-import { array } from "yup";
-function Register() {
-  // const token = <Constants />
-  // const { token } = Constants();
-  const [dates, setDates] = useState([]);
+import toastError from "../../ToastError";
+import upArrow from "../../../assets/upArrow.svg";
+import downArrow from "../../../assets/downArrow.svg";
+
+function SlotBooking() {
+    const [dates, setDates] = useState([]);
   const [day, setDay] = useState([]);
   const [time, setTime] = useState([]);
   const [minutes, setMinutes] = useState([]);
   const [fulldates, setFullDates] = useState([]);
-  const { login } = useAuth();
-
   const [token,setToken] = useState("")
-  const {currentUser} = useAuth();
-  // console.log(currentUser)
-  if (currentUser){
-    currentUser.getIdToken().then(async (response) => {
-      await setToken(response)
-      // console.log(token)
-    })
-
-  }
-  const answerRef = useRef();
+  const [answersArray, setAnswersArray] = useState([]);
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);
-  const [answersArray, setAnswersArray] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
-  const [timeset , setTimeSet] = useState(false)
-
   const days = [
     "Sunday",
     "Monday",
@@ -63,7 +34,6 @@ function Register() {
     "Friday",
     "Saturday",
   ];
-
   useEffect(() => {
     // console.log("hello");
     axios.get("http://localhost:3000/student/test").then((response) => {
@@ -102,45 +72,7 @@ function Register() {
         }
       }
     });
-  }, [answersArray[6]]);
-  // })
-
-  // for (let i = 0; i < fulldates.lengthlength; i++) {
-  //   const date = new Date(fulldates[i].date_time);
-    
-  //     if (answersArray[6].day === days[date.getDay()] ) {
-  //       // time.push(date.getHours());
-  //       setTime((previousTime) => [...previousTime , date.getHours()] )
-  //       minutes.push(date.getMinutes());
-  //     } else {
-  //       console.log(days[date.getDay()]);
-  //     }
-  //   }
-  
-
-
-  // useEffect(() => {
-  //   if (dates !== []) {
-  //     for (let i = 0; i < fulldates.lengthlength; i++) {
-  //       const date = new Date(fulldates[i].date_time);
-        
-  //         if (answersArray[6].day === days[date.getDay()]) {
-  //           // time.push(date.getHours());
-  //           setTime((previousTime) => [...previousTime , date.getHours()] )
-  //           minutes.push(date.getMinutes());
-  //         } else {
-  //           console.log(days[date.getDay()]);
-  //         }
-  //       }
-  //   }
-
-  // } , [answersArray])
-
-  // console.log("dates", dates);
-  // console.log("day", day);
-
-  // console.log("time", time);
-  // console.log("minutes", minutes);
+  }, [answersArray]);
 
   function nextQues() {
     // answersArray.splice(currentQuestion, 0, answerRef.current.value);
@@ -153,7 +85,7 @@ function Register() {
       answersArray[currentQuestion] = value;
       setValue(null);
       setCurrentQuestion(currentQuestion + 1);
-      if (currentQuestion === 6) {
+      if (currentQuestion === 1) {
         setShowNextBtn(false);
         setEndBtn(true);
         
@@ -177,51 +109,6 @@ function Register() {
     // answerRef.current.value = "";
   }
 
-  //  const studentRegister = async () => {
-  //   await axios.post('http://localhost:3001/student/register', {
-  //     name: answersArray[0],
-  //     regno: answersArray[1],
-  //     phone_no:answersArray[3],
-  //     domains: answersArray[5]
-  //  }
-  //   )
-  // }
-
-  const studentRegister = async () => {
-    try {
-      if (error === null) {
-        await axios
-          .post("http://localhost:3000/student/register", {
-            email: answersArray[2],
-            password: answersArray[4],
-            name: answersArray[0],
-            regno: answersArray[1],
-            phone_no: answersArray[3],
-            domains: answersArray[5],
-          })
-          .then(() => {
-            console.log("success");
-            console.log(token)
-            login(answersArray[2], answersArray[4]).then(() => {
-              slotBooking()
-            })
-
-            // slotBooking()
-           
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-      } else {
-        toastError(error);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  console.log(new Date(fulldates[1]?.date_time).getDay())
-  
 
   const slotBooking = async () => {
     // const timeslot = answersArray[7].split(" ")
@@ -241,16 +128,12 @@ function Register() {
         ) {
           console.log("hello")
           console.log(z)
-          console.log(fulldates[z].test_id)
           await axios
             .post("http://localhost:3000/student/apti_test", {
               test_id: fulldates[z].test_id,
-            })
-            .then(() => {
+            }).then(() => {
               console.log("hogya assign");
-              toast.success("Successfuly Registered");
-  
-            })
+              toast.success("Successfuly Registered")})
             .catch((err) => {
               console.log(err.message);
             });
@@ -276,80 +159,36 @@ function Register() {
 
   const components = {
     1: (
-      <Name
-        setValue={setValue}
-        setError={setError}
-        placeholder="Enter your name"
-      />
-    ),
-    2: (
-      <RegNo
-        setValue={setValue}
-        setError={setError}
-        placeholder="Enter your Registration Number"
-      />
-    ),
-    3: (
-      <Email
-        setValue={setValue}
-        setError={setError}
-        error={error}
-        placeholder="Enter Your Email"
-      />
-    ),
-    4: (
-      <PhoneNo
-        setValue={setValue}
-        setError={setError}
-        placeholder="Enter your Phone Number"
-      />
-    ),
-    5: (
-      <Password
-        setValue={setValue}
-        setError={setError}
-        placeholder="Enter your Password"
-      />
-    ),
-    6: <DomainChoose value={value} setValue={setValue} setError={setError} />,
-    7: (
-      <DateChoose
-        day={day}
-        dates={dates}
-        setValue={setValue}
-        setError={setError}
-      />
-    ),
-    8: <TimeSlot time={time} minutes={minutes} setValue={setValue} />,
-  };
-
-  //   console.log(error)
-
-  //   console.log(currentQuestion)
-
-  console.log(answersArray);
+        <DateChoose
+          day={day}
+          dates={dates}
+          setValue={setValue}
+          setError={setError}
+        />
+      ),
+      2: <TimeSlot time={time} minutes={minutes} setValue={setValue} />,
+  }
 
   const questionBank = [
-    "1. Heyy, what’s your name?",
-    "2. How do you identify yourself in VIT?",
-    "3. Drop your VIT Email ID",
-    "4. Let’s have a talk, shall we?",
-    "5. Shhh... no one else needs to know...Enter your password",
-    "6. Which Domain(s) interests you the most?",
-    "7. Choose a preferred date for your aptitude test.",
-    "8. Choose a preferred time slot for your aptitude test.",
-  ];
+       "1. Choose a preferred date for your aptitude test.",
+    "2. Choose a preferred time slot for your aptitude test.",
+  ]
 
-  return (
-    <div
-      className=" registerPage container "
-      style={{ width: "100vw", height: "100vh" }}
-    >
-      
-      {/* <img src={TeamStc} alt="watermark" className="watermark img-fluid mx-auto"  /> */}
 
-     
-      
+  const {currentUser} = useAuth();
+  // console.log(currentUser)
+  if (currentUser){
+    currentUser.getIdToken().then(async (response) => {
+      await setToken(response)
+      // console.log(token)
+    })
+
+  }
+    return (
+        <div  className=" registerPage container "
+        style={{ width: "100vw", height: "100vh" }}>
+
+             
       <div className="heading mx-auto  ">
         {/* <div> */}
         <h1 className="heading mb-5  mx-auto ">Lets Get Started  <img className="  " src={LetsGetStarted} alt="watermark" /></h1>
@@ -360,10 +199,9 @@ function Register() {
 
 
       </div>
-     
       <div class="steps-form ">
         <div class="steps-row setup-panel mobilebar  ">
-          {[0, 1, 2, 3,4,5,6].map((key) => {
+          {[0, 1].map((key) => {
             return (
               <>
                 {key < currentQuestion ? (
@@ -397,7 +235,6 @@ function Register() {
         </div> */}
         </div>
       </div>
-
       <div>
         <h3 className="my-5">
           <span style={{ color: "#7A7A7A" }}></span>
@@ -419,9 +256,9 @@ function Register() {
           <div className=" buttonsRegister">
             <button
               type="button"
-              className="btn btn-primary border-dark  bg-dark mb-5"
+              className="btn btn-primary  bg-dark mb-5"
               onClick={nextQues}
-              style={{ backgroundColor: "#5E72E4", borderColor: "#5E72E4" }}
+              style={{ backgroundColor: "#5E72E4" }}
             >
               Next Question
             </button>
@@ -432,9 +269,9 @@ function Register() {
                  
                   setCurrentQuestion(currentQuestion + 1);
                 }}
-                className="arrows mr-2 p-1"
+                className="arrows mr-2 py-1 px-2"
               >
-                <img className="px-1" src={upArrow} alt="up" />
+                <img src={upArrow} alt="up" />
               </button>
               <button
                 onClick={(e) => {
@@ -457,7 +294,6 @@ function Register() {
           // <Link to="/">
           <div className="row my-5">
             <div className="ml-auto">
-              <Link to="login">
               <button
                 type="button"
                 class="btn btn-primary bg-dark"
@@ -468,18 +304,13 @@ function Register() {
                   nextQues()
                   setCurrentQuestion(7);
                   console.log(answersArray)
-                   studentRegister().then( () => {
-                    console.log("1 complete");
-                    console.log(token)
+                   
                     slotBooking()
-                  });
+                
                 }}
               >
                 Submit
               </button>
-              
-               </Link>
-            
             </div>
           </div>
         ) : (
@@ -489,8 +320,10 @@ function Register() {
 
         <div></div>
       </div>
-    </div>
-  );
+      
+            
+        </div>
+    )
 }
 
-export default Register;
+export default SlotBooking

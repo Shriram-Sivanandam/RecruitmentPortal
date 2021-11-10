@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./Quizbox.css";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
 import Options from "./Options";
 import axios from "axios";
+import Countdown2 from "../CountdownTimer/CountdownTimer";
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -16,6 +17,7 @@ function Quizbox() {
   const [questionBank, setQuestionBank] = useState([]);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
+  const [startTime, setStartTime] = useState(0);
 
   useEffect(() => {
     console.log("hello");
@@ -25,10 +27,16 @@ function Quizbox() {
       .get("http://localhost:3000/student/start_test")
       .then((response) => {
         console.log(response.data);
-        if (response.data === "INACTIVE TEST") {
+        if (
+          response.data === "INACTIVE TEST" ||
+          response.data === "CANNOT GIVE TEST"
+        ) {
           setStatus("Given");
         } else {
-          setQuestionBank(response.data);
+          setQuestionBank(response.data.question);
+          if (startTime === 0) {
+            setStartTime(response.data.start_time);
+          }
         }
 
         // setLoading(false)
@@ -184,7 +192,9 @@ function Quizbox() {
   return (
     <>
       {/* <Nav2 /> */}
-      {status === "Given" ? null : (
+      {status === "Given" ? (
+        <Redirect to="/quiz-dashboard" />
+      ) : (
         <div className="container quizpage  p-5 ">
           {/* <div className="row my-5">
           <div className="mr-auto">
@@ -236,7 +246,9 @@ function Quizbox() {
                 {" "}
                 {10 - currentQuestion - 1} questions to go
               </h5>
-              <div className="logo">Time to Go : 20:00 </div>
+              <div className="logo">
+                Time to Go : <Countdown2 />{" "}
+              </div>
             </div>
             {questionBank !== [] ? (
               <>
