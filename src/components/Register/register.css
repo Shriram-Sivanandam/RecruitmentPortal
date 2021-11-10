@@ -6,6 +6,7 @@
   background-image: url(../../assets//team_stc.svg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
 }
 
 .watermark {
@@ -63,7 +64,7 @@
     width: 30px;
     height: 30px;
     text-align: center;
-    padding: 3px 0;
+    padding: 4px 0 !important;
     font-size: 12px;
     border-radius: 15px;
     margin-top: 0;
@@ -71,14 +72,14 @@
     border-style: 5px solid !important;
     border-color: #F05127 !important;
     background-color: #FFF5F1;
-    color: #F05127;
+    color: #F05127 !important;
    
 
  }
 .active {
     background-color: #F05127;
     font-weight: bold;
-    color:white
+    color:white !important;
 
     
 }
@@ -92,7 +93,7 @@
   border-radius: 15px;
   margin-top: 0;
   border-style: 3px solid !important;
-  border-color: #f6cab8 !important;
+  border-color: #f6cab8;
   background-color: #fff5f1;
   color: black;
 }

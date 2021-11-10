@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+//import letsgo svg from assests  
+import letsgo from "../../assets/letsgo.svg";
 import './Login.css'
 
 export default function Login() {
@@ -61,7 +63,8 @@ export default function Login() {
       //   </Link>
       // </div>
     // </div>
-    <div className="container loginPage"> 
+    <div className="loginPage container "> 
+    <img className="mx-auto letsgo" src={letsgo}  alt="lets go" />
          <h1 className="heading mb-5">Log in</h1>
          <div>
            {error && <alert variant="danger">{error}</alert>}

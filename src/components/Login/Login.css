@@ -2,10 +2,23 @@
     background-color: #FFF5F1;
     padding: 100px;
     font-family:"BriceRegular" !important;
+    /* position: absolute; */
+    background-image: url(../../assets//team_stc.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .heading{
     text-align: center;
     font-weight: 700;
     color: #F05127;
+}
+
+.letsgo{
+    /* position: relative; */
+    transform: translate(+80%, +10%);
+    display: grid;
+    place-items: center;
+
 }

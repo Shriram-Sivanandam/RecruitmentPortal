@@ -22,7 +22,6 @@ import upArrow from "../../assets/upArrow.svg";
 import downArrow from "../../assets/downArrow.svg";
 import TeamStc from "../../assets/team_stc.svg";
 import LetsGetStarted from '../../assets/letsgo.svg'
-import { array } from "yup";
 function Register() {
   // const token = <Constants />
   // const { token } = Constants();
@@ -363,10 +362,10 @@ function Register() {
      
       <div class="steps-form ">
         <div class="steps-row setup-panel mobilebar  ">
-          {[0, 1, 2, 3,4,5,6].map((key) => {
+          {[0, 1, 2, 3,4,5,6,7].map((key) => {
             return (
               <>
-                {key < currentQuestion ? (
+                {key - 1 < currentQuestion ? (
                   <div class="steps-step mr-3">
                     <a
                       href="#step-9"
