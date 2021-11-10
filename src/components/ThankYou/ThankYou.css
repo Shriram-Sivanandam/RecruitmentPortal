@@ -1,17 +1,14 @@
-
 .font-face-gm {
   font-family: "Brice Font Family";
   font-style: normal;
-font-weight: bold;
-font-size: 48px;
-line-height: 68px;
-color: #C33D59;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 68px;
+  color: #c33d59;
+}
 
- }
- 
- @media only screen and (max-width: 400px) {
-  #svg1{
+@media only screen and (max-width: 400px) {
+  #svg1 {
     width: 95vw;
   }
- }
-
+}

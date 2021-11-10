@@ -221,9 +221,9 @@ function Quizbox() {
             <div className="d-flex justify-content-between">
               <img className="logo" src={Group45} alt="logo" />
               <div>
-                <h5 className="completedText">
+                <h6 className="completedText">
                   Total Test Completed - {((currentQuestion + 1) / 10) * 100}%
-                </h5>
+                </h6>
                 <div className="bar">
                   <div
                     style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
@@ -335,9 +335,9 @@ function Quizbox() {
                 <div className="ml-auto">
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn"
                     onClick={nextQues}
-                    style={{ backgroundColor: "#5E72E4" }}
+                    style={{ backgroundColor: "#C33D59" }}
                   >
                     Next Question
                   </button>
@@ -353,10 +353,10 @@ function Quizbox() {
                     <button
                       type="button"
                       className="btn btn-primary"
-                      style={{ backgroundColor: "#5E72E4" }}
+                      style={{ backgroundColor: "#C33D59" }}
                       onClick={handleSubmit}
                     >
-                      End Test
+                      Submit
                     </button>
                   </div>
                 </div>

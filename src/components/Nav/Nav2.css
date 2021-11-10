@@ -7,3 +7,7 @@
 #profilePic {
   width: 40px;
 }
+
+.mainNavbar {
+  border-bottom: 3px solid #fbe7df;
+}

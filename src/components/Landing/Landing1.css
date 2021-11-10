@@ -466,7 +466,7 @@ li {
 @media screen and (max-width: 800px) {
   .enoughBtn {
     margin-top: -35%;
-    height: 60px;
+    height: 50px;
   }
 }
 
