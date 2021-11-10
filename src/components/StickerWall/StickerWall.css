@@ -120,7 +120,6 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-
 /* .firstBar {
   transform: translateY(-25px);
 }
@@ -153,9 +152,57 @@
   }
 }
 
-/* @media only screen and (max-width: 900px) {
-  .stiWallDiv {
-    padding-top: 10px;
-    padding-bottom: 10px;
+@media only screen and (max-width: 600px) {
+  .barcodeDiv1 {
+    transform: rotate(-3.5deg) scale(2.3);
   }
-} */
+  .barcodeDiv2 {
+    transform: rotate(3.5deg) scale(2.3);
+    margin-top: 100px;
+  }
+  .stiheading {
+    margin-top: 3rem;
+    width: 96%;
+  }
+  .stiSuperb,
+  .stiNow,
+  .stiCode {
+    display: none;
+  }
+  .stiCog {
+    width: 180px;
+  }
+  .stiSmiley {
+    width: 100px;
+    margin-left: -66px;
+    margin-top: -80px;
+  }
+  .stiCalender {
+    width: 152px;
+    margin-left: -57px;
+    margin-top: 83px;
+  }
+  .stiHand {
+    width: 103px;
+    margin-left: -366px;
+  }
+  .stiBlue {
+    width: 80px;
+    margin-top: 10px;
+    transform: translate(496%, 80%);
+  }
+  .stiStandard {
+    width: 133px;
+    margin-left: 231px;
+    margin-top: -230px;
+    transform: translate(-14%, 14%);
+  }
+  .stiTicket {
+    width: 237px;
+    transform: translate(23%, 35%);
+  }
+  .stiPosFu {
+    width: 128px;
+    transform: translate(2%, -42%) !important;
+  }
+}

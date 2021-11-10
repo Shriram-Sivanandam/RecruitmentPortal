@@ -5,6 +5,9 @@
   transform: scale(0.8);
   transition: all 0.1s ease;
 }
+.navbar-toggler {
+  padding: 1.5px !important;
+}
 .technical {
   font-family: BriceRegular;
   font-weight: bold;
@@ -25,22 +28,25 @@
 }
 .technical-active {
   font-family: BriceRegular;
+  text-decoration: underline;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 50px;
   color: #f4b5c2;
 }
 
 .management-active {
   font-family: BriceRegular;
+  text-decoration: underline;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 50px;
   color: #b6e8f3;
 }
 
 .design-active {
   font-family: BriceRegular;
+  text-decoration: underline;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 50px;
   color: #f77655;
 }
 
@@ -56,6 +62,7 @@
     opacity: 1;
   }
 }
+
 .heroSection {
   display: flex;
   flex-direction: column;
@@ -64,6 +71,9 @@
 }
 
 @media screen and (min-width: 600px) {
+  #mobileonly1 {
+    display: none !important;
+  }
   #navshit {
     display: flex;
   }
@@ -121,20 +131,20 @@
     display: block;
   }
   #arrow {
-    width: 35px;
+    width: 50px;
   }
   #really {
-    width: 50px;
+    width: 75px;
     height: 40px;
   }
   #wegiveout {
-    font-size: 23px;
+    font-size: 29px;
   }
   #cool {
     font-size: 26px;
   }
   #opportunities {
-    font-size: 24px;
+    font-size: 23px;
     font-family: "Changa one", cursive;
     font-style: italic;
     margin-top: 10px;
@@ -156,11 +166,15 @@
     font-family: "Ramabhadra", sans-serif;
   }
   #people {
-    font-size: 23px;
+    margin-top: -35px;
+    margin-left: 30px;
+    font-size: 26px;
     font-family: "Rubik Mono One", sans-serif;
   }
   #smiley {
-    display: none;
+    height: 35px;
+    width: 50px;
+    margin-left: -10px !important;
   }
   #ilus_grid {
     display: none;
@@ -169,7 +183,7 @@
     display: none;
   }
   #wearestc {
-    margin-left: 1.5rem !important;
+    margin-left: 1rem !important;
   }
   .technical {
     font-size: 20px;
@@ -181,13 +195,28 @@
     font-size: 20px;
   }
   .technical-active {
-    font-size: 20px;
+    font-size: 20x;
   }
   .management-active {
     font-size: 20px;
   }
   .design-active {
     font-size: 20px;
+  }
+  .mobilehero {
+    height: 70vh;
+  }
+  .heroSection {
+    justify-content: flex-start;
+  }
+  .sticker-hero-mobile {
+    height: 164px;
+    width: 140px;
+  }
+  #mobileonly1 {
+    display: block;
+    margin-top: 30px;
+    margin-left: -50px;
   }
 }
 
@@ -272,16 +301,18 @@ button {
     width: 13vw;
   }
   #weare {
-    font-size: 26px;
+    font-size: 36px;
     margin-top: 20px;
   }
   #team {
-    font-size: 26px;
+    font-size: 30px;
+    margin-left: 3px;
   }
   /* #nav {
     margin-left: 1rem;
   } */
   .mobilehero {
+    overflow-x: hidden;
     margin-left: 0.15rem;
   }
   .stiWallDiv {
