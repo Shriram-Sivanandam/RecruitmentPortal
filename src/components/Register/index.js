@@ -166,8 +166,8 @@ function Register() {
     } else {
       if (error === null) {
         console.log(error);
-        setError("Pls Enter Valid Value");
-        toastError("Pls Enter Valid Value");
+        setError("Please enter valid value");
+        toastError("Please enter valid value");
       } else {
         console.log(error);
         toastError(error);

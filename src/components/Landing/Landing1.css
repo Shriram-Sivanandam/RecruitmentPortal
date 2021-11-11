@@ -611,3 +611,18 @@ li {
     margin-left: 13.25rem;
   }
 }
+.aniManager:hover{
+transform: rotate(-25deg);
+transition-duration: 0.8s;
+animation-iteration-count: infinite;
+}
+.aniDesigner:hover{
+  transform: rotate(20deg);
+transition-duration: 1s;
+animation-iteration-count: infinite;
+}
+.aniDeveloper:hover{
+  transform: rotate(-10deg);
+transition-duration: 0.5s;
+animation-iteration-count: infinite;
+}
