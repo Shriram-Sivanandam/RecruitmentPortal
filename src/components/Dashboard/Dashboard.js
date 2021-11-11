@@ -669,8 +669,7 @@ function Dashboard() {
                       <div className="designBottom mx-auto">
                         {" "}
                         <span>
-                          Your Quiz will start at your <br /> registered time
-                          slot
+                          Your Quiz will start after the <br /> aptitude test
                         </span>
                       </div>
                     )}

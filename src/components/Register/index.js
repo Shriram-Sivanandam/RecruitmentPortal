@@ -18,6 +18,8 @@ import "react-toastify/dist/ReactToastify.css";
 import toastError from "../ToastError";
 import upArrow from "../../assets/upArrow.svg";
 import downArrow from "../../assets/downArrow.svg";
+import previousArrow from "../../assets/previousArrow.svg";
+import nextArrow from "../../assets/nextArrow.svg";
 import LetsGetStarted from "../../assets/letsgo.svg";
 function Register() {
   // const token = <Constants />
@@ -422,20 +424,21 @@ function Register() {
                   nextQues();
                   // setCurrentQuestion(currentQuestion + 1);
                 }}
-                className="arrows mr-2 p-1"
+                className="arrows py-1 px-2 "
               >
-                <img className="px-1" src={upArrow} alt="up" />
+                {<img src={previousArrow} alt="down" />}
               </button>
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  if (currentQuestion !== 0) {
-                    setCurrentQuestion(currentQuestion - 1);
+                  nextQues();
+                  if (error !== null) {
+                    setCurrentQuestion(currentQuestion + 1);
                   }
                 }}
-                className="arrows py-1 px-2 "
+                className="arrows ml-2 p-1"
               >
-                <img src={downArrow} alt="down" />
+                {<img className="px-1" src={nextArrow} alt="up" />}
               </button>
             </div>
           </div>
