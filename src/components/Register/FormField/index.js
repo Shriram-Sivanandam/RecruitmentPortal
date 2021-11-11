@@ -79,7 +79,7 @@ export const Email = ({ setValue, setError, error, placeholder }) => {
   const handleSubmit = () => {
     if (email.current.value !== null) {
       // console.log("hello")
-      if (email.current.value.endsWith("2021@vitstudent.ac.in")) {
+      if (/2021@vitstudent.ac.in$/.test(email.current.value)) {
         setError(null);
         setValue(email.current.value);
       } else {
@@ -219,7 +219,7 @@ export const DomainChoose = ({ setValue, setError }) => {
       setSelected([...selected, component[domain]]);
     }
   };
-  if (selected !== []) {
+  if (JSON.stringify(selected) !== JSON.stringify([])) {
     console.log(selected);
     setValue(selected);
   }
@@ -300,12 +300,7 @@ export const DateChoose = ({ day, dates, setValue, setError, disabled }) => {
     // console.log(selected);
   };
   if (
-    selected !==
-    {
-      month: "",
-      date: "",
-      day: "",
-    }
+    selected.month !== ""
   ) {
     setValue(selected);
   }
@@ -360,6 +355,7 @@ export const TimeSlot = ({ time, minutes, setValue, setError, disabled }) => {
   };
 
   if (selected !== "") {
+    console.log("selected" , selected)
     setValue(selected);
   }
 
