@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import designmobile from "../../assets/designmobile.png";
 // import mgmt from '../../assets/mgmt.png'
