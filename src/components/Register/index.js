@@ -66,7 +66,7 @@ function Register() {
 
   useEffect(() => {
     // console.log("hello");
-    axios.get("http://localhost:3000/student/test").then((response) => {
+    axios.get("/student/test").then((response) => {
       console.log(response.data);
       // const d1 = response.data.split("T")
       // const d2 = d1[1].split("")

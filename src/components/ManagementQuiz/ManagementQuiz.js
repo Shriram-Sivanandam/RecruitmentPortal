@@ -33,7 +33,7 @@ function ManagementQuiz() {
 
   const managementQuiz = async () => {
     console.log(answersArray);
-    await axios.post('http://localhost:3000/student/mgmt_quiz',{
+    await axios.post('/mgmt_quiz',{
       
         "answer1":answersArray[0],
         "answer2":answersArray[1],
