@@ -1,5 +1,6 @@
 import React from "react";
 import "./StickerWall.css";
+import { Link } from "react-router-dom";
 import stiwall1 from "../../assets/stiwall1.svg";
 import stiwall2 from "../../assets/stiwall2.svg";
 import stiwall3 from "../../assets/superbstiwall.svg";
@@ -45,7 +46,9 @@ function StickerWall() {
           <img src={stickwallhead} className="stiheading" alt="sticker"></img>
         </div>
         <div className="contStiWall">
-          <img src={stiwall4} className="sticker2 stiCog" alt="sticker"></img>
+          <Link to="/register">
+            <img src={stiwall4} className="sticker2 stiCog" alt="sticker"></img>
+          </Link>
           <img
             src={stiwall7}
             className="sticker2 stiSmiley"
@@ -63,8 +66,12 @@ function StickerWall() {
           <img src={stiwall1} className="stiPosFu" alt="sticker"></img>
           <img src={stiwall11} className="stiHand" alt="sticker"></img>
           <img src={stiwall9} className="stiBlue" alt="sticker"></img>
-          <img src={stiwall10} className="stiTicket" alt="sticker"></img>
-          <img src={stiwall6} className="stiStandard" alt="sticker"></img>
+          <Link to="/register">
+            <img src={stiwall10} className="stiTicket" alt="sticker"></img>
+          </Link>
+          <a href="https://stcvit.in/" target="blank" alt="sticker">
+            <img src={stiwall6} className="stiStandard" alt="sticker"></img>
+          </a>
           <img src={stiwall8} className="stiNow" alt="sticker"></img>
         </div>
         <div className="barcodeDiv2">

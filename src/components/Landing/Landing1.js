@@ -150,7 +150,7 @@ function Landing1() {
               </div>
             </ul>
           </div>
-          <Link to="/login" style={{ textDecoration: "none" }}>
+          <Link to="/quiz-dashboard" style={{ textDecoration: "none" }}>
             <li class="nav-item mr-auto">{width > 991 && <Button />}</li>
           </Link>
         </nav>
