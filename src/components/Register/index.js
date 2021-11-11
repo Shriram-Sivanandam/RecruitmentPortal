@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link , useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Name,
   RegNo,
@@ -102,14 +102,14 @@ function Register() {
         }
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[6]]);
 
   useEffect(() => {
     if (answersArray[5]?.includes("DESIGN") && answersArray[5]?.length === 1) {
       setDisabled(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[5]]);
   // })
 
@@ -360,13 +360,8 @@ function Register() {
     >
       <img className="mx-auto letsgo" src={LetsGetStarted} alt="lets go" />
 
-    
-
       <div className="heading mx-auto  ">
-       
         <h1 className="headingTop mb-5  mx-auto ">Lets Get Started </h1>
-
-        
       </div>
 
       <div class="steps-form ">
@@ -394,7 +389,6 @@ function Register() {
               </>
             );
           })}
-         
         </div>
       </div>
 
@@ -403,15 +397,10 @@ function Register() {
           <span style={{ color: "#7A7A7A" }}></span>
           {questionBank[currentQuestion]}
         </h3>
-        <div>
-         
-          {components[currentQuestion + 1]}
-        </div>
+        <div>{components[currentQuestion + 1]}</div>
       </div>
       <div className="my-5">
-      
         {showNextBtn ? (
-          
           <div className=" buttonsRegister">
             <button
               type="button"
@@ -448,7 +437,6 @@ function Register() {
             </div>
           </div>
         ) : (
-         
           ""
         )}
         {showEndBtn ? (
@@ -478,7 +466,6 @@ function Register() {
                 </button>
               </Link>
             </div>
-            
           </div>
         ) : (
           // </Link>

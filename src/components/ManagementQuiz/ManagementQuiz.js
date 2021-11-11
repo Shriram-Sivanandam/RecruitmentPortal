@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./ManagementQuiz.css";
 import { Link } from "react-router-dom";
-import Group45 from '../../assets/Group45.svg'
-import axios from 'axios'
-import {  toast } from "react-toastify";
+import Group45 from "../../assets/Group45.svg";
+import axios from "axios";
+import { toast } from "react-toastify";
 import toastError from "../ToastError";
 function ManagementQuiz() {
   const answerRef = useRef();
@@ -22,7 +22,7 @@ function ManagementQuiz() {
     setAnswersArray([...answersArray, answerRef.current.value]);
     // setUserAnswer("");
     answerRef.current.value = "";
-    
+
     setCurrentQuestion(currentQuestion + 1);
     if (currentQuestion === 3) {
       setShowNextBtn(false);
@@ -33,25 +33,24 @@ function ManagementQuiz() {
 
   const managementQuiz = async () => {
     console.log(answersArray);
-    await axios.post('/mgmt_quiz',{
-      
-        "answer1":answersArray[0],
-        "answer2":answersArray[1],
-        "answer3":answersArray[2],
-        "answer4":answersArray[3],
-        "answer5":answerRef.current.value
-    
-    }).then((response) => {
-      console.log(response.data)
-      console.log("success")
-      toast.success("Successfuly Registered");
-
-    }).catch((err) => {
-      console.log(err)
-      toastError(err);
-    })
-  }
-
+    await axios
+      .post("/mgmt_quiz", {
+        answer1: answersArray[0],
+        answer2: answersArray[1],
+        answer3: answersArray[2],
+        answer4: answersArray[3],
+        answer5: answerRef.current.value,
+      })
+      .then((response) => {
+        console.log(response.data);
+        console.log("success");
+        toast.success("Successfuly Registered");
+      })
+      .catch((err) => {
+        console.log(err);
+        toastError(err);
+      });
+  };
 
   const questionBank = [
     "What is the shortcut for adding Auto Layout in Figma?1",
@@ -64,8 +63,10 @@ function ManagementQuiz() {
   return (
     <>
       <Nav2 />
-      <div className="container  p-5" style={{ backgroundColor:"#FFF5F1" , width:"100vw" , height:"100vh" }}>
-      
+      <div
+        className="container  p-5"
+        style={{ backgroundColor: "#FFF5F1", width: "100vw", height: "100vh" }}
+      >
         {/* <div className="row my-5">
           <div className="managementQuesInfo">
             <h4>
@@ -79,7 +80,7 @@ function ManagementQuiz() {
           </div>
         </div> */}
         <div className="managementQBox container">
-        <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
             <img src={Group45} alt="logo" className="logo" />
             <div>
               <h5 className="completedText">
@@ -93,15 +94,16 @@ function ManagementQuiz() {
               </div>
             </div>
           </div>
-          <div className="w-100 my-2 " style={{backgroundColor:"#E0E0E0", padding:"1px"}} >
-
-</div>
-        <div className="d-flex justify-content-between">
-            <h5 style={{ color:"#7A7A7A" }}> {10 -  currentQuestion - 1  } questions to go</h5>
-            <div className="logo">
-              Time to Go : 20:00{" "}
-            </div>
-            
+          <div
+            className="w-100 my-2 "
+            style={{ backgroundColor: "#E0E0E0", padding: "1px" }}
+          ></div>
+          <div className="d-flex justify-content-between">
+            <h5 style={{ color: "#7A7A7A" }}>
+              {" "}
+              {10 - currentQuestion - 1} questions to go
+            </h5>
+            <div className="logo">Time to Go : 20:00 </div>
           </div>
           {/* <div className="row my-1">
             <b>
@@ -110,7 +112,8 @@ function ManagementQuiz() {
           </div> */}
           <div class="form-group">
             <label className="managementQues" for="managementAnswer">
-            <span style={{ color:"#7A7A7A" }} >Q{currentQuestion + 1}: </span>{questionBank[currentQuestion]}
+              <span style={{ color: "#7A7A7A" }}>Q{currentQuestion + 1}: </span>
+              {questionBank[currentQuestion]}
             </label>
             <textarea
               ref={answerRef}
@@ -126,9 +129,9 @@ function ManagementQuiz() {
               <div className="ml-auto">
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  class="btn"
                   onClick={nextQues}
-                  style={{ backgroundColor: "#5E72E4" }}
+                  style={{ backgroundColor: "#C33D59" }}
                 >
                   Next Question
                 </button>
@@ -143,15 +146,17 @@ function ManagementQuiz() {
                 <div className="ml-auto">
                   <button
                     type="button"
-                    class="btn btn-primary"
-                    style={{ backgroundColor: "#5E72E4" }}
+                    class="btn"
+                    style={{ backgroundColor: "#C33D59" }}
                     onClick={() => {
-                      setAnswersArray([...answersArray, answerRef.current.value]);
-                      managementQuiz()
-
+                      setAnswersArray([
+                        ...answersArray,
+                        answerRef.current.value,
+                      ]);
+                      managementQuiz();
                     }}
                   >
-                    End Test
+                    Submit
                   </button>
                 </div>
               </div>
