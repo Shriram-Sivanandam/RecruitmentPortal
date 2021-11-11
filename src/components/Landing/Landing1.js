@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as SmoothLink } from "react-scroll";
 import designmobile from "../../assets/designmobile.png";
@@ -17,17 +17,18 @@ import Connect from "../Connect/Connect";
 import Enough from "../Enough/Enough";
 import StickerWall from "../StickerWall/StickerWall";
 import "./Landing1.css";
+import herosectionMobile from "../../assets/herosection_mobile.svg";
 import hamburgermenu from "../../assets/hamburger.svg";
 
 function Landing1() {
   const [width, setWidth] = useState(window.innerWidth);
   const [active, setActive] = useState("technical");
   const domain = ["technical", "management", "design"];
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
-  });
+  }, []);
 
   return (
     <>
@@ -149,20 +150,14 @@ function Landing1() {
               </div>
             </ul>
           </div>
-          <Link to="/quiz-dashboard" style={{ textDecoration: "none" }}>
+          <Link to="/login" style={{ textDecoration: "none" }}>
             <li class="nav-item mr-auto">{width > 991 && <Button />}</li>
           </Link>
         </nav>
 
         <div className="container mt-3">
-          <div className="row mobilehero">
-            <div
-              className="col-2"
-              id="ilus_grid"
-              style={{
-                marginLeft: "-4rem",
-              }}
-            >
+          <div className="row mobilehero hideMobile">
+            <div className="col-2" id="ilus_grid">
               <div className="row">
                 <img src={designer} className=" img-fluid" alt="d"></img>
               </div>
@@ -350,6 +345,16 @@ function Landing1() {
             </div>
           </div>
         </div>
+        <div
+          className="showOnMobile"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <img
+            src={herosectionMobile}
+            alt="HeroSection"
+            className="hero-section-mobile"
+          />
+        </div>
         <StickerWall />
         <div className="container my-5" name="roadMapScroll">
           <div className="d-flex justify-content-around">
@@ -372,7 +377,7 @@ function Landing1() {
               );
             })}
           </div>
-          <div className={window.innerWidth < 600 ? "d-none" : ""}>
+          <div className={width < 600 ? "d-none" : ""}>
             <img
               src={
                 active === "technical"
@@ -386,8 +391,9 @@ function Landing1() {
             />
           </div>
         </div>
-        <div className={window.innerWidth > 600 ? "d-none" : ""}>
+        <div className={width > 600 ? "d-none" : "roadMapDiv"}>
           <img
+            id={active}
             src={
               active === "technical"
                 ? technicalmobile
@@ -395,7 +401,7 @@ function Landing1() {
                 ? designmobile
                 : managementmobile
             }
-            className="w-100 img-fluid"
+            className="w-100 img-fluid roadMapMobile"
             alt="roadMap"
           />
         </div>

@@ -5,7 +5,7 @@ import mobileinfo from "../../assets/mobileinfo.svg";
 
 function Connect() {
   return (
-    <div className="mainCont" style={{ height: "23rem" }}>
+    <div className="mainCont" style={{ height: "auto" }}>
       <div className="connectCont">
         <div className="connect_text">
           <div className="headingCont">
@@ -46,14 +46,14 @@ function Connect() {
                 fill="black"
               />
             </svg>
-            <img src={mobileinfo} className="mobileinfo"></img>
+            <img src={mobileinfo} className="mobileinfo" alt="connect"></img>
           </div>
         </div>
         <div className="connect_logos" id="connect_logos_laptop">
           <a
             id="connect_anchors"
             href="https://www.linkedin.com/company/micvitvellore/mycompany/"
-            target="_blank"
+            target=""
           >
             <svg
               className="connect_linkdinLogo"
@@ -113,7 +113,7 @@ function Connect() {
             />
           </a>
 
-          <a href="https://stcvit.in/" target="_blank">
+          <a href="https://stcvit.in/" target="">
             <svg
               id="connect_anchors"
               className="connect_websiteLogo"
@@ -172,7 +172,7 @@ function Connect() {
             </svg>
           </a>
 
-          <a href="https://github.com/STCVIT" target="_blank">
+          <a href="https://github.com/STCVIT" target="">
             <svg
               id="connect_anchors"
               className="connect_gitLogo"

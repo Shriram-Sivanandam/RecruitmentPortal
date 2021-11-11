@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link , useHistory } from "react-router-dom";
 import {
   Name,
   RegNo,
@@ -12,20 +12,20 @@ import {
 } from "./FormField";
 import "./register.css";
 import { useAuth } from "../../contexts/AuthContext";
-import { auth, db } from "../../firebase";
-import Constants from "../constants";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import toastError from "../ToastError";
 import upArrow from "../../assets/upArrow.svg";
 import downArrow from "../../assets/downArrow.svg";
-import TeamStc from "../../assets/team_stc.svg";
 import LetsGetStarted from "../../assets/letsgo.svg";
 function Register() {
   // const token = <Constants />
   // const { token } = Constants();
+  const history = useHistory();
+  // eslint-disable-next-line no-unused-vars
   const [dates, setDates] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [day, setDay] = useState([]);
   const [time, setTime] = useState([]);
   const [minutes, setMinutes] = useState([]);
@@ -41,16 +41,17 @@ function Register() {
       // console.log(token)
     });
   }
-  const answerRef = useRef();
+  // const answerRef = useRef();
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [answersArray, setAnswersArray] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
-  const [timeset, setTimeSet] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const { signup } = useAuth();
+  // const [timeset, setTimeSet] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
   const days = [
@@ -101,12 +102,14 @@ function Register() {
         }
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[6]]);
 
   useEffect(() => {
     if (answersArray[5]?.includes("DESIGN") && answersArray[5]?.length === 1) {
       setDisabled(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[5]]);
   // })
 
@@ -193,11 +196,11 @@ function Register() {
     try {
       if (error === null) {
         await axios
-          .post("http://localhost:3000/student/register", {
+          .post("/student/register", {
             email: answersArray[2],
             password: answersArray[4],
             name: answersArray[0],
-            regno: answersArray[1],
+            regno: answersArray[1].toUpperCase(),
             phone_no: answersArray[3],
             domains: answersArray[5],
           })
@@ -252,7 +255,7 @@ function Register() {
           console.log(z);
           console.log(fulldates[z].test_id);
           await axios
-            .post("http://localhost:3000/student/apti_test", {
+            .post("/student/apti_test", {
               test_id: fulldates[z].test_id,
             })
             .then(() => {
@@ -339,12 +342,6 @@ function Register() {
     ),
   };
 
-  //   console.log(error)
-
-  //   console.log(currentQuestion)
-
-  console.log(answersArray);
-
   const questionBank = [
     "1. Heyy, what’s your name?",
     "2. How do you identify yourself in VIT?",
@@ -363,13 +360,13 @@ function Register() {
     >
       <img className="mx-auto letsgo" src={LetsGetStarted} alt="lets go" />
 
-      {/* <img src={TeamStc} alt="watermark" className="watermark img-fluid mx-auto"  /> */}
+    
 
       <div className="heading mx-auto  ">
-        {/* <div> */}
+       
         <h1 className="headingTop mb-5  mx-auto ">Lets Get Started </h1>
 
-        {/* </div> */}
+        
       </div>
 
       <div class="steps-form ">
@@ -397,15 +394,7 @@ function Register() {
               </>
             );
           })}
-          {/*        
-        <div class="steps-step">
-          <a href="#step-10" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-          
-        </div>
-        <div class="steps-step">
-          <a href="#step-11" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-          
-        </div> */}
+         
         </div>
       </div>
 
@@ -415,18 +404,14 @@ function Register() {
           {questionBank[currentQuestion]}
         </h3>
         <div>
-          {/* <input
-            ref={answerRef}
-            className="inputField"
-            placeholder="Enter Your Name"
-          /> */}
+         
           {components[currentQuestion + 1]}
         </div>
       </div>
       <div className="my-5">
-        {/* <button className="btn btn-primary bg-dark px-4">Next</button> */}
+      
         {showNextBtn ? (
-          // <div className="row my-5">
+          
           <div className=" buttonsRegister">
             <button
               type="button"
@@ -463,7 +448,7 @@ function Register() {
             </div>
           </div>
         ) : (
-          // </div>
+         
           ""
         )}
         {showEndBtn ? (
@@ -486,25 +471,14 @@ function Register() {
                       console.log(token);
                       slotBooking();
                     });
+                    history.push("/");
                   }}
                 >
                   Submit
                 </button>
               </Link>
             </div>
-            {/* <div>
-            <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (currentQuestion !== 0) {
-                    setCurrentQuestion(currentQuestion - 1);
-                  }
-                }}
-                className="arrows py-1 px-2 "
-              >
-                <img src={downArrow} alt="down" />
-              </button>
-            </div> */}
+            
           </div>
         ) : (
           // </Link>

@@ -7,6 +7,7 @@ import stclogo from "../../assets/Group 45.svg";
 
 function Nav() {
   const { currentUser, logout } = useAuth();
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");
   const history = useHistory();
   async function handleLogout() {
@@ -21,12 +22,12 @@ function Nav() {
   return (
     <>
       <nav
-        className=" mt-3 navbar navbar-expand-lg navbar-dark  mainNavbar"
+        className="  navbar navbar-expand-lg navbar-dark  mainNavbar"
         id="nav"
         style={{ backgroundColor: "#FFF5F1" }}
       >
         <a className="navbar-brand ml-lg-5 pl-lg-5 ml-xs-0 pl-xs-0" href="/">
-          <img src={stclogo}></img>
+          <img src={stclogo} alt="logo"></img>
         </a>
         <button
           className="navbar-toggler"

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 import Nav2 from "../Nav/Nav2";
 import "./ThankYou.css";
-import group295 from "../../assets/Group 295.svg";
-import group299 from "../../assets/Round 1 completed.svg";
+// import group295 from "../../assets/Group 295.svg";
+// import group299 from "../../assets/Round 1 completed.svg";
 import group296 from "../../assets/Group 296.svg";
 import group247 from "../../assets/Group 247.svg";
-import group289 from "../../assets/Group 289.svg";
-import group291 from "../../assets/Group 291.png";
+// import group289 from "../../assets/Group 289.svg";
+// import group291 from "../../assets/Group 291.png";
 function ThankYou() {
   return (
     <section style={{ backgroundColor: "#FFF5F1" }}>
@@ -52,7 +52,7 @@ function ThankYou() {
             </svg>
           </div>
           <div className="col ">
-            <img src={group296}></img>
+            <img src={group296} alt="thankyoy"></img>
           </div>
         </div>
         <div className="container row">
@@ -71,7 +71,7 @@ function ThankYou() {
           </svg>
         </div>
         <Link to="/quiz-dashboard" className="row mx-auto my-5">
-          <img className="mx-auto" src={group247}></img>
+          <img className="mx-auto" src={group247} alt="thankyou"></img>
         </Link>
 
         <div className="row mx-auto my-5">

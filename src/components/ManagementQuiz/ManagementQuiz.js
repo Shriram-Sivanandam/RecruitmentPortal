@@ -4,11 +4,11 @@ import "./ManagementQuiz.css";
 import { Link } from "react-router-dom";
 import Group45 from '../../assets/Group45.svg'
 import axios from 'axios'
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import toastError from "../ToastError";
 function ManagementQuiz() {
   const answerRef = useRef();
-  const [userAnswer, setUserAnswer] = useState("");
+  // const [userAnswer, setUserAnswer] = useState("");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);

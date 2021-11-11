@@ -8,6 +8,12 @@
 .navbar-toggler {
   padding: 1.5px !important;
 }
+.showOnMobile {
+  display: none;
+}
+.hero-section-mobile {
+  display: none;
+}
 .technical {
   font-family: BriceRegular;
   font-weight: bold;
@@ -33,7 +39,12 @@
   font-size: 50px;
   color: #f4b5c2;
 }
-
+.technical-image {
+  animation: fadein 1.3s;
+}
+.management-image {
+  animation: fadein 1.3s;
+}
 .management-active {
   font-family: BriceRegular;
   text-decoration: underline;
@@ -123,10 +134,16 @@
   }
   #ilus_grid {
     position: absolute;
-    margin-left: -10vw;
+    margin-left: -4rem;
   }
 }
 @media screen and (max-width: 600px) {
+  .hero-section-mobile {
+    display: block;
+  }
+  .showOnMobile {
+    display: block;
+  }
   #navshit {
     display: block;
   }
@@ -195,16 +212,13 @@
     font-size: 20px;
   }
   .technical-active {
-    font-size: 20x;
+    font-size: 20px;
   }
   .management-active {
     font-size: 20px;
   }
   .design-active {
     font-size: 20px;
-  }
-  .mobilehero {
-    height: 70vh;
   }
   .heroSection {
     justify-content: flex-start;
@@ -218,6 +232,14 @@
     margin-top: 30px;
     margin-left: -50px;
   }
+  .hero-section-mobile {
+    width: 90vw;
+    height: 50vh;
+  }
+  /* .showOnMobile {
+    display: flex;
+    justify-content: center;
+  } */
 }
 
 @media screen and (max-width: 325px) {
@@ -321,6 +343,30 @@ button {
   .registerButtonMobile {
     margin-bottom: 2rem;
     height: 20px;
+  }
+  .hideMobile {
+    display: none;
+  }
+  .roadMapMobile {
+    width: 90vw !important;
+    height: auto;
+  }
+  .roadMapDiv {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .technical,
+  .management,
+  .design {
+    font-size: 16px;
+  }
+  .technical-active,
+  .management-active,
+  .design-active {
+    font-size: 18px;
   }
 }
 
@@ -547,5 +593,21 @@ li {
   }
   to {
     transform: scaleX(1.8) rotate(30deg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .heroSection {
+    min-width: fit-content;
+    margin-left: 7rem;
+  }
+  #ilus_grid {
+    margin-left: -2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .heroSection {
+    margin-left: 13.25rem;
   }
 }
