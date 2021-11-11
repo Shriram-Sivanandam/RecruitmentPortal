@@ -40,7 +40,7 @@ function App() {
   //   // console.log(token)
 
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  axios.defaults.baseURL = 'https://easyrecruitbackend.azurewebsites.net';
+  axios.defaults.baseURL = 'http://localhost:3000';
   // const studentRegister = () => {
   //   axios
   //     .post("http://localhost:3000/student/register", {

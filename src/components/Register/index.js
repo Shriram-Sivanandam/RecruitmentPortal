@@ -425,10 +425,11 @@ function Register() {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  nextQues();
-                  if (error !== null) {
-                    setCurrentQuestion(currentQuestion + 1);
-                  }
+                  
+                 
+                    nextQues();
+                    // setCurrentQuestion(currentQuestion + 1);
+                 
                 }}
                 className="arrows mr-2 p-1"
               >

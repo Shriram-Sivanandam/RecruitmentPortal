@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef , useEffect } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./ManagementQuiz.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Group45 from '../../assets/Group45.svg'
 import axios from 'axios'
 import {  toast } from "react-toastify";
@@ -13,6 +13,7 @@ function ManagementQuiz() {
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);
   const [answersArray, setAnswersArray] = useState([]);
+  const [mgtStatus , setMgtStatus] = useState("");
   // var answersArray = [];
 
   function nextQues() {
@@ -31,9 +32,24 @@ function ManagementQuiz() {
   }
   console.log(answersArray);
 
+  useEffect(() => {
+    axios.get("/student/view_mgmt_answer").then(() => {
+
+    }).catch((err) => {
+      console.log(err)
+      if (err.response.data === "ALREADY GIVEN"){
+        setMgtStatus(err.response.data);
+
+      }
+      
+    })
+  }, [])
+
   const managementQuiz = async () => {
     console.log(answersArray);
-    await axios.post('/mgmt_quiz',{
+
+   
+    await axios.post('student/mgmt_quiz',{
       
         "answer1":answersArray[0],
         "answer2":answersArray[1],
@@ -49,6 +65,7 @@ function ManagementQuiz() {
     }).catch((err) => {
       console.log(err)
       toastError(err);
+
     })
   }
 
@@ -65,6 +82,13 @@ function ManagementQuiz() {
     <>
       <Nav2 />
       <div className="container  p-5" style={{ backgroundColor:"#FFF5F1" , width:"100vw" , height:"100vh" }}>
+        {   mgtStatus === "ALREADY GIVEN"  ? 
+        <Redirect to="/student/quiz-dashboard" /> :
+
+        <>
+        
+      
+      
       
         {/* <div className="row my-5">
           <div className="managementQuesInfo">
@@ -160,6 +184,8 @@ function ManagementQuiz() {
             ""
           )}
         </div>
+        </>
+}
       </div>
     </>
   );
