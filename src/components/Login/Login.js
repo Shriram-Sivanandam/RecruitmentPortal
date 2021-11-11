@@ -24,7 +24,7 @@ export default function Login() {
       await login(email.current.value, password.current.value);
       if (email.current.value === "1234@1234.com")
         history.push("/admin-dashboard");
-      else history.push("/quiz-dashboard");
+      else history.push("/");
     } catch {
       setError("Failed to log in");
     }
@@ -69,7 +69,7 @@ export default function Login() {
            <label className="mt-3">Enter your VIT Email Id</label>
            <input className="inputField my-2" placeholder="Enter your Email" ref={email}/>
            <label className="mt-4">Password</label>
-           <input className="inputField my-2" placeholder="Enter your Password" ref={password}/>
+           <input type="password" className="inputField my-2" placeholder="Enter your Password" ref={password}/>
            <button className="btn btn-primary bg-dark border-dark  mt-5 mb-4" onClick={handleSubmit} disabled={loading}>Submit</button>
            <div className="mt">
         <Link className="heading " to="/forgot-password">
