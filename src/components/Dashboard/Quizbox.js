@@ -48,7 +48,7 @@ function Quizbox() {
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:3000/student/score", {
+      .post("/student/score", {
         answers: answersArray,
       })
       .then((response) => {
