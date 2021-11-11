@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import enoughSent from "../../assets/enoughTape.svg";
 import nowHand from "../../assets/nowHand.png";
-import HorizontalScroll from "react-scroll-horizontal";
+// import HorizontalScroll from "react-scroll-horizontal";
 // import { Element } from "react-scroll";
 import { useHorizontalScroll } from "../useHorizontalScroll";
 
@@ -17,14 +17,14 @@ function Enough() {
     <div className="enoughCont">
       <div ref={scrollRef} className="imgCont">
         <div data-aos="fade-down">
-          <img className="enoughHand" src={nowHand}></img>
+          <img className="enoughHand" src={nowHand} alt="nowHand"></img>
         </div>
-        <img className="enoughImg" src={enoughSent}></img>
+        <img className="enoughImg" src={enoughSent} alt="enoughSent"></img>
       </div>
 
       <div className="imgContMobile">
-        <img className="enoughImgMobile" src={enoughSent}></img>
-        <img className="enoughImgMobile" src={enoughSent}></img>
+        <img className="enoughImgMobile" src={enoughSent}  alt="enoughSent"></img>
+        <img className="enoughImgMobile" src={enoughSent}  alt="enoughSent"></img>
       </div>
     </div>
   );

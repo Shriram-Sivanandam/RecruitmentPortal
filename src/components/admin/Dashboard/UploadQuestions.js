@@ -8,48 +8,13 @@ import { readString } from 'react-papaparse'
 
 function UploadQuestions() {
   const fileInputField = useRef(null);
-  const [files, setFiles] = useState({});
+  // const [files, setFiles] = useState({});
   const [processing , setProcessing] = useState(false);
   const [data , setData] = useState([])
   const onTargetClick = () => {
     fileInputField.current.click();
   };
-  function csvJSON(csv){
-
-    var lines=csv.split("\n");
-  
-    var result = [];
-    
-  
-    var headers=lines[0].split(",");
-    for(var i = 0; i < headers.length; ++i)
-      headers[i] = headers[i].replace(/(\r\n|\n|\r)/gm,"")
-    console.log("headers: " , headers)
-  
-    for(var y=1;y<lines.length-1;y++){
-  
-      var obj = {};
-      console.log(lines)
-      var currentline=lines[y].split(",");
-      console.log("currentline" , currentline)
-      for(var z = 0; z < currentline.length; ++z)
-      currentline[z] = currentline[z].replace(/(\r\n|\n|\r)/gm,"")
-
-  
-      for(var j=0;j<headers.length;j++){
-        obj[headers[j]] = currentline[j];
-      }
-  
-      result.push(obj);
-  
-    }
-    
-    //return result; //JavaScript object
-    console.log("result",result)
-    setData(result)
-    return JSON.stringify(result); //JSON
-  }
-
+ 
   const csvAdaptor = async (files) => {
     setProcessing(true)
     try{

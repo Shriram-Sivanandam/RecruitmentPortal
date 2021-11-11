@@ -7,7 +7,7 @@ export const Name = ({ setValue, setError, placeholder }) => {
     if (name.current.value !== null) {
       setValue(name.current.value);
     } else {
-      console.log("hello");
+      // console.log("hello");
       setError("Please Enter Name");
     }
   };
@@ -34,15 +34,17 @@ export const RegNo = ({ setValue, setError, placeholder }) => {
 
   const handleSubmit = () => {
     if (name.current.value !== null) {
-      if (name.current.value.length === 9){
-        setValue(name.current.value);
-
-      }else{
-        setError("Please Enter Valid Registration Number")
+      if (name.current.value.length === 9) {
+        if (name.current.value.startsWith("21")) {
+          setValue(name.current.value);
+        } else {
+          setError("Only 2021 Batch Students are allowed");
+        }
+      } else {
+        setError("Please Enter Valid Registration Number");
       }
-    
     } else {
-      console.log("hello");
+      // console.log("hello");
       setError("Please Enter Correct register number");
     }
   };
@@ -64,25 +66,24 @@ export const RegNo = ({ setValue, setError, placeholder }) => {
     </div>
   );
 };
-export const Email = ({ setValue, setError,error, placeholder }) => {
+export const Email = ({ setValue, setError, error, placeholder }) => {
   const email = useRef();
 
   const handleSubmit = () => {
     if (email.current.value !== null) {
-      console.log("hello")
-      if (email.current.value.endsWith("@vitstudent.ac.in")) {
+      // console.log("hello")
+      if (email.current.value.endsWith("2021@vitstudent.ac.in")) {
         setError(null);
         setValue(email.current.value);
       } else {
         setError("Please Enter Valid VIT Email");
       }
     } else {
-      console.log("hello")
+      console.log("hello");
       setError("Please Enter Email");
-     
     }
   };
-  console.log(error)
+  // console.log(error)
   return (
     <div>
       <input
@@ -106,27 +107,25 @@ export const PhoneNo = ({ setValue, setError, placeholder }) => {
 
   const handleSubmit = () => {
     if (phoneNo.current.value !== null && pincode.current.value !== null) {
-      setValue(pincode.current.value.concat(phoneNo.current.value)  );
-      
+      setValue(pincode.current.value.concat(phoneNo.current.value));
     } else {
       setError("Please Enter Phone Number");
     }
   };
-  
+
   return (
     <div className="d-flex">
       {/* <input
             ref={answerRef1} 
             /> */}
-            <input 
-            ref={pincode}
-            style={{width: "3rem"}}
-            className="inputField"
-            placeholder="+91"
-            // value="+91"
-            // defaultValue="+91"
-            
-            />
+      <input
+        ref={pincode}
+        style={{ width: "3rem" }}
+        className="inputField"
+        placeholder="+91"
+        // value="+91"
+        // defaultValue="+91"
+      />
       <input
         ref={phoneNo}
         className="inputField ml-3"
@@ -150,13 +149,11 @@ export const Password = ({ setValue, setError, placeholder }) => {
       password.current.value.localeCompare(confirmPassword.current.value) !== -1
     ) {
       setError(null);
-      if (password.current.value.length >= 6){
+      if (password.current.value.length >= 6) {
         setValue(password.current.value);
-
-      }else{
-        setError("Minimum Six Characters Required")
+      } else {
+        setError("Minimum Six Characters Required");
       }
-      
     } else {
       if (password.current.value !== confirmPassword.current.value) {
         setError("Please Make sure the Two Passwords Match");
@@ -205,23 +202,21 @@ export const DomainChoose = ({ setValue, setError }) => {
 
   const onToggle = (domain) => {
     if (selected.includes(component[domain])) {
-      const index = selected.indexOf(component[domain]);
-      console.log(index);
+      // const index = selected.indexOf(component[domain]);
+
       // setSelected(selected.splice(index,index))
       // selected.splice(index,1)
       setSelected(selected.filter((item) => item !== component[domain]));
     } else {
-      console.log(domain)
+      // console.log(domain)
       setSelected([...selected, component[domain]]);
     }
-
-    
   };
   if (selected !== []) {
-    console.log(selected)
+    console.log(selected);
     setValue(selected);
   }
-  console.log(selected);
+  // console.log(selected);
 
   return (
     <div>
@@ -249,7 +244,9 @@ export const DomainChoose = ({ setValue, setError }) => {
           e.preventDefault();
           onToggle("Management");
         }}
-        className={selected.indexOf("MANAGEMENT") !== -1 ? "selected" : "buttons"}
+        className={
+          selected.indexOf("MANAGEMENT") !== -1 ? "selected" : "buttons"
+        }
       >
         Management
       </button>
@@ -257,7 +254,7 @@ export const DomainChoose = ({ setValue, setError }) => {
   );
 };
 
-export const DateChoose = ({ day , dates  ,setValue, setError , disabled }) => {
+export const DateChoose = ({ day, dates, setValue, setError, disabled }) => {
   const [selected, setSelected] = useState({
     month: "",
     date: "",
@@ -293,35 +290,37 @@ export const DateChoose = ({ day , dates  ,setValue, setError , disabled }) => {
       date: date,
       day: day,
     });
-    console.log(selected);
-
-    
+    // console.log(selected);
   };
-  if (selected !== {
-    month: "",
-    date: "",
-    day: "",
-  }) {
+  if (
+    selected !==
+    {
+      month: "",
+      date: "",
+      day: "",
+    }
+  ) {
     setValue(selected);
   }
 
   return (
     <div>
-      { disabled && (
-        <h3 className="headingDesign" >People applying for just the design domain can skip this section.</h3>
-       ) }
+      {disabled && (
+        <h3 className="headingDesign">
+          People applying for just the design domain can skip this section.
+        </h3>
+      )}
       {dates.map((date, index) => {
         return (
           <button
             onClick={(e) => {
               e.preventDefault();
-              handleSubmit("October" ,date , day[index] );
+              handleSubmit("October", date, day[index]);
             }}
             className={selected.date === date ? "selected" : "buttons"}
             disabled={disabled}
           >
-            
-            <div   >
+            <div>
               <h3 className="button1">October</h3>
               <h3 className="button2"> {date} </h3>
               <h3 className="button3">{day[index]}</h3>
@@ -333,50 +332,56 @@ export const DateChoose = ({ day , dates  ,setValue, setError , disabled }) => {
   );
 };
 
-export const TimeSlot = ({time ,minutes , setValue, setError , disabled }) => {
+export const TimeSlot = ({ time, minutes, setValue, setError, disabled }) => {
   const [selected, setSelected] = useState({
     time: "",
-    minutes:""
+    minutes: "",
   });
 
-  const slots = [
-    "13:00 - 16:00",
-    "14:00 - 16:00",
-    "16:00 - 18:00",
-    "18:00 - 20:00",
-  ];
+  // const slots = [
+  //   "13:00 - 16:00",
+  //   "14:00 - 16:00",
+  //   "16:00 - 18:00",
+  //   "18:00 - 20:00",
+  // ];
 
-  const handleSubmit = (slot , minutes) => {
+  const handleSubmit = (slot, minutes) => {
     setSelected({
       time: slot,
-      minutes: minutes
+      minutes: minutes,
     });
-
   };
 
   if (selected !== "") {
     setValue(selected);
   }
 
-  console.log(selected);
+  // console.log(selected);
 
   return (
     <div>
-       { disabled && (
-        <h3 className="headingDesign" >People applying for just the design domain can skip this section. </h3>
-       ) }
-       <h3 className="TimeSlotLabel">Select Time Slot <span className="greyLabel">The time slots follow 24hr format</span></h3>
-      {time.map((slot,index) => {
+      {disabled && (
+        <h3 className="headingDesign">
+          People applying for just the design domain can skip this section.{" "}
+        </h3>
+      )}
+      <h3 className="TimeSlotLabel">
+        Select Time Slot{" "}
+        <span className="greyLabel">The time slots follow 24hr format</span>
+      </h3>
+      {time.map((slot, index) => {
         return (
           <button
             onClick={(e) => {
               e.preventDefault();
-              handleSubmit(slot , minutes[index]);
+              handleSubmit(slot, minutes[index]);
             }}
             disabled={disabled}
             className={selected.time === slot ? "sets" : "buts"}
           >
-            {slot}:{minutes[index]} - {slot + 1}:{minutes[index]}
+            {slot}:{minutes[index] < 10 ? `0${minutes[index]}` : minutes[index]}{" "}
+            - {slot + 1}:
+            {minutes[index] < 10 ? `0${minutes[index]}` : minutes[index]}
           </button>
         );
       })}

@@ -18,34 +18,34 @@ function StickerWall() {
   return (
     <div className="stiWallDiv">
       <div className="barcodeDiv1">
-        <img src={infibarcode} className="barcode firstBar"></img>
-        <img src={infibarcode} className="barcode secondBar"></img>
-        <img src={infibarcode} className="barcode thridBar"></img>
-        <img src={infibarcode} className="barcode fourthBar"></img>
+        <img src={infibarcode} className="barcode firstBar" alt="landing"></img>
+        <img src={infibarcode} className="barcode secondBar" alt="landing"></img>
+        <img src={infibarcode} className="barcode thridBar" alt="landing"></img>
+        <img src={infibarcode} className="barcode fourthBar" alt="landing"></img>
       </div>
       <div className="heading_stiwall">
-        <img src={stickwallhead} className="stiheading"></img>
+        <img src={stickwallhead} className="stiheading" alt="landing"></img>
       </div>
       <div className="contStiWall">
-        <img src={stiwall4} className="sticker2 stiCog"></img>
-        <img src={stiwall7} className="sticker2 stiSmiley"></img>
-        <a href="https://github.com/STCVIT" target="_blank">
-          <img src={stiwall5} className="sticker2 stiCalender"></img>
+        <img src={stiwall4} className="sticker2 stiCog" alt="landing"></img>
+        <img src={stiwall7} className="sticker2 stiSmiley" alt="landing"></img>
+        <a href="https://github.com/STCVIT" target="">
+          <img src={stiwall5} className="sticker2 stiCalender" alt="landing"></img>
         </a>
-        <img src={stiwall3} className="stiSuperb"></img>
-        <img src={stiwall2} className="stiCode"></img>
-        <img src={stiwall1} className="stiPosFu"></img>
-        <img src={stiwall11} className="stiHand"></img>
-        <img src={stiwall9} className="stiBlue"></img>
-        <img src={stiwall10} className="stiTicket"></img>
-        <img src={stiwall6} className="stiStandard"></img>
-        <img src={stiwall8} className="stiNow"></img>
+        <img src={stiwall3} className="stiSuperb" alt="landing"></img>
+        <img src={stiwall2} className="stiCode" alt="landing"></img>
+        <img src={stiwall1} className="stiPosFu" alt="landing"></img>
+        <img src={stiwall11} className="stiHand" alt="landing"></img>
+        <img src={stiwall9} className="stiBlue" alt="landing"></img>
+        <img src={stiwall10} className="stiTicket" alt="landing"></img>
+        <img src={stiwall6} className="stiStandard" alt="landing"></img>
+        <img src={stiwall8} className="stiNow" alt="landing"></img>
       </div>
       <div className="barcodeDiv2">
-        <img src={infibarcode} className="barcode firstBar"></img>
-        <img src={infibarcode} className="barcode secondBar"></img>
-        <img src={infibarcode} className="barcode thridBar"></img>
-        <img src={infibarcode} className="barcode fourthBar"></img>
+        <img src={infibarcode} className="barcode firstBar" alt="landing"></img>
+        <img src={infibarcode} className="barcode secondBar" alt="landing"></img>
+        <img src={infibarcode} className="barcode thridBar" alt="landing"></img>
+        <img src={infibarcode} className="barcode fourthBar" alt="landing"></img>
       </div>
     </div>
   );

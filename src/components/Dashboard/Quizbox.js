@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Nav2 from "../Nav/Nav2";
-import "./Quizbox.css";
-import { Redirect, Link } from "react-router-dom";
-import Group45 from "../../assets/Group45.svg";
-import Options from "./Options";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import Group45 from "../../assets/Group45.svg";
 import Countdown2 from "../CountdownTimer/CountdownTimer";
+import Options from "./Options";
+import "./Quizbox.css";
 
 function Quizbox() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -15,7 +14,7 @@ function Quizbox() {
   // var answersArray = [];
   const [answersArray, setAnswersArray] = useState([]);
   const [questionBank, setQuestionBank] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   const [startTime, setStartTime] = useState(0);
 
@@ -44,6 +43,7 @@ function Quizbox() {
       .catch((err) => {
         console.log(err);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = () => {

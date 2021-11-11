@@ -3,14 +3,13 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 // import "./Signup.css";
 import { db } from "../firebase";
-import { auth } from "../firebase";
-import userEvent from "@testing-library/user-event";
+
 
 export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, signup } = useAuth();
+  const {  signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
