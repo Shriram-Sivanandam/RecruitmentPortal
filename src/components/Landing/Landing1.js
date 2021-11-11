@@ -159,10 +159,10 @@ function Landing1() {
           <div className="row mobilehero hideMobile">
             <div className="col-2" id="ilus_grid">
               <div className="row">
-                <img src={designer} className=" img-fluid" alt="d"></img>
+                <img src={designer} className=" img-fluid aniDesigner" alt="d"></img>
               </div>
               <div className="row mt-lg-5">
-                <img src={developer} className=" img-fluid" alt="d"></img>
+                <img src={developer} className=" img-fluid aniDeveloper" alt="d"></img>
               </div>
             </div>
             <div
@@ -338,7 +338,7 @@ function Landing1() {
             <div className="col-2" id="col2" style={{ marginRight: "-4rem" }}>
               <img
                 src={manager}
-                className="mb-5 pb-5 img-fluid"
+                className="mb-5 pb-5 img-fluid aniManager"
                 alt="d"
                 style={{ marginTop: "8rem" }}
               ></img>
@@ -357,7 +357,7 @@ function Landing1() {
         </div>
         <StickerWall />
         <div className="container my-5" name="roadMapScroll">
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-around mb-lg-5">
             {domain.map((field) => {
               return (
                 <div
@@ -386,7 +386,7 @@ function Landing1() {
                   ? design
                   : management
               }
-              className="w-100 img-fluid"
+              className="w-100 img-fluid "
               alt="roadMap"
             />
           </div>
