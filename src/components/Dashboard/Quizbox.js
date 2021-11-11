@@ -4,6 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
 import Countdown2 from "../CountdownTimer/CountdownTimer";
 import Options from "./Options";
+import {  toast } from "react-toastify";
+import toastError from "../ToastError";
 import "./Quizbox.css";
 
 function Quizbox() {
@@ -52,9 +54,12 @@ function Quizbox() {
         answers: answersArray,
       })
       .then((response) => {
+        toast.success("Answers Registered")
+
         console.log(response.data);
       })
       .catch((err) => {
+        toastError(err.response.data);
         console.log(err);
       });
   };

@@ -214,8 +214,11 @@ function Register() {
               ) {
                 setDisabled(true);
                 toast.success("You have successfully registered");
+                history.push("/");
               } else {
-                slotBooking();
+                slotBooking().then(() => {
+                  history.push("/quiz-dashboard");
+                });
               }
             });
 
@@ -298,6 +301,7 @@ function Register() {
         setValue={setValue}
         setError={setError}
         placeholder="Enter your Registration Number"
+        value={value}
       />
     ),
     3: (
@@ -414,11 +418,9 @@ function Register() {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  
-                 
-                    nextQues();
-                    // setCurrentQuestion(currentQuestion + 1);
-                 
+
+                  nextQues();
+                  // setCurrentQuestion(currentQuestion + 1);
                 }}
                 className="arrows mr-2 p-1"
               >
@@ -460,7 +462,7 @@ function Register() {
                       console.log(token);
                       slotBooking();
                     });
-                    history.push("/");
+                    history.push("/quiz-dashboard");
                   }}
                 >
                   Submit

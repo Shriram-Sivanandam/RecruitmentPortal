@@ -29,13 +29,19 @@ export const Name = ({ setValue, setError, placeholder }) => {
     </div>
   );
 };
-export const RegNo = ({ setValue, setError, placeholder }) => {
+export const RegNo = ({ setValue, setError, placeholder  , value }) => {
   const name = useRef();
 
   const handleSubmit = () => {
     if (name.current.value !== null) {
-      if (name.current.value.length === 9) {
-        if (name.current.value.startsWith("21")) {
+  console.log("length"  , name.current.value.length)
+  console.log("value" , name.current.value)
+  
+
+      
+      if (  name.current.value.length === 9 ) {
+        console.log("state" , value)
+        if ( name.current.value.startsWith("21")) {
           setValue(name.current.value);
         } else {
           setError("Only 2021 Batch Students are allowed");
@@ -48,6 +54,7 @@ export const RegNo = ({ setValue, setError, placeholder }) => {
       setError("Please Enter Correct register number");
     }
   };
+
 
   return (
     <div>
