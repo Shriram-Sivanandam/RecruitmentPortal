@@ -54,7 +54,6 @@ function Dashboard() {
   const [domains, setDomains] = useState([]);
   // var user = []
 
-
   // const domains = ["TECH"]
   // let domains = [];
   console.log(token);
@@ -64,53 +63,40 @@ function Dashboard() {
     console.log("token from request", token);
     setLoading(true);
 
-  
     axios
       .get("http://localhost:3000/student/profile")
       .then((response) => {
         setLoading(false);
-        console.log("data" , response.data);
+        console.log("data", response.data);
         // setUser(response.data);
         setDomains(response.data.domains);
 
         // user = response.data;
-        
-       
-         
-          
-          // setUser(response.data);
 
-        if (  !(domains.includes("DESIGN")  && domains.length === 1)   ){
+        // setUser(response.data);
+
+        if (!(domains.includes("DESIGN") && domains.length === 1)) {
           console.log("user", response.data);
-        axios
-      .get("http://localhost:3000/student/start_test")
-      .then((response) => {
-        console.log("data", response.data);
-        setStatus(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
- 
-
+          axios
+            .get("http://localhost:3000/student/start_test")
+            .then((response) => {
+              console.log("data", response.data);
+              setStatus(response.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
-
-       
-        
-
       })
       .catch((err) => {
         console.log("error");
         console.log(err);
       });
-
-
-      
-  },[] );
+  }, []);
 
   // console.log(user)
 
-  console.log("domains" , domains)
+  console.log("domains", domains);
 
   // let domains = [];
 
@@ -135,7 +121,9 @@ function Dashboard() {
         <div className="container row mx-auto my-5">
           <div className="headings mb-3 mx-auto">
             {domains?.includes("DESIGN") && domains.length === 1 ? (
-              <h1 className="heading2">We will call you for a interview soon</h1>
+              <h1 className="heading2">
+                We will call you for a interview soon
+              </h1>
             ) : (
               <>
                 <h1 className="heading2 ">
@@ -203,7 +191,7 @@ function Dashboard() {
             <div className="mx-auto ">
               <div className="mx-auto ">
                 <svg
-                  className="row mx-auto"
+                  className="row mx-auto aptiStickerDash"
                   width="258"
                   height="315"
                   viewBox="0 0 258 315"
@@ -521,6 +509,7 @@ function Dashboard() {
               {domains?.indexOf("MANAGEMENT") !== -1 ? (
                 <div className="mx-auto">
                   <svg
+                    className="row mx-auto manageStickerDash"
                     width="287"
                     height="327"
                     viewBox="0 0 287 327"
@@ -713,14 +702,14 @@ function Dashboard() {
               ) : null}
             </>
           ) : null}
-          {loading === false  && domains !== [] ? (
+          {loading === false && domains !== [] ? (
             <>
               {domains?.indexOf("DESIGN") !== -1 ? (
                 <div className="mx-auto ">
                   <svg
                     width="301"
                     height="308"
-                    className="row mx-auto"
+                    className="row mx-auto designStickerDash"
                     viewBox="0 0 301 308"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

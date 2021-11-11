@@ -1,77 +1,85 @@
-.card-deck{
-    width: 75vw;
+.card-deck {
+  width: 75vw;
 }
-.card-img-top{
-    width: 18rem;
-    height: 14rem;
-    display: flex;
-    /* background-color: white; */
+.card-img-top {
+  width: 18rem;
+  height: 14rem;
+  display: flex;
+  /* background-color: white; */
 }
 
 .card-body {
-    display: flex;
-    flex-direction: column;
-  }
-  /* button.btn {
+  display: flex;
+  flex-direction: column;
+}
+/* button.btn {
     margin-top: auto;
     align-self: flex-end;
     background-color: #0a0a4b;
   } */
 
-  .card-text{
-     text-align: center;
-  }
-  .btn{
-    background-color: #C33D59;
-    /* opacity: 50%; */
-    color: white;
-   
+.card-text {
+  text-align: center;
+}
+.btn {
+  background-color: #c33d59;
+  /* opacity: 50%; */
+  color: white;
+}
+body {
+  background-color: #fff5f1;
+}
 
-  }
-  body{
-    background-color: #FFF5F1;
+.heading2 {
+  font-family: "BriceRegular";
+  font-size: 43px;
+  text-align: center;
+  width: 100%;
+  font-weight: 200;
+  color: black;
+}
+
+.scheduled {
+  font-weight: 700;
+  font-family: "BriceBold" !important;
+}
+
+.headings {
+  text-align: center;
+  width: 100%;
+}
+.rules {
+  font-family: "BriceRegular";
+  font-size: 14px;
+  color: black;
+}
+
+.startTest {
+  font-family: "BriceRegular";
+  font-size: 20px;
+  color: white;
+}
+
+.quizheading {
+  font-family: "BriceRegular";
+}
+.first {
+  position: absolute;
+}
+.second {
+  position: relative;
+  top: 320px;
+}
+
+@media screen and (max-width: 600px) {
+  .designStickerDash,
+  .manageStickerDash,
+  .aptiStickerDash {
+    width: 65%;
+    margin: -20%;
   }
 
-  .heading2{
-    font-family:"BriceRegular";
-    font-size:43px;
-    text-align: center;
-    width: 100%;
-    font-weight: 200;
-    color: black;
+  .heading2 {
+    font-size: x-large;
   }
-
-  .scheduled{
-    font-weight: 700;
-    font-family: "BriceBold" !important;
-  }
-
-  .headings{
-    text-align: center;
-    width: 100%;
-  }
-  .rules{
-    font-family:"BriceRegular";
-    font-size:14px;
-    color: black;
-  }
-
-  .startTest{
-    font-family:"BriceRegular";
-    font-size:20px;
-    color: white;
-
-  }
-
-  .quizheading{
-    font-family:"BriceRegular";
-
-  }
-  .first{
-    position: absolute;
-  }
-  .second{
-    position: relative;
-    top:320px;
-
-  }
+}
