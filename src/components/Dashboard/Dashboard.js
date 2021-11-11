@@ -42,24 +42,17 @@ function Dashboard() {
         setDomains(response.data.domains);
 
         if (!(domains?.includes("DESIGN") && domains.length === 1)) {
-          
           axios
             .get("/student/start_test")
             .then((response) => {
-            
               setStatus(response.data);
             })
-            .catch((err) => {
-              
-            });
+            .catch((err) => {});
         }
       })
-      .catch((err) => {
-      
-       
-      });
+      .catch((err) => {});
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -482,16 +475,13 @@ function Dashboard() {
               {domains?.indexOf("MANAGEMENT") !== -1 ? (
                 <div className="mx-auto">
                   <svg
-<<<<<<< HEAD
                     className="row mx-auto manageStickerDash"
                     width="287"
                     height="327"
                     viewBox="0 0 287 327"
-=======
                     width="276"
                     height="314"
                     viewBox="0 0 276 314"
->>>>>>> 4b855aef0500349e3bc881e1a1bafd6991ac11ec
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >

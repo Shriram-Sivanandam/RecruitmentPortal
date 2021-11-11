@@ -38,34 +38,32 @@ body {
   font-weight: 200;
   color: black;
 }
-  .card-text{
-     text-align: center;
-  }
-  .btn{
-    background-color: #C33D59;
-    /* opacity: 50%; */
-    color: white;
-   
+.card-text {
+  text-align: center;
+}
+.btn {
+  background-color: #c33d59;
+  /* opacity: 50%; */
+  color: white;
+}
+body {
+  background-color: #fff5f1;
+}
 
-  }
-  body{
-    background-color: #FFF5F1;
-  }
+.heading2 {
+  font-family: "BriceRegular";
+  font-size: 32px;
+  text-align: center;
+  width: 100%;
+  font-weight: 200;
+  color: black;
+}
 
-  .heading2{
-    font-family:"BriceRegular";
-    font-size:32px;
-    text-align: center;
-    width: 100%;
-    font-weight: 200;
-    color: black;
-  }
-
-  .scheduled{
-    font-weight: 700;
-    font-family: "BriceBold" !important;
-    font-size: 32px;
-  }
+.scheduled {
+  font-weight: 700;
+  font-family: "BriceBold" !important;
+  font-size: 32px;
+}
 
 .scheduled {
   font-weight: 700;
@@ -110,20 +108,16 @@ body {
   .heading2 {
     font-size: x-large;
   }
-<<<<<<< HEAD
 }
-=======
 
-  .designBottom{
-    font-family:"BriceRegular";
-    /* color:#f05127; */
-    font-size:14px;
-    text-align: center;
-  }
+.designBottom {
+  font-family: "BriceRegular";
+  /* color:#f05127; */
+  font-size: 14px;
+  text-align: center;
+}
 
-  .headingScheduled{
-    /* display: flex; */
-    display: inline
-    
-  }
->>>>>>> 4b855aef0500349e3bc881e1a1bafd6991ac11ec
+.headingScheduled {
+  /* display: flex; */
+  display: inline;
+}
