@@ -360,7 +360,7 @@ function Landing1() {
               className="hero-section-mobile"
             />
           </div>
-          <div className="mx-auto registerButtonMobile">
+          <div className="mx-auto registerButtonMobile2">
             <img
               src={registerbutton}
               alt="register"

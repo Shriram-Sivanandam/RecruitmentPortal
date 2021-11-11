@@ -9,7 +9,7 @@
   padding: 1.5px !important;
 }
 .showOnMobile {
-  display: none;
+  display: none ;
 }
 .hero-section-mobile {
   display: none;
@@ -60,6 +60,12 @@
   font-size: 50px;
   color: #f77655;
 }
+
+.registerButtonMobile2{
+  display: none;
+}
+
+
 
 .roadMaps {
   animation: fadein 1.3s ease;
@@ -136,13 +142,18 @@
     position: absolute;
     margin-left: -4rem;
   }
+  
 }
+
 @media screen and (max-width: 600px) {
   .hero-section-mobile {
     display: block;
   }
   .showOnMobile {
     display: block;
+  }
+  .registerButtonMobile2{
+    display:block;
   }
   #navshit {
     display: block;
