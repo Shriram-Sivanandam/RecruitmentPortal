@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link , useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Name,
   RegNo,
@@ -16,8 +16,10 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import toastError from "../ToastError";
-import upArrow from "../../assets/upArrow.svg";
-import downArrow from "../../assets/downArrow.svg";
+// import upArrow from "../../assets/upArrow.svg";
+// import downArrow from "../../assets/downArrow.svg";
+import previousArrow from "../../assets/previousArrow.svg";
+import nextArrow from "../../assets/nextArrow.svg";
 import LetsGetStarted from "../../assets/letsgo.svg";
 function Register() {
   // const token = <Constants />
@@ -66,7 +68,7 @@ function Register() {
 
   useEffect(() => {
     // console.log("hello");
-    axios.get("http://localhost:3000/student/test").then((response) => {
+    axios.get("/student/test").then((response) => {
       console.log(response.data);
       // const d1 = response.data.split("T")
       // const d2 = d1[1].split("")
@@ -102,14 +104,14 @@ function Register() {
         }
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[6]]);
 
   useEffect(() => {
     if (answersArray[5]?.includes("DESIGN") && answersArray[5]?.length === 1) {
       setDisabled(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[5]]);
   // })
 
@@ -166,8 +168,8 @@ function Register() {
     } else {
       if (error === null) {
         console.log(error);
-        setError("Pls Enter Valid Value");
-        toastError("Pls Enter Valid Value");
+        setError("Please enter valid value");
+        toastError("Please enter valid value");
       } else {
         console.log(error);
         toastError(error);
@@ -214,8 +216,11 @@ function Register() {
               ) {
                 setDisabled(true);
                 toast.success("You have successfully registered");
+                history.push("/");
               } else {
-                slotBooking();
+                slotBooking().then(() => {
+                  history.push("/quiz-dashboard");
+                });
               }
             });
 
@@ -298,6 +303,7 @@ function Register() {
         setValue={setValue}
         setError={setError}
         placeholder="Enter your Registration Number"
+        value={value}
       />
     ),
     3: (
@@ -360,13 +366,8 @@ function Register() {
     >
       <img className="mx-auto letsgo" src={LetsGetStarted} alt="lets go" />
 
-    
-
       <div className="heading mx-auto  ">
-       
         <h1 className="headingTop mb-5  mx-auto ">Lets Get Started </h1>
-
-        
       </div>
 
       <div class="steps-form ">
@@ -394,7 +395,6 @@ function Register() {
               </>
             );
           })}
-         
         </div>
       </div>
 
@@ -403,15 +403,10 @@ function Register() {
           <span style={{ color: "#7A7A7A" }}></span>
           {questionBank[currentQuestion]}
         </h3>
-        <div>
-         
-          {components[currentQuestion + 1]}
-        </div>
+        <div>{components[currentQuestion + 1]}</div>
       </div>
       <div className="my-5">
-      
         {showNextBtn ? (
-          
           <div className=" buttonsRegister">
             <button
               type="button"
@@ -425,30 +420,29 @@ function Register() {
               <button
                 onClick={(e) => {
                   e.preventDefault();
+
+                  nextQues();
+                  // setCurrentQuestion(currentQuestion + 1);
+                }}
+                className="arrows py-1 px-2 "
+              >
+                {<img src={previousArrow} alt="down" />}
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
                   nextQues();
                   if (error !== null) {
                     setCurrentQuestion(currentQuestion + 1);
                   }
                 }}
-                className="arrows mr-2 p-1"
+                className="arrows ml-2 p-1"
               >
-                <img className="px-1" src={upArrow} alt="up" />
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (currentQuestion !== 0) {
-                    setCurrentQuestion(currentQuestion - 1);
-                  }
-                }}
-                className="arrows py-1 px-2 "
-              >
-                <img src={downArrow} alt="down" />
+                {<img className="px-1" src={nextArrow} alt="up" />}
               </button>
             </div>
           </div>
         ) : (
-         
           ""
         )}
         {showEndBtn ? (
@@ -471,14 +465,13 @@ function Register() {
                       console.log(token);
                       slotBooking();
                     });
-                    history.push("/");
+                    history.push("/quiz-dashboard");
                   }}
                 >
                   Submit
                 </button>
               </Link>
             </div>
-            
           </div>
         ) : (
           // </Link>

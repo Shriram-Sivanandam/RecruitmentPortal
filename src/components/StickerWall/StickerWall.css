@@ -69,9 +69,23 @@
   transform: translateX(90%);
 }
 
+.stiSuperb:hover {
+  animation-name: aniSuperb;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .stiCode {
   width: 22%;
   transform: translate(60%, 50%);
+}
+
+.stiCode:hover {
+  animation-name: aniCode;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .stiPosFu {
@@ -79,14 +93,35 @@
   transform: translate(-420%, 160%);
 }
 
+.stiPosFu:hover {
+  animation-name: posfuture;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .stiHand {
   width: 15%;
   transform: translate(347%, -70%);
 }
 
+.stiHand:hover {
+  animation-name: aniHandshake;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .stiBlue {
   width: 18%;
   transform: translate(420%, -30%);
+}
+
+.stiBlue:hover {
+  animation-name: aniBlue;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .stiTicket {
@@ -99,9 +134,23 @@
   transform: translate(-83%, 30%);
 }
 
+.stiStandard:hover {
+  animation-name: aniStandard;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .stiNow {
   width: 15%;
   transform: translate(500%, -80%);
+}
+
+.stiNow:hover {
+  animation-name: aniNow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .barcodeDiv1 {
@@ -131,10 +180,158 @@
 } */
 
 @keyframes infiLoop {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes infiLoop {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(-25%);
+  }
+  50% {
+    -webkit-transform: translateX(-50%);
+  }
+  75% {
+    -webkit-transform: translateX(-75%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-moz-keyframes infiLoop {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  25% {
+    -moz-transform: translateX(-25%);
+  }
+  50% {
+    -moz-transform: translateX(-50%);
+  }
+  75% {
+    -moz-transform: translateX(-75%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+
+@-ms-keyframes infiLoop {
+  0% {
+    -ms-transform: translateX(0);
+  }
+  25% {
+    -ms-transform: translateX(-25%);
+  }
+  50% {
+    -ms-transform: translateX(-50%);
+  }
+  75% {
+    -ms-transform: translateX(-75%);
+  }
+  100% {
+    -ms-transform: translateX(-100%);
+  }
+}
+
+@-o-keyframes infiLoop {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  0% {
+    -o-transform: translateX(0);
+  }
+  25% {
+    -o-transform: translateX(-25%);
+  }
+  50% {
+    -o-transform: translateX(-50%);
+  }
+  75% {
+    -o-transform: translateX(-75%);
+  }
+  100% {
+    -o-transform: translateX(-100%);
+  }
+}
+
+@keyframes posfuture {
   from {
+    transform: translate(-420%, 160%);
   }
   to {
-    transform: translateX(-100%);
+    transform: translate(-420%, 160%) rotate(-8deg);
+  }
+}
+
+@keyframes aniCode {
+  from {
+    transform: translate(60%, 50%);
+  }
+  to {
+    transform: translate(60%, 50%) rotate(5deg);
+  }
+}
+
+@keyframes aniStandard {
+  from {
+    transform: translate(-83%, 30%);
+  }
+  to {
+    transform: translate(-83%, 30%) rotate(28deg);
+  }
+}
+
+@keyframes aniNow {
+  from {
+    transform: translate(500%, -80%);
+  }
+  to {
+    transform: translate(500%, -80%) rotate(-7deg);
+  }
+}
+
+@keyframes aniBlue {
+  from {
+    /* transform: translate(420%, -30%); */
+  }
+  to {
+    transform: translate(420%, -30%) rotate(-7deg);
+  }
+}
+
+@keyframes aniSuperb {
+  from {
+    /* transform: translate(420%, -30%); */
+  }
+  to {
+    transform: translateX(90%) rotate(-7deg);
+  }
+}
+
+@keyframes aniHandshake {
+  from {
+    /* transform: translate(420%, -30%); */
+  }
+  to {
+    transform: translate(347%, -70%) rotate(17deg);
   }
 }
 

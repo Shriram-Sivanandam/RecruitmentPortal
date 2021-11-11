@@ -8,7 +8,7 @@ function Connect() {
     <div className="mainCont" style={{ height: "auto" }}>
       <div className="connectCont">
         <div className="connect_text">
-          <div className="headingCont">
+          <div className="headingCont my-lg-4">
             <svg
               className="connect_heading"
               width="612"
@@ -23,7 +23,7 @@ function Connect() {
               />
             </svg>
           </div>
-          <div className="connect_info" style={{ marginTop: "2rem" }}>
+          <div className="connect_info" style={{ marginTop: "1rem" }}>
             <svg
               className="laptopinfo"
               width="609"
