@@ -51,9 +51,12 @@ function Dashboard() {
   // console.log(token)
   // const { token } = Constants();
   // const {domains} = User();
-  const [user, setUser] = useState([]);
+  const [domains, setDomains] = useState([]);
+  // var user = []
+
 
   // const domains = ["TECH"]
+  // let domains = [];
   console.log(token);
   useEffect(() => {
     console.log("hello");
@@ -61,20 +64,25 @@ function Dashboard() {
     console.log("token from request", token);
     setLoading(true);
 
+  
     axios
       .get("http://localhost:3000/student/profile")
       .then((response) => {
         setLoading(false);
+        console.log("data" , response.data);
+        // setUser(response.data);
+        setDomains(response.data.domains);
 
-        setUser(response.data);
-        console.log("user", response.data);
-      })
-      .catch((err) => {
-        console.log("error");
-        console.log(err);
-      });
+        // user = response.data;
+        
+       
+         
+          
+          // setUser(response.data);
 
-    axios
+        if (  !(domains.includes("DESIGN")  && domains.length === 1)   ){
+          console.log("user", response.data);
+        axios
       .get("http://localhost:3000/student/start_test")
       .then((response) => {
         console.log("data", response.data);
@@ -82,29 +90,43 @@ function Dashboard() {
       })
       .catch((err) => {
         console.log(err);
-        console.log("because of ishaan");
       });
-  }, []);
+ 
 
-  let domains = [];
+        }
 
-  console.log(user);
+       
+        
 
-  if (loading === false && user !== []) {
-    console.log(user);
-    domains = user.domains;
-    if (domains?.includes("DESIGN") && domains.length === 1) {
-      setDisabled(true);
-    }
-    // console.log(domains.filter(domain => (domain === "TECH")))
-    // console.log(domains.indexOf("TECH") === 0)
-    // console.log( domains.indexOf("MANAGEMENT") !== -1)
-  }
-  
+      })
+      .catch((err) => {
+        console.log("error");
+        console.log(err);
+      });
 
-  console.log(domains);
 
-  console.log(user);
+      
+  },[] );
+
+  // console.log(user)
+
+  console.log("domains" , domains)
+
+  // let domains = [];
+
+  // console.log(user);
+
+  // if (loading === false && user !== []) {
+  //   console.log(user);
+  //   domains = ["DESIGN"];
+
+  //   if (domains?.includes("DESIGN") && domains.length === 1) {
+  //     setDisabled(true);
+  //   }
+  //   // console.log(domains.filter(domain => (domain === "TECH")))
+  //   // console.log(domains.indexOf("TECH") === 0)
+  //   // console.log( domains.indexOf("MANAGEMENT") !== -1)
+  // }
 
   return (
     <>
@@ -112,28 +134,28 @@ function Dashboard() {
         <Nav2 />
         <div className="container row mx-auto my-5">
           <div className="headings mb-3 mx-auto">
-            {  disable === true ?  
-            <h1>We will call you for a interview soon</h1>
-            
-          :
-          <>
-            <h1 className="heading2 ">You Have Quizes Scheduled for {"\n"} </h1>
-            {"\n"}
+            {domains?.includes("DESIGN") && domains.length === 1 ? (
+              <h1 className="heading2">We will call you for a interview soon</h1>
+            ) : (
+              <>
+                <h1 className="heading2 ">
+                  You Have Quizes Scheduled for {"\n"}{" "}
+                </h1>
+                {"\n"}
 
-            {!loading && domains?.indexOf("TECH") !== -1 ? (
-              <h1 className="heading2">
-                <span className="scheduled"> {"   "} Tech</span>{" "}
-                {domains?.indexOf("MANAGEMENT") !== -1 ? <> And </> : null}{" "}
-              </h1>
-            ) : null}
-            {!loading && domains?.indexOf("MANAGEMENT") !== -1 ? (
-              <h1 className="heading2">
-                <span className="scheduled"> {"   "} Management</span>{" "}
-              </h1>
-            ) : null}
-
-            </>
-}
+                {!loading && domains?.indexOf("TECH") !== -1 ? (
+                  <h1 className="heading2">
+                    <span className="scheduled"> {"   "} Tech</span>{" "}
+                    {domains?.indexOf("MANAGEMENT") !== -1 ? <> And </> : null}{" "}
+                  </h1>
+                ) : null}
+                {!loading && domains?.indexOf("MANAGEMENT") !== -1 ? (
+                  <h1 className="heading2">
+                    <span className="scheduled"> {"   "} Management</span>{" "}
+                  </h1>
+                ) : null}
+              </>
+            )}
 
             {/* <svg
               id="svg1"
@@ -494,7 +516,7 @@ function Dashboard() {
           {/* </div> */}
           {/* <div className="mx-auto"> */}
 
-          {loading === false && user !== [] && domains !== [] ? (
+          {loading === false && domains !== [] ? (
             <>
               {domains?.indexOf("MANAGEMENT") !== -1 ? (
                 <div className="mx-auto">
@@ -691,7 +713,7 @@ function Dashboard() {
               ) : null}
             </>
           ) : null}
-          {loading === false && user !== [] && domains !== [] ? (
+          {loading === false  && domains !== [] ? (
             <>
               {domains?.indexOf("DESIGN") !== -1 ? (
                 <div className="mx-auto ">

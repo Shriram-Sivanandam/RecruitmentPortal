@@ -1,12 +1,10 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 //import letsgo svg from assests  
 import letsgo from "../../assets/letsgo.svg";
-import star from '../../assets/star.svg'
-import { ToastContainer, toast } from "react-toastify";
-import toastError from "../ToastError";
-import './Login.css'
+import star from '../../assets/star.svg';
+import { useAuth } from "../../contexts/AuthContext";
+import './Login.css';
 
 
 export default function Login() {
@@ -60,6 +58,7 @@ export default function Login() {
     //     Forgot Password?
     //   </Link>
     // </div>
+
     <div className="loginPage container "> 
     <img className="mx-auto letsgo2" src={letsgo}  alt="lets go" />
     <img className="mx-auto star" src={star}  alt="star" />
@@ -83,6 +82,7 @@ export default function Login() {
           Sign Up
         </Link>
       </div>
+    </div>
     </div>
   );
 }
