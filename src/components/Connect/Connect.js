@@ -5,7 +5,7 @@ import mobileinfo from "../../assets/mobileinfo.svg";
 
 function Connect() {
   return (
-    <div className="mainCont" style={{ height: "23rem" }}>
+    <div className="mainCont" style={{ height: "auto" }}>
       <div className="connectCont">
         <div className="connect_text">
           <div className="headingCont">

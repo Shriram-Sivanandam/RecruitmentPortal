@@ -14,7 +14,9 @@
   width: 80%;
   text-align: center;
 }
-
+.stickerWallMobile {
+  display: none;
+}
 .heading_stiwall {
   display: flex;
   justify-content: center;
@@ -204,5 +206,28 @@
   .stiPosFu {
     width: 128px;
     transform: translate(2%, -42%) !important;
+  }
+  .stiWallDiv {
+    display: none;
+  }
+  .stickerWallMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    margin: auto;
+    overflow: hidden !important;
+  }
+  .sticker-wall-mobile {
+    width: 90vw;
+    height: auto;
+  }
+  .heading-mobile {
+    margin-top: 3rem;
+    width: 90vw;
+    height: auto;
+  }
+  .barCodeDiv1 {
+    width: 100vw !important;
   }
 }
