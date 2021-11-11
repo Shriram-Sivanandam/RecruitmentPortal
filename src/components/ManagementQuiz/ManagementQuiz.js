@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef , useEffect } from "react";
 import Nav2 from "../Nav/Nav2";
 import "./ManagementQuiz.css";
-import { Link } from "react-router-dom";
-import Group45 from "../../assets/Group45.svg";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { Link, Redirect } from "react-router-dom";
+import Group45 from '../../assets/Group45.svg'
+import axios from 'axios'
+import {  toast } from "react-toastify";
 import toastError from "../ToastError";
 function ManagementQuiz() {
   const answerRef = useRef();
@@ -13,6 +13,7 @@ function ManagementQuiz() {
   const [showNextBtn, setShowNextBtn] = useState(true);
   const [showEndBtn, setEndBtn] = useState(false);
   const [answersArray, setAnswersArray] = useState([]);
+  const [mgtStatus , setMgtStatus] = useState("");
   // var answersArray = [];
 
   function nextQues() {
@@ -31,26 +32,43 @@ function ManagementQuiz() {
   }
   console.log(answersArray);
 
+  useEffect(() => {
+    axios.get("/student/view_mgmt_answer").then(() => {
+
+    }).catch((err) => {
+      console.log(err)
+      if (err.response.data === "ALREADY GIVEN"){
+        setMgtStatus(err.response.data);
+
+      }
+      
+    })
+  }, [])
+
   const managementQuiz = async () => {
     console.log(answersArray);
-    await axios
-      .post("/mgmt_quiz", {
-        answer1: answersArray[0],
-        answer2: answersArray[1],
-        answer3: answersArray[2],
-        answer4: answersArray[3],
-        answer5: answerRef.current.value,
-      })
-      .then((response) => {
-        console.log(response.data);
-        console.log("success");
-        toast.success("Successfuly Registered");
-      })
-      .catch((err) => {
-        console.log(err);
-        toastError(err);
-      });
-  };
+
+   
+    await axios.post('student/mgmt_quiz',{
+      
+        "answer1":answersArray[0],
+        "answer2":answersArray[1],
+        "answer3":answersArray[2],
+        "answer4":answersArray[3],
+        "answer5":answerRef.current.value
+    
+    }).then((response) => {
+      console.log(response.data)
+      console.log("success")
+      toast.success("Successfuly Registered");
+
+    }).catch((err) => {
+      console.log(err)
+      toastError(err);
+
+    })
+  }
+
 
   const questionBank = [
     "What is the shortcut for adding Auto Layout in Figma?1",
@@ -63,10 +81,15 @@ function ManagementQuiz() {
   return (
     <>
       <Nav2 />
-      <div
-        className="container  p-5"
-        style={{ backgroundColor: "#FFF5F1", width: "100vw", height: "100vh" }}
-      >
+      <div className="container  p-5" style={{ backgroundColor:"#FFF5F1" , width:"100vw" , height:"100vh" }}>
+        {   mgtStatus === "ALREADY GIVEN"  ? 
+        <Redirect to="/student/quiz-dashboard" /> :
+
+        <>
+        
+      
+      
+      
         {/* <div className="row my-5">
           <div className="managementQuesInfo">
             <h4>
@@ -165,6 +188,8 @@ function ManagementQuiz() {
             ""
           )}
         </div>
+        </>
+}
       </div>
     </>
   );

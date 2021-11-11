@@ -416,9 +416,9 @@ function Register() {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  if (currentQuestion !== 0) {
-                    setCurrentQuestion(currentQuestion - 1);
-                  }
+
+                  nextQues();
+                  // setCurrentQuestion(currentQuestion + 1);
                 }}
                 className="arrows py-1 px-2 "
               >

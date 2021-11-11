@@ -10,6 +10,7 @@ function Dashboard() {
   const [quizSelected, setQuizSelected] = useState("");
   const [show, setShow] = useState(false);
   const [status, setStatus] = useState("INACTIVE TEST");
+  const [mgtStatus , setMgtStatus] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -46,11 +47,36 @@ function Dashboard() {
             .get("/student/start_test")
             .then((response) => {
               setStatus(response.data);
+              console.log("data", response.data);
             })
-            .catch((err) => {});
+            .catch((err) => {
+              if (err.response.data === "INACTIVE TEST"){
+                setStatus(err.response.data);
+                console.log(err.response)
+
+              }
+              if (err.response.data === "ALREADY GIVEN TEST"){
+                setStatus(err.response.data);
+
+              }
+             
+             
+            });
+
+            axios.get("/student/view_mgmt_answer").then(() => {
+
+            }).catch((err) => {
+              if (err.response.data === "ALREADY GIVEN"){
+                setMgtStatus(err.response.data);
+
+              }
+              
+            })
         }
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err)
+      });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -86,7 +112,6 @@ function Dashboard() {
                   domains?.indexOf("MANAGEMENT") === -1 ? (
                     <div className="heading2 headingScheduled ">
                       <span className="scheduled "> {"   "} Aptitude</span>{" "}
-                      {/* {domains?.indexOf("MANAGEMENT") === -1 ? <> and </> : null}{" "} */}
                     </div>
                   ) : null}
                   {!loading && domains?.indexOf("MANAGEMENT") !== -1 ? (
@@ -431,7 +456,7 @@ function Dashboard() {
 
               <div className="mx-auto row">
                 {/* <Link to="/apt-quiz"> */}
-                {status !== "INACTIVE TEST" && status !== "CANNOT GIVE TEST" ? (
+                {status !== "INACTIVE TEST" && status !== "ALREADY GIVEN TEST" ? (
                   <button
                     type="button"
                     className="btn mx-auto"
@@ -625,8 +650,7 @@ function Dashboard() {
 
                   <div className="row mx-auto">
                     {/* <Link to="/management-quiz"> */}
-                    {status !== "INACTIVE TEST" &&
-                    status === "CANNOT GIVE TEST" ? (
+                    {status === "ALREADY GIVEN TEST" && mgtStatus !== "ALREADY GIVEN"  ? (
                       <button
                         type="button"
                         className="btn mx-auto"
@@ -962,7 +986,7 @@ function Dashboard() {
                   </div>
                 </div>
               ) : null}
-              {/* {  domains?.includes("DESIGN") && ( */})
+              {/* {  domains?.includes("DESIGN") && ( */}
             </>
           ) : null}
           {/*            
