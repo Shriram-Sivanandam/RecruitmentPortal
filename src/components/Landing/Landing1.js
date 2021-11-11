@@ -131,7 +131,7 @@ function Landing1() {
 
                 <SmoothLink to="connectScroll" smooth={true}>
                   <li class="nav-item mx-3 my-3 current">
-                    <a href="" className="button" id="aa">
+                    <a href="/" className="button" id="aa">
                       <svg
                         width="83"
                         height="15"

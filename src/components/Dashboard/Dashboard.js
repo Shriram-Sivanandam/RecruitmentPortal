@@ -479,9 +479,6 @@ function Dashboard() {
                     width="287"
                     height="327"
                     viewBox="0 0 287 327"
-                    width="276"
-                    height="314"
-                    viewBox="0 0 276 314"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
