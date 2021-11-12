@@ -79,6 +79,8 @@
     animation-duration: 25s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    -webkit-animation-fill-mode: backwards;
     margin-right: 0vw;
   }
 }
