@@ -168,8 +168,15 @@
   padding-right: -10px;
   animation-name: infiLoop;
   animation-duration: 15s;
+  -webkit-animation-duration: 15s;
   animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
   animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-fill-mode: inherit;
+  -webkit-animation-fill-mode: inherit;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 /* .firstBar {
   transform: translateY(-25px);
@@ -178,24 +185,6 @@
 .secondBar {
   transform: translateY(25px);
 } */
-
-@keyframes infiLoop {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-25%);
-  }
-  50% {
-    transform: translateX(-50%);
-  }
-  75% {
-    transform: translateX(-75%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
 @-webkit-keyframes infiLoop {
   0% {
@@ -269,6 +258,24 @@
   }
   100% {
     -o-transform: translateX(-100%);
+  }
+}
+
+@keyframes infiLoop {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
