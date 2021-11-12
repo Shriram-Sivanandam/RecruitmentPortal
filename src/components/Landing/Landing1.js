@@ -70,9 +70,11 @@ function Landing1() {
           </a>
 
           {width < 991 && (
-            <div className="ml-auto mr-1">
-              <Button />
-            </div>
+            <Link to="/quiz-dashboard">
+              <div className="ml-auto mr-1">
+                <Button />
+              </div>
+            </Link>
           )}
           <button
             className="navbar-toggler"
@@ -159,10 +161,18 @@ function Landing1() {
           <div className="row mobilehero hideMobile">
             <div className="col-2" id="ilus_grid">
               <div className="row">
-                <img src={designer} className=" img-fluid aniDesigner" alt="d"></img>
+                <img
+                  src={designer}
+                  className=" img-fluid aniDesigner"
+                  alt="d"
+                ></img>
               </div>
               <div className="row mt-lg-5">
-                <img src={developer} className=" img-fluid aniDeveloper" alt="d"></img>
+                <img
+                  src={developer}
+                  className=" img-fluid aniDeveloper"
+                  alt="d"
+                ></img>
               </div>
             </div>
             <div
@@ -345,30 +355,32 @@ function Landing1() {
             </div>
           </div>
         </div>
-        <div
-          className="showOnMobile"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <img
-              src={herosectionMobile}
-              alt="HeroSection"
-              className="hero-section-mobile"
-            />
+        <Link to="/register">
+          <div
+            className="showOnMobile"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img
+                src={herosectionMobile}
+                alt="HeroSection"
+                className="hero-section-mobile"
+              />
+            </div>
+            <div className="mx-auto registerButtonMobile2">
+              <img
+                src={registerbutton}
+                alt="register"
+                className="registerButton"
+                style={{ width: "55vw", height: "auto" }}
+              ></img>
+            </div>
           </div>
-          <div className="mx-auto registerButtonMobile2">
-            <img
-              src={registerbutton}
-              alt="register"
-              className="registerButton"
-              style={{ width: "55vw", height: "auto" }}
-            ></img>
-          </div>
-        </div>
+        </Link>
         <StickerWall />
         <div className="container my-5" name="roadMapScroll">
           <div className="d-flex justify-content-around mb-lg-5">
