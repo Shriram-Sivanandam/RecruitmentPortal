@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import letsgo from "../../assets/letsgo.svg";
 import star from "../../assets/star.svg";
 import { useAuth } from "../../contexts/AuthContext";
+import toastError from "../ToastError";
 import "./Login.css";
 
 export default function Login() {
@@ -13,6 +14,12 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  const EnterFunction=(event)=> {
+    if (event.keyCode === 13) {
+        handleSubmit(event)
+    }
+}
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -25,7 +32,8 @@ export default function Login() {
         history.push("/admin-dashboard");
       else history.push("/quiz-dashboard");
     } catch {
-      setError("Failed to log in");
+      setError("Incorrect Password");
+      toastError(error);
     }
 
     setLoading(false);
@@ -76,7 +84,7 @@ export default function Login() {
           type="password"
           className="inputField my-2"
           placeholder="Enter your Password"
-          ref={password}
+          ref={password} onKeyDown={(e) => EnterFunction(e) }
         />
         <button
           className="btn btn-primary bg-dark border-dark  mt-5 mb-4"

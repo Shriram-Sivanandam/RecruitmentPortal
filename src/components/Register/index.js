@@ -66,6 +66,14 @@ function Register() {
     "Friday",
     "Saturday",
   ];
+  const EnterFunction=(event)=> {
+    if (event.keyCode === 13) {
+        
+      nextQues();
+      
+    
+    }
+}
 
   useEffect(() => {
     // console.log("hello");
@@ -426,7 +434,7 @@ function Register() {
           <span style={{ color: "#7A7A7A" }}></span>
           {questionBank[currentQuestion]}
         </h3>
-        <div>{components[currentQuestion + 1]}</div>
+        <div onKeyDown={(e) => EnterFunction(e)}>{components[currentQuestion + 1]}</div>
       </div>
       <div className="my-5">
         {showNextBtn ? (
