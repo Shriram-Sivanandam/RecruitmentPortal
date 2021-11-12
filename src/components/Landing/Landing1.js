@@ -159,10 +159,18 @@ function Landing1() {
           <div className="row mobilehero hideMobile">
             <div className="col-2" id="ilus_grid">
               <div className="row">
-                <img src={designer} className=" img-fluid aniDesigner" alt="d"></img>
+                <img
+                  src={designer}
+                  className=" img-fluid aniDesigner"
+                  alt="d"
+                ></img>
               </div>
               <div className="row mt-lg-5">
-                <img src={developer} className=" img-fluid aniDeveloper" alt="d"></img>
+                <img
+                  src={developer}
+                  className=" img-fluid aniDeveloper"
+                  alt="d"
+                ></img>
               </div>
             </div>
             <div
@@ -372,9 +380,10 @@ function Landing1() {
         <StickerWall />
         <div className="container my-5" name="roadMapScroll">
           <div className="d-flex justify-content-around mb-lg-5">
-            {domain.map((field) => {
+            {domain.map((field, idx) => {
               return (
                 <div
+                  key={idx}
                   className={active === field ? `${field}-active` : `${field}`}
                   style={{
                     fontFamily: "BriceRegular",
