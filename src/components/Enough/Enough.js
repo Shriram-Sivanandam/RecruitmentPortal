@@ -23,8 +23,16 @@ function Enough() {
       </div>
 
       <div className="imgContMobile">
-        <img className="enoughImgMobile" src={enoughSent}  alt="enoughSent"></img>
-        <img className="enoughImgMobile" src={enoughSent}  alt="enoughSent"></img>
+        <img
+          className="enoughImgMobile"
+          src={enoughSent}
+          alt="enoughSent"
+        ></img>
+        <img
+          className="enoughImgMobile"
+          src={enoughSent}
+          alt="enoughSent"
+        ></img>
       </div>
     </div>
   );
