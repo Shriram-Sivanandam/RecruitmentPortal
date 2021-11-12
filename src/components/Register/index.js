@@ -177,7 +177,7 @@ function Register() {
       answersArray[currentQuestion] = value;
       setValue(null);
       setCurrentQuestion(currentQuestion + 1);
-     
+
       if (currentQuestion < 6) {
         setShowNextBtn(true);
         setEndBtn(false);
@@ -188,12 +188,9 @@ function Register() {
       }
     } else {
       if (error === null) {
-       
-       
         setError("Please enter valid value");
         toastError("Please enter valid value");
       } else {
-        
         toastError(error);
       }
     }
@@ -393,7 +390,7 @@ function Register() {
       <img className="mx-auto letsgo" src={LetsGetStarted} alt="lets go" />
 
       <div className="heading mx-auto  ">
-        <h1 className="headingTop mb-5  mx-auto ">Lets Get Started </h1>
+        <h1 className="headingTop mb-5  mx-auto">Lets Get Started </h1>
       </div>
 
       <div class="steps-form ">
@@ -443,23 +440,22 @@ function Register() {
               Next {">"}
             </button>
             <div>
-              {  currentQuestion !== 0 ? (
-                 <button
-                 onClick={(e) => {
-                   e.preventDefault();
- 
-                   // nextQues();
-                   console.log(currentQuestion);
-                   setCurrentQuestion(currentQuestion - 1);
-                   console.log(currentQuestion);
-                 }}
-                 className="arrows py-1 px-2 "
-               >
-                 {<img src={previousArrow} alt="down" />}
-               </button>
+              {currentQuestion !== 0 ? (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
 
-              ) : null }
-             
+                    // nextQues();
+                    console.log(currentQuestion);
+                    setCurrentQuestion(currentQuestion - 1);
+                    console.log(currentQuestion);
+                  }}
+                  className="arrows py-1 px-2 "
+                >
+                  {<img src={previousArrow} alt="down" />}
+                </button>
+              ) : null}
+
               <button
                 onClick={(e) => {
                   e.preventDefault();

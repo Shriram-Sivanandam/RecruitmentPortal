@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
 import Countdown2 from "../CountdownTimer/CountdownTimer";
 import Options from "./Options";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import toastError from "../ToastError";
 import "./Quizbox.css";
 
@@ -44,17 +44,15 @@ function Quizbox() {
       })
       .catch((err) => {
         console.log(err);
-        if (err.response.data === "INACTIVE TEST"){
+        if (err.response.data === "INACTIVE TEST") {
           setStatus("Given");
-          console.log(err.response)
-
+          console.log(err.response);
         }
-        if (err.response.data === "ALREADY GIVEN TEST"){
+        if (err.response.data === "ALREADY GIVEN TEST") {
           setStatus("Given");
-
         }
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = () => {
@@ -63,7 +61,7 @@ function Quizbox() {
         answers: answersArray,
       })
       .then((response) => {
-        toast.success("Answers Registered")
+        toast.success("Answers Registered");
 
         console.log(response.data);
       })
@@ -267,7 +265,7 @@ function Quizbox() {
             {questionBank !== [] ? (
               <>
                 <div className=" my-3 ">
-                  <h5>
+                  <h5 className="disableSelect">
                     {" "}
                     <span style={{ color: "#7A7A7A" }}>
                       Q{currentQuestion + 1}:
