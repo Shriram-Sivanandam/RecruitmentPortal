@@ -235,7 +235,7 @@ function Register() {
               ) {
                 setDisabled(true);
                 toast.success("You have successfully registered");
-                history.push("/");
+                history.push("/quiz-dashboard");
               } else {
                 slotBooking().then(() => {
                   history.push("/quiz-dashboard");
@@ -246,12 +246,14 @@ function Register() {
             // slotBooking()
           })
           .catch((err) => {
+            toastError(error.response.data);
             console.log(err.message);
           });
       } else {
-        toastError(error);
+        toastError(error.response.data);
       }
     } catch (err) {
+      toastError(error.response.data);
       console.log(err);
     }
   };
@@ -287,12 +289,14 @@ function Register() {
               toast.success("Successfuly Registered");
             })
             .catch((err) => {
+              toastError(error.response.data);
               console.log(err.message);
             });
         } else {
           console.log("test");
         }
       } catch (err) {
+        toastError(error.response.data);
         console.log(err.message);
       }
     }
@@ -436,20 +440,22 @@ function Register() {
               Next {">"}
             </button>
             <div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
+              {currentQuestion !== 0 ? (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
 
-                  // nextQues();
-                  console.log(currentQuestion);
-                  if (currentQuestion !== 0)
+                    // nextQues();
+                    console.log(currentQuestion);
                     setCurrentQuestion(currentQuestion - 1);
-                  console.log(currentQuestion);
-                }}
-                className="arrows py-1 px-2 "
-              >
-                {<img src={previousArrow} alt="down" />}
-              </button>
+                    console.log(currentQuestion);
+                  }}
+                  className="arrows py-1 px-2 "
+                >
+                  {<img src={previousArrow} alt="down" />}
+                </button>
+              ) : null}
+
               <button
                 onClick={(e) => {
                   e.preventDefault();
