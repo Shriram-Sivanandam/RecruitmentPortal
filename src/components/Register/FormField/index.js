@@ -29,13 +29,19 @@ export const Name = ({ setValue, setError, placeholder }) => {
     </div>
   );
 };
-export const RegNo = ({ setValue, setError, placeholder }) => {
+export const RegNo = ({ setValue, setError, placeholder  , value }) => {
   const name = useRef();
 
   const handleSubmit = () => {
     if (name.current.value !== null) {
-      if (name.current.value.length === 9) {
-        if (name.current.value.startsWith("21")) {
+  console.log("length"  , name.current.value.length)
+  console.log("value" , name.current.value)
+  
+
+      
+      if (  name.current.value.length === 9 ) {
+        console.log("state" , value)
+        if ( name.current.value.startsWith("21")) {
           setValue(name.current.value);
         } else {
           setError("Only 2021 Batch Students are allowed");
@@ -48,6 +54,7 @@ export const RegNo = ({ setValue, setError, placeholder }) => {
       setError("Please Enter Correct register number");
     }
   };
+
 
   return (
     <div>
@@ -72,7 +79,7 @@ export const Email = ({ setValue, setError, error, placeholder }) => {
   const handleSubmit = () => {
     if (email.current.value !== null) {
       // console.log("hello")
-      if (email.current.value.endsWith("2021@vitstudent.ac.in")) {
+      if (/2021@vitstudent.ac.in$/.test(email.current.value)) {
         setError(null);
         setValue(email.current.value);
       } else {
@@ -212,7 +219,7 @@ export const DomainChoose = ({ setValue, setError }) => {
       setSelected([...selected, component[domain]]);
     }
   };
-  if (selected !== []) {
+  if (JSON.stringify(selected) !== JSON.stringify([])) {
     console.log(selected);
     setValue(selected);
   }
@@ -293,12 +300,7 @@ export const DateChoose = ({ day, dates, setValue, setError, disabled }) => {
     // console.log(selected);
   };
   if (
-    selected !==
-    {
-      month: "",
-      date: "",
-      day: "",
-    }
+    selected.month !== ""
   ) {
     setValue(selected);
   }
@@ -353,6 +355,7 @@ export const TimeSlot = ({ time, minutes, setValue, setError, disabled }) => {
   };
 
   if (selected !== "") {
+    console.log("selected" , selected)
     setValue(selected);
   }
 

@@ -4,6 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import Group45 from "../../assets/Group45.svg";
 import Countdown2 from "../CountdownTimer/CountdownTimer";
 import Options from "./Options";
+import {  toast } from "react-toastify";
+import toastError from "../ToastError";
 import "./Quizbox.css";
 
 function Quizbox() {
@@ -28,7 +30,7 @@ function Quizbox() {
         console.log(response.data);
         if (
           response.data === "INACTIVE TEST" ||
-          response.data === "CANNOT GIVE TEST"
+          response.data === "ALREADY GIVEN TEST"
         ) {
           setStatus("Given");
         } else {
@@ -42,6 +44,15 @@ function Quizbox() {
       })
       .catch((err) => {
         console.log(err);
+        if (err.response.data === "INACTIVE TEST"){
+          setStatus("Given");
+          console.log(err.response)
+
+        }
+        if (err.response.data === "ALREADY GIVEN TEST"){
+          setStatus("Given");
+
+        }
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -52,9 +63,12 @@ function Quizbox() {
         answers: answersArray,
       })
       .then((response) => {
+        toast.success("Answers Registered")
+
         console.log(response.data);
       })
       .catch((err) => {
+        toastError(err.response.data);
         console.log(err);
       });
   };
@@ -247,7 +261,7 @@ function Quizbox() {
                 {10 - currentQuestion - 1} questions to go
               </h5>
               <div className="logo">
-                Time to Go : <Countdown2 />{" "}
+                Time to Go : <Countdown2 answersArray={answersArray} />{" "}
               </div>
             </div>
             {questionBank !== [] ? (

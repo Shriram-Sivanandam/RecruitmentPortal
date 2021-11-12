@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   Name,
   RegNo,
@@ -55,6 +55,7 @@ function Register() {
   // const { signup } = useAuth();
   // const [timeset, setTimeSet] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  console.log(answersArray);
 
   const days = [
     "Sunday",
@@ -80,21 +81,30 @@ function Register() {
           const date = new Date(response.data[i].date_time);
           // console.log(date);
           if (dates.indexOf(date) === -1) {
-            setFullDates(response.data);
+            if (fulldates !== response.data) {
+              setFullDates(response.data);
+            }
+
             // console.log(date[0]);
             // const d = date.split(" ")
-            day.push(days[date.getDay()]);
-            dates.push(date.getDate());
+            if (dates.indexOf(date.getDate()) === -1) {
+              day.push(days[date.getDay()]);
+              dates.push(date.getDate());
+            }
 
             // console.log(days[date.getDay()]);
 
             if (answersArray[6]?.day === days[date.getDay()]) {
               // time.push(date.getHours());
-              setTime((previousTime) => [...previousTime, date.getHours()]);
-              setMinutes((previousTime) => [
-                ...previousTime,
-                date.getMinutes(),
-              ]);
+              if (time.indexOf(date.getHours()) === -1) {
+                setTime((previousTime) => [...previousTime, date.getHours()]);
+              }
+              if (minutes.indexOf(date.getMinutes()) === -1) {
+                setMinutes((previousTime) => [
+                  ...previousTime,
+                  date.getMinutes(),
+                ]);
+              }
 
               // minutes.push(date.getMinutes());
             } else {
@@ -108,9 +118,15 @@ function Register() {
   }, [answersArray[6]]);
 
   useEffect(() => {
-    if (answersArray[5]?.includes("DESIGN") && answersArray[5]?.length === 1) {
-      setDisabled(true);
+    if (currentQuestion === 5) {
+      if (
+        answersArray[5]?.includes("DESIGN") &&
+        answersArray[5]?.length === 1
+      ) {
+        setDisabled(true);
+      }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answersArray[5]]);
   // })
@@ -161,17 +177,23 @@ function Register() {
       answersArray[currentQuestion] = value;
       setValue(null);
       setCurrentQuestion(currentQuestion + 1);
+     
+      if (currentQuestion < 6) {
+        setShowNextBtn(true);
+        setEndBtn(false);
+      }
       if (currentQuestion === 6) {
         setShowNextBtn(false);
         setEndBtn(true);
       }
     } else {
       if (error === null) {
-        console.log(error);
+       
+       
         setError("Please enter valid value");
         toastError("Please enter valid value");
       } else {
-        console.log(error);
+        
         toastError(error);
       }
     }
@@ -216,8 +238,11 @@ function Register() {
               ) {
                 setDisabled(true);
                 toast.success("You have successfully registered");
+                history.push("/");
               } else {
-                slotBooking();
+                slotBooking().then(() => {
+                  history.push("/quiz-dashboard");
+                });
               }
             });
 
@@ -300,6 +325,7 @@ function Register() {
         setValue={setValue}
         setError={setError}
         placeholder="Enter your Registration Number"
+        value={value}
       />
     ),
     3: (
@@ -417,8 +443,10 @@ function Register() {
                 onClick={(e) => {
                   e.preventDefault();
 
-                  nextQues();
-                  // setCurrentQuestion(currentQuestion + 1);
+                  // nextQues();
+                  console.log(currentQuestion);
+                  setCurrentQuestion(currentQuestion - 1);
+                  console.log(currentQuestion);
                 }}
                 className="arrows py-1 px-2 "
               >
@@ -428,9 +456,9 @@ function Register() {
                 onClick={(e) => {
                   e.preventDefault();
                   nextQues();
-                  if (error !== null) {
-                    setCurrentQuestion(currentQuestion + 1);
-                  }
+                  // if (error !== null) {
+                  //   setCurrentQuestion(currentQuestion + 1);
+                  // }
                 }}
                 className="arrows ml-2 p-1"
               >
@@ -445,28 +473,55 @@ function Register() {
           // <Link to="/">
           <div className="row my-5">
             <div className="mr-auto">
-              <Link to="login">
-                <button
-                  type="button"
-                  class="btn btn-primary bg-dark mb-5 ml-3"
-                  style={{ backgroundColor: "#5E72E4" }}
-                  onClick={(e) => {
-                    e.preventDefault();
+              {/* <Link to="/login"> */}
+              <button
+                type="button"
+                class="btn btn-primary bg-dark mb-5 ml-3"
+                style={{ backgroundColor: "#5E72E4" }}
+                onClick={(e) => {
+                  e.preventDefault();
 
-                    nextQues();
-                    setCurrentQuestion(7);
-                    console.log(answersArray);
+                  nextQues();
+                  console.log("hello");
+
+                  setCurrentQuestion(7);
+                  console.log(answersArray);
+
+                  if (error === null) {
                     studentRegister().then(() => {
                       console.log("1 complete");
                       console.log(token);
                       slotBooking();
                     });
-                    history.push("/quiz-dashboard");
-                  }}
-                >
-                  Submit
-                </button>
-              </Link>
+                    setTimeout(() => {
+                      history.push("/quiz-dashboard");
+                    }, 5000);
+                  }
+                }}
+              >
+                Submit
+              </button>
+
+              {/* </Link> */}
+            </div>
+            <div className="">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  // nextQues();
+                  console.log(currentQuestion);
+                  setCurrentQuestion(currentQuestion - 1);
+                  console.log(currentQuestion);
+                  if (currentQuestion < 8) {
+                    setShowNextBtn(true);
+                    setEndBtn(false);
+                  }
+                }}
+                className="arrows py-1 px-2 "
+              >
+                {<img src={previousArrow} alt="down" />}
+              </button>
             </div>
           </div>
         ) : (

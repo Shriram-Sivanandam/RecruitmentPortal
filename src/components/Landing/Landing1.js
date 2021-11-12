@@ -347,13 +347,27 @@ function Landing1() {
         </div>
         <div
           className="showOnMobile"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
         >
-          <img
-            src={herosectionMobile}
-            alt="HeroSection"
-            className="hero-section-mobile"
-          />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img
+              src={herosectionMobile}
+              alt="HeroSection"
+              className="hero-section-mobile"
+            />
+          </div>
+          <div className="mx-auto registerButtonMobile2">
+            <img
+              src={registerbutton}
+              alt="register"
+              className="registerButton"
+              style={{ width: "55vw", height: "auto" }}
+            ></img>
+          </div>
         </div>
         <StickerWall />
         <div className="container my-5" name="roadMapScroll">
