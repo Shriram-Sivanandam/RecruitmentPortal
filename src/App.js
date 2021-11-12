@@ -14,6 +14,7 @@ import Register from "./components/Register";
 import SignUp from "./components/SignUp";
 import StudentList from "./components/StudentList/StudentList";
 import ThankYou from "./components/ThankYou/ThankYou";
+import { Helmet } from "react-helmet";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 
 function App() {
@@ -208,6 +209,13 @@ function App() {
       {/* <Countdown2 /> */}
       {/* <Quizbox /> */}
       <Router>
+        <Helmet>
+          <meta
+            property="og:image"
+            itemprop="image"
+            content="https://user-images.githubusercontent.com/77565177/141419096-6f33c6b7-7b1d-4acb-b89d-789a35998fac.png "
+          />
+        </Helmet>
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/quiz-dashboard" component={Dashboard} />
