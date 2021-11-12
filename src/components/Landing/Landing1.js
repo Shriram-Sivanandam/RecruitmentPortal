@@ -384,9 +384,10 @@ function Landing1() {
         <StickerWall />
         <div className="container my-5" name="roadMapScroll">
           <div className="d-flex justify-content-around mb-lg-5">
-            {domain.map((field) => {
+            {domain.map((field, idx) => {
               return (
                 <div
+                  key={idx}
                   className={active === field ? `${field}-active` : `${field}`}
                   style={{
                     fontFamily: "BriceRegular",
