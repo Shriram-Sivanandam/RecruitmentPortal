@@ -5,14 +5,21 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css";
 import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
 import "react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css";
+import axios from "axios";
 
 function StudentList() {
   const [stuList, setStuList] = useState([]);
 
   const columns = [
-    { dataField: "id", text: "ID", sort: true, filter: textFilter() },
-    { dataField: "title", text: "Title", sort: true, filter: textFilter() },
-    { dataField: "body", text: "Body", sort: true, filter: textFilter() },
+    { dataField: "name", text: "Name", sort: true, filter: textFilter() },
+    { dataField: "regno", text: "Reg No.", sort: true, filter: textFilter() },
+    {
+      dataField: "phone_no",
+      text: "Phone No.",
+      sort: true,
+      filter: textFilter(),
+    },
+    { dataField: "domains", text: "Domains", sort: true, filter: textFilter() },
   ];
 
   const pagination = paginationFactory({
@@ -34,19 +41,31 @@ function StudentList() {
     },
   });
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3000/admin/students")
+  //     .then((response) => response.json())
+  //     .then((result) => setStuList(result))
+  //     .catch((error) => console.log(error));
+  // }, [setStuList]);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((result) => setStuList(result))
-      .catch((error) => console.log(error));
-  }, [setStuList]);
+    axios
+      .get("/admin/student")
+      .then((response) => {
+        setStuList(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="container mt-2 mb-2">
       <h1>Student List</h1>
       <BootstrapTable
         bootstrap4
-        keyField="id"
+        keyField="regno"
         data={stuList}
         columns={columns}
         pagination={pagination}

@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Register from "./components/Register";
 import SignUp from "./components/SignUp";
 import StudentList from "./components/StudentList/StudentList";
+import EnoughScroll from "./components/Enough/GsapScroll";
 import ThankYou from "./components/ThankYou/ThankYou";
 import { Helmet } from "react-helmet";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
@@ -40,7 +41,7 @@ function App() {
   //   // console.log(token)
 
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  axios.defaults.baseURL = "https://easyrecruitbackend.azurewebsites.net";
+  axios.defaults.baseURL = "http://localhost:3000";
   // const studentRegister = () => {
   //   axios
   //     .post("http://localhost:3000/student/register", {
@@ -208,6 +209,8 @@ function App() {
       {/* <CountdownTimer /> */}
       {/* <Countdown2 /> */}
       {/* <Quizbox /> */}
+      {/* <Admin_app /> */}
+
       <Router>
         <Helmet>
           <meta
@@ -236,7 +239,7 @@ function App() {
             />
             <PrivateRoute exact path="/student-list" component={StudentList} />
             <PrivateRoute exact path="/apt-quiz" component={Quizbox} />
-            <PrivateRoute path="/thankyou" component={ThankYou} />
+            <Route path="/thankyou" component={ThankYou} />
             <Route path="/signup" component={SignUp} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />

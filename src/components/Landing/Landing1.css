@@ -1,3 +1,12 @@
+.landingContLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+}
+
 .register_now {
   background-image: url(../../assets/Frame38.png);
 }
@@ -9,7 +18,7 @@
   padding: 1.5px !important;
 }
 .showOnMobile {
-  display: none ;
+  display: none;
 }
 .hero-section-mobile {
   display: none;
@@ -61,11 +70,9 @@
   color: #f77655;
 }
 
-.registerButtonMobile2{
+.registerButtonMobile2 {
   display: none;
 }
-
-
 
 .roadMaps {
   animation: fadein 1.3s ease;
@@ -142,7 +149,6 @@
     position: absolute;
     margin-left: -4rem;
   }
-  
 }
 
 @media screen and (max-width: 600px) {
@@ -152,8 +158,8 @@
   .showOnMobile {
     display: block;
   }
-  .registerButtonMobile2{
-    display:block;
+  .registerButtonMobile2 {
+    display: block;
   }
   #navshit {
     display: block;
@@ -622,18 +628,18 @@ li {
     margin-left: 13.25rem;
   }
 }
-.aniManager:hover{
-transform: rotate(-25deg);
-transition-duration: 0.8s;
-animation-iteration-count: infinite;
+.aniManager:hover {
+  transform: rotate(-25deg);
+  transition-duration: 0.8s;
+  animation-iteration-count: infinite;
 }
-.aniDesigner:hover{
+.aniDesigner:hover {
   transform: rotate(20deg);
-transition-duration: 1s;
-animation-iteration-count: infinite;
+  transition-duration: 1s;
+  animation-iteration-count: infinite;
 }
-.aniDeveloper:hover{
+.aniDeveloper:hover {
   transform: rotate(-10deg);
-transition-duration: 0.5s;
-animation-iteration-count: infinite;
+  transition-duration: 0.5s;
+  animation-iteration-count: infinite;
 }

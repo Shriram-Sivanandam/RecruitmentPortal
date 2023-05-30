@@ -156,3 +156,21 @@
     transform: translateX(-100%);
   }
 }
+
+/* adfsfasdfasdf */
+
+.gsapContMain {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.enoughImgScroll {
+  margin-left: 40px;
+  height: 12vw;
+}
+
+.nowHandScroll {
+  height: 15%;
+  transform: translate(258vw, -12vw);
+}

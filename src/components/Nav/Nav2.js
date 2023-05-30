@@ -59,9 +59,9 @@ function Nav() {
                     alt="profile"
                     src={profile_pic}
                   />
-                  <span class="ml-2 d-none d-lg-inline small profiletext">
+                  {/* <span class="ml-2 d-none d-lg-inline small profiletext">
                     {currentUser.email}
-                  </span>
+                  </span> */}
                 </a>
 
                 <div
