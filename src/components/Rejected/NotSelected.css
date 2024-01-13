@@ -1,0 +1,221 @@
+.thankyouContMain {
+  font-family: "BriceRegular";
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.keephustling {
+  margin-right: 60%;
+}
+
+.thankCont {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.thankyouTopCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thankyouHeading {
+  font-size: 45px;
+  color: #c33d59;
+  font-weight: bolder;
+  text-align: center;
+  justify-content: center;
+}
+.thankyouHeading2 {
+  font-size: 45px;
+  text-align: center;
+  color: #c33d59;
+  font-weight: bolder;
+  position: absolute;
+}
+
+.thankyouStarGreen {
+  transform: translate(10%, -80%);
+}
+
+.thankyouText {
+  line-height: 40px;
+  text-align: center;
+}
+.thankyouText2 {
+  line-height: 40px;
+  text-align: center;
+  color: white;
+}
+.thankyouText3 {
+  line-height: 40px;
+  text-align: center;
+  color: #ffd746;
+}
+
+.thankyouFollowHeading {
+  color: #8f8f8f;
+  text-align: center;
+  margin-top: 6%;
+}
+/* 
+.thankyouSocialsCont1 {
+  margin-left: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.thankyou_websiteLogo,
+.thankyou_instaLogo,
+.thankyou_linkedinLogo,
+.thankyou_gitLogo,
+.thankyou_DiscordLogo,
+.thankyou_WALogo {
+  width: 85%;
+}
+
+.thankyou_instaLogo {
+  width: 40% !important;
+}
+
+@media only screen and (min-width: 501px) {
+  .thankyou_instaLogo {
+    width: 40%;
+    float: right;
+    margin-right: 40px;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .thankyouHeading2 {
+    margin-left: 20%;
+  }
+  .betterluck {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+<<<<<<< HEAD
+  .thankyou_websiteLogo,
+  .thankyou_instaLogo,
+  .thankyou_linkedinLogo,
+  .thankyou_gitLogo,
+  .thankyou_DiscordLogo,
+  .thankyou_WALogo {
+    width: 75%;
+  }
+=======
+>>>>>>> parent of ff3a0ca (Social logo alignment)
+  .thankyouHeading {
+    font-size: 24px;
+    text-align: center;
+    color: #c33d59;
+    font-weight: bolder;
+    position: relative;
+  }
+  .thankyou_instaLogo {
+    width: 60%;
+    margin-left: 50%;
+  }
+  .thankyouHeading2 {
+    font-size: 36px;
+    text-align: center;
+    color: #c33d59;
+    font-weight: bolder;
+    position: relative;
+  }
+  .keephustling {
+    margin-right: 0%;
+    width: 80px;
+  }
+  .betterluck {
+    width: 100px;
+  }
+
+  .stickerBlue {
+    height: 130px;
+  }
+
+  .thankyouFollowHeading {
+    color: #8f8f8f;
+    text-align: center;
+    /* font-size: x-large; */
+    margin-top: 6%;
+    font-size: 17px;
+  }
+
+  .thankyouTopCont {
+    display: block;
+  }
+
+  .thankyouStarGreen {
+    display: none;
+  }
+
+  .thankyouText {
+    line-height: 30px;
+    font-size: large;
+    text-align: center;
+  }
+  .thankyouText2 {
+    line-height: 26px;
+    font-size: large;
+    text-align: center;
+  }
+  .thankyouText3 {
+    line-height: 30px;
+    font-size: large;
+    text-align: center;
+  }
+  .thankyouSocialsCont {
+    margin-top: -20%;
+    height: 50vh;
+    margin-bottom: -20%;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 770px) {
+  .thankyouHeading {
+    font-size: 24px;
+    text-align: center;
+    color: #c33d59;
+    font-weight: bolder;
+  }
+  .stickerBlue {
+    height: 130px;
+  }
+
+  .thankyouSocialsCont {
+    margin-top: -10%;
+  }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 1000px) {
+  .thankyouHeading {
+    font-size: 30px;
+    text-align: center;
+    color: #c33d59;
+    font-weight: bolder;
+  }
+
+  .thankyouSocialsCont {
+    margin-top: -10%;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .thankyouTopCont {
+    margin-left: -6%;
+  }
+}
+
+/* @media only screen and (max-width: 550px) {
+  .thankyouSocialsCont1 {
+    margin-top: -23%;
+    margin-left: -26%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} */

@@ -1,0 +1,247 @@
+.resultContMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  width: 100vw;
+}
+
+.resultInnerCont {
+  position: relative;
+  font-family: BriceRegular;
+  min-height: 130vh;
+  overflow: hidden;
+  background-color: #000000;
+  /* background: url("https://assets10.lottiefiles.com/private_files/lf30_kvdn44jg.json"); */
+}
+
+.resultHeadingCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultMainHeading {
+  margin-top: 17vh;
+  color: #eb5757 !important;
+  font-size: 340%;
+}
+.simpchad{
+ margin-left: 80vw;
+  margin-top: 70px;
+  position: absolute;
+  z-index: 1;
+}
+
+.resultSubHeading {
+  color: #ffffff;
+  font-size: 200%;
+}
+
+.resultstickerbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultBarCode {
+  margin-top: 12%;
+}
+
+.resultHeading {
+  font-size: 21px;
+  transform: translate(-2.25%, 610%) rotate(-9deg);
+  color: #eb4242;
+}
+
+.resultHeading1 {
+  color: #025f71;
+  font-size: 23px;
+  transform: translate(-2.5%, 610%) rotate(-9deg);
+}
+
+.resultHeading2 {
+  color: #c02b4a !important;
+  font-size: 23px;
+  transform: translate(-2.5%, 610%) rotate(-9deg);
+}
+
+.sideTextContMain {
+  transform: translate(54.5vw, -9vw) rotate(90deg);
+  width: 70vw;
+  margin-top: -3vw;
+}
+
+.sideTextHeading {
+  font-size: 8vw;
+  color: #000000;
+  line-height: 0.8;
+  -webkit-text-stroke: 4px rgb(51, 51, 51);
+}
+
+.secondLineSide {
+  margin-left: 1%;
+}
+
+.belowTicketCont {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: -40px;
+}
+
+.resultFire {
+  transform: translate(22%, -20%);
+}
+
+.resultDragon {
+  position: absolute;
+  width: 30vw;
+  z-index: 10;
+}
+
+.resultBelowTicket {
+  color: #eecc50;
+  font-size: 200%;
+}
+
+.resultPopcorn,
+.resultStar,
+.resultCool {
+  position: absolute;
+}
+
+.resultPopcorn {
+  width: 13vw;
+  transform: translate(-2%, -30%);
+}
+
+.resultStar {
+  width: 10vw;
+  transform: translate(62%, 33%);
+}
+
+.resultCool {
+  width: 13vw;
+  transform: translate(92%, -20%);
+}
+
+.resultConfetti {
+  /* top: 0;
+  left: 0;
+  right: 0; */
+  position: absolute;
+  height: 150vh;
+  width: 100vw;
+  /* margin: auto; */
+}
+
+@media only screen and (max-width: 1200px) {
+  .sideTextContMain {
+    margin-top: -13vw;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .sideTextContMain {
+    display: none;
+  }
+
+  .resultPopcorn,
+  .resultStar,
+  .resultCool {
+    display: none;
+  }
+
+  .resultInnerCont {
+    min-height: 120vh;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .resultPopcorn,
+  .resultStar,
+  .resultCool {
+    display: none;
+  }
+}
+
+@media only screen and (min-height: 700px) {
+  .resultPopcorn,
+  .resultStar,
+  .resultCool {
+    display: block;
+  }
+
+  .resultPopcorn {
+    width: 15vw;
+    transform: translate(-2%, -30%);
+  }
+
+  .resultStar {
+    width: 13vw;
+    transform: translate(62%, 33%);
+  }
+
+  .resultCool {
+    width: 15vw;
+    transform: translate(92%, -20%);
+  }
+
+  .resultBarCode {
+    margin-top: 130px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .simpchad{
+    display: none;
+  }
+  .resultSticker {
+    width: 320px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .resultHeading {
+    font-size: 12.6px;
+    color: #eb4242;
+  
+   
+
+    transform: translate(-2.5%, 1000%) rotate(-9deg);
+  }
+
+  .resultHeading1,
+  .resultHeading2 {
+    font-size: 12.6px;
+    transform: translate(-2.5%, 1000%) rotate(-9deg);
+    
+  }
+
+  .resultMainHeading {
+    margin-top: 34vw;
+    color: #eb5757;
+    font-size: 250% !important;
+    margin-bottom: 20px;
+  }
+
+  .resultSubHeading {
+    color: #ffffff;
+    font-size: 150% !important;
+  }
+
+  .resultInnerCont {
+    font-family: BriceRegular;
+    min-height: 100vh;
+  }
+
+  .resultstickerbox {
+    margin-bottom: 20%;
+  }
+  .resultConfetti{
+    height: 100vh;
+    position: absolute;
+  }
+}

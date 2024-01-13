@@ -1,0 +1,267 @@
+.resultContMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.resultInnerCont {
+  font-family: BriceRegular;
+  height: 100vh;
+  background-color: #000000;
+}
+
+.resultHeadingCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultMainHeading5 {
+  margin-top: 8vw;
+  color: white;
+  font-size: 250%;
+}
+.resultMainHeading2 {
+  margin-top: 11vw;
+  color: #eb5757;
+}
+.resultSubHeading {
+  color: #ffffff;
+  font-size: 250%;
+}
+.inputregno {
+  width: 25vw;
+  margin-top: 5vh;
+  text-align: center;
+  border-style: none;
+  background-color: transparent;
+  color: white;
+  border-bottom: 3px solid white;
+  height: 10vh;
+}
+.inputregno:focus {
+  outline: none;
+}
+.youdidgreat {
+  margin-top: -12%;
+  margin-left: 2%;
+  position: absolute;
+}
+.star4 {
+  /* margin-top: -5%; */
+  margin-left: 62vw;
+  position: absolute;
+}
+.prize {
+  float: right;
+  margin-top: -8%;
+  margin-right: -5%;
+}
+.smile {
+  float: right;
+}
+.starillus {
+  margin-top: -10%;
+  margin-left: 4%;
+  position: absolute;
+}
+.hand {
+  margin-top: -7%;
+}
+.waitisover {
+  margin-top: -1%;
+}
+.ohyes {
+  margin-left: -5%;
+}
+.barcodeDiv1 {
+  width: 400vw;
+}
+
+.barcode {
+  width: 100vw;
+  padding-right: -10px;
+  animation-name: infiLoop;
+  animation-duration: 15s;
+  -webkit-animation-duration: 15s;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-fill-mode: inherit;
+  -webkit-animation-fill-mode: inherit;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+@-webkit-keyframes infiLoop {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(-25%);
+  }
+  50% {
+    -webkit-transform: translateX(-50%);
+  }
+  75% {
+    -webkit-transform: translateX(-75%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-moz-keyframes infiLoop {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  25% {
+    -moz-transform: translateX(-25%);
+  }
+  50% {
+    -moz-transform: translateX(-50%);
+  }
+  75% {
+    -moz-transform: translateX(-75%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+
+@-ms-keyframes infiLoop {
+  0% {
+    -ms-transform: translateX(0);
+  }
+  25% {
+    -ms-transform: translateX(-25%);
+  }
+  50% {
+    -ms-transform: translateX(-50%);
+  }
+  75% {
+    -ms-transform: translateX(-75%);
+  }
+  100% {
+    -ms-transform: translateX(-100%);
+  }
+}
+
+@-o-keyframes infiLoop {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  0% {
+    -o-transform: translateX(0);
+  }
+  25% {
+    -o-transform: translateX(-25%);
+  }
+  50% {
+    -o-transform: translateX(-50%);
+  }
+  75% {
+    -o-transform: translateX(-75%);
+  }
+  100% {
+    -o-transform: translateX(-100%);
+  }
+}
+@keyframes infiLoop {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* .youdidgreat{
+    display: none;
+  } */
+  .groupsticker2{
+    width: 120px;
+    float: right;
+  }
+  .waitisover {
+    margin-left: 43vw;
+  }
+  .starillus {
+    display: none;
+  }
+  .hand {
+    display: none;
+  }
+  .star4 {
+    display: none;
+  }
+  .smile {
+    display: none;
+  }
+  .prize {
+    display: none;
+  }
+  .ohyes {
+    display: none;
+  }
+  .youdidgreat{
+    display: none;
+  }
+  .waitisover{
+    display: none;
+  }
+  /* .barcodeDiv1 {
+    display: none;
+  } */
+  .resultMainHeading5 {
+    font-size: 170%;
+    margin-top: 18vh;
+    text-align: center;
+   
+  }
+  .resultSubHeading {
+    font-size: 100%;
+  }
+  .vic {
+    display: none;
+  }
+  .inputregno {
+    width: 80vw;
+    margin-top: 2vh;
+    text-align: center;
+    border-style: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: 3px solid white;
+    height: 6vh;
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .youdidgreat {
+    width: 130px;
+  }
+  .waitisover {
+    width: 130px;
+  }
+}
+@media only screen and (min-width: 768px){
+  .groupsticker, .groupsticker2{
+    display: none;
+  }
+ 
+}

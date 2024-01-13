@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import AdminDashboard from "./components/admin/Dashboard/AdminDashboard";
 import QuesUpload from "./components/admin/Dashboard/UploadQuestions";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -15,8 +17,9 @@ import SignUp from "./components/SignUp";
 import StudentList from "./components/StudentList/StudentList";
 import EnoughScroll from "./components/Enough/GsapScroll";
 import ThankYou from "./components/ThankYou/ThankYou";
-import { Helmet } from "react-helmet";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Result from "./components/Result/Result";
+import Rejected from "./components/Rejected/NotSelected";
+import ResultCheck from "./components/ResultCheck/resultCheck";
 
 function App() {
   const [token, setToken] = useState("");
@@ -239,6 +242,9 @@ function App() {
             />
             <PrivateRoute exact path="/student-list" component={StudentList} />
             <PrivateRoute exact path="/apt-quiz" component={Quizbox} />
+            <Route path="/result" component={Result} />
+            <Route path="/not-selected" component={Rejected} />
+            <Route path="/result-check" component={ResultCheck} />
             <Route path="/thankyou" component={ThankYou} />
             <Route path="/signup" component={SignUp} />
             <Route path="/register" component={Register} />

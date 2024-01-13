@@ -57,14 +57,14 @@ function GsapScroll() {
           start: "80%",
           end: "100%",
           scrub: true,
-          pin: true,
+          pin: false,
           onUpdate: (self) => {
             tl.current.progress(self.progress);
           },
         },
       })
       .from(q(".nowHandScroll"), {
-        y: "-190%",
+        y: "-220%",
       })
       .to(q(".nowHandScroll"), {
         y: "-120%",

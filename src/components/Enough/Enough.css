@@ -27,7 +27,7 @@
 }
 
 .enoughHand {
-  transform: translate(1960%, -90%);
+  /* transform: translate(1960%, -90%); */
   animation-name: handAnimation;
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -171,6 +171,6 @@
 }
 
 .nowHandScroll {
-  height: 15%;
-  transform: translate(258vw, -12vw);
+  height: 30%;
+  transform: translate(262vw, -12vw);
 }
