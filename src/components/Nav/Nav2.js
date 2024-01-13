@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import stclogo from "../../assets/Group 45.svg";
 
 function Nav() {
-  const { currentUser, logout } = useAuth();
+  const { logout } = useAuth();
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");
   const history = useHistory();

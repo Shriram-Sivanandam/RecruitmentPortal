@@ -7,9 +7,9 @@ function ThankYou() {
   return (
     <div className="thankyouContMain">
       <Nav2 />
-      <img src={thankyouBlue} />
+      <img src={thankyouBlue} alt="thank you" />
       <div>Aptitude Quiz Completed</div>
-      <img src={thankyouStars} />
+      <img src={thankyouStars} alt="thank you" />
     </div>
   );
 }

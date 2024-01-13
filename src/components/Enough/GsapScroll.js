@@ -69,7 +69,7 @@ function GsapScroll() {
       .to(q(".nowHandScroll"), {
         y: "-120%",
       });
-  }, []);
+  }, [q]);
 
   return (
     <div ref={el}>

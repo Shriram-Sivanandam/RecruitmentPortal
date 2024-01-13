@@ -15,7 +15,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Register from "./components/Register";
 import SignUp from "./components/SignUp";
 import StudentList from "./components/StudentList/StudentList";
-import EnoughScroll from "./components/Enough/GsapScroll";
+// import EnoughScroll from "./components/Enough/GsapScroll";
 import ThankYou from "./components/ThankYou/ThankYou";
 import Result from "./components/Result/Result";
 import Rejected from "./components/Rejected/NotSelected";

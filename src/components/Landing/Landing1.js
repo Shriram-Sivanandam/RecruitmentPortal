@@ -14,7 +14,7 @@ import technicalmobile from "../../assets/technicalmobile.png";
 import technical from "../../assets/TechnicalRoadMap.png";
 import Button from "../Button";
 import Connect from "../Connect/Connect";
-import Enough from "../Enough/Enough";
+// import Enough from "../Enough/Enough";
 import EnoughScroll from "../Enough/GsapScroll";
 import StickerWall from "../StickerWall/StickerWall";
 import "./Landing1.css";
