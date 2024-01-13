@@ -54,7 +54,7 @@ function Connect() {
             id="connect_anchors"
             href="https://www.linkedin.com/company/micvitvellore/mycompany/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <svg
               className="connect_linkdinLogo"
@@ -104,7 +104,7 @@ function Connect() {
           <a
             href="https://www.instagram.com/stcvit/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <img
               src={instagram}
@@ -114,7 +114,11 @@ function Connect() {
             />
           </a>
 
-          <a href="https://stcvit.in/" target="_blank" rel="noreferrer">
+          <a
+            href="https://stcvit.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               id="connect_anchors"
               className="connect_websiteLogo"
@@ -173,7 +177,11 @@ function Connect() {
             </svg>
           </a>
 
-          <a href="https://github.com/STCVIT" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/STCVIT"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               id="connect_anchors"
               className="connect_gitLogo"

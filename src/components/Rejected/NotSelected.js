@@ -14,9 +14,9 @@ import keephustling from "../../assets/keephustling.svg";
 // import { ReactComponent as WhatsAppSticker } from "../../assets/whatsapplogo.svg";
 import betterluck from "../../assets/betterluck.svg";
 // import group296 from "../../assets/Group 296.svg";
-import insta from "./insta.png"
-import whatsapp from "./whatsapp.png"
-import discord from "./discord.png"
+import insta from "./insta.png";
+import whatsapp from "./whatsapp.png";
+import discord from "./discord.png";
 function NotSelected() {
   return (
     <section className="thankyouContMain" style={{ backgroundColor: "black" }}>
@@ -41,29 +41,35 @@ function NotSelected() {
           following us on social media handles
         </h4>
         <div className="container d-flex my-5 " style={{ maxWidth: "800px" }}>
-          {
-
-            [{
-              url: "https://instagram.com/stcvit"
-              , image: insta
-            }, {
+          {[
+            {
+              url: "https://instagram.com/stcvit",
+              image: insta,
+            },
+            {
               url: "https://chat.whatsapp.com/GU178EHE1ym0EcjSDtj9W4",
-              image: whatsapp
-            }, {
+              image: whatsapp,
+            },
+            {
               url: "https://discord.gg/Kv2vjUYZ",
-              image: discord
-            }].map(
-              (social) => <div className="thankyouSocialsSticker col-4">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={social.url}
+              image: discord,
+            },
+          ].map((social) => (
+            <div className="thankyouSocialsSticker col-4">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={social.url}
+                style={{ width: "100%" }}
+              >
+                <img
+                  src={social.image}
                   style={{ width: "100%" }}
-                >
-                  <img src={social.image} style={{ width: "100%" }} alt="social logo" />
-                </a>
-              </div>)
-          }
+                  alt="social logo"
+                />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>
