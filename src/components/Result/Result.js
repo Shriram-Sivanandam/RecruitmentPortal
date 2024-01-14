@@ -11,7 +11,7 @@ import resultStar from "../../assets/resultStar.svg";
 import resultCool from "../../assets/resultCool.svg";
 import infibarcode from "../../assets/tape.svg";
 import confetti from "./confetti.json";
-import simpchad from '../../assets/simpchad2.svg'
+import simpchad from "../../assets/simpchad2.svg";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 function Result() {
@@ -126,14 +126,9 @@ function Result() {
   };
   var regno = regNo.trim();
   return (
-    <div classname="resultContMain">
+    <div className="resultContMain">
       <div className="resultInnerCont">
-        <Player
-          autoplay
-          src={confetti}
-       
-          className="resultConfetti"
-        />
+        <Player autoplay src={confetti} className="resultConfetti" />
         {regNo.trim() in senior ? (
           <img src={resultDragon} alt="dragon" className="resultDragon" />
         ) : (
@@ -144,18 +139,17 @@ function Result() {
           <h1 className="resultMainHeading">STC Family</h1>
           {regNo.trim() in selected ? (
             <>
-               <h3 className="resultSubHeading">Welcomes You Aboard</h3>
+              <h3 className="resultSubHeading">Welcomes You Aboard</h3>
             </>
           ) : regNo.trim() in board ? (
             <>
-                <h3 className="resultSubHeading"> Loves you all  </h3>
+              <h3 className="resultSubHeading"> Loves you all </h3>
             </>
           ) : (
             <>
-           <h3 className="resultSubHeading"> Owes you a pizza  </h3>
+              <h3 className="resultSubHeading"> Owes you a pizza </h3>
             </>
           )}
-        
         </div>
         <div className="resultstickerbox">
           {regNo.trim() in selected ? (

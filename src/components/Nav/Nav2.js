@@ -40,12 +40,12 @@ function Nav() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
             <div className="mr-lg-5 pr-lg-5" style={{ display: "flex" }}>
-              <li class="nav-item dropdown no-arrow">
+              <li className="nav-item dropdown no-arrow">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href=" "
                   id="userDropdown"
                   role="button"
@@ -55,27 +55,24 @@ function Nav() {
                 >
                   <img
                     id="profilePic"
-                    class="img-profile rounded-circle img-fluid"
+                    className="img-profile rounded-circle img-fluid"
                     alt="profile"
                     src={profile_pic}
                   />
-                  {/* <span class="ml-2 d-none d-lg-inline small profiletext">
-                    {currentUser.email}
-                  </span> */}
                 </a>
 
                 <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
-                  <div class="dropdown-item"></div>
+                  <div className="dropdown-item"></div>
                   <button
-                    class="dropdown-item"
+                    className="dropdown-item"
                     onClick={handleLogout}
                     data-toggle="modal"
                     data-target="#logoutModal"
                   >
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                   </button>
                 </div>

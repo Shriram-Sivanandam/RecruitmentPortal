@@ -118,36 +118,45 @@ function Signup() {
                       <h4 className="headertext mx-auto">Select Domain(s)</h4>
                     </div>
                     <div className="row mx-auto my-3">
-                      <div class="form-check form-check-inline ml-lg-5 pl-lg-5">
+                      <div className="form-check form-check-inline ml-lg-5 pl-lg-5">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="inlineCheckbox1"
                           value="option1"
                         />
-                        <label class="form-check-label" for="inlineCheckbox1">
+                        <label
+                          className="form-check-label"
+                          for="inlineCheckbox1"
+                        >
                           <h5 className="headertext2">Technical</h5>
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="inlineCheckbox2"
                           value="option2"
                         />
-                        <label class="form-check-label" for="inlineCheckbox2">
+                        <label
+                          className="form-check-label"
+                          for="inlineCheckbox2"
+                        >
                           <h5 className="headertext2">Management</h5>
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="inlineCheckbox3"
                           value="option3"
                         />
-                        <label class="form-check-label" for="inlineCheckbox3">
+                        <label
+                          className="form-check-label"
+                          for="inlineCheckbox3"
+                        >
                           <h5 className="headertext2">Design</h5>
                         </label>
                       </div>
@@ -156,36 +165,45 @@ function Signup() {
                       <h4 className="headertext mx-auto">Select Time Slot</h4>
                     </div>
                     <div className="row mx-auto my-3">
-                      <div class="form-check form-check-inline ml-lg-5 pl-lg-5">
+                      <div className="form-check form-check-inline ml-lg-5 pl-lg-5">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="inlineCheckbox4"
                           value="option4"
                         />
-                        <label class="form-check-label" for="inlineCheckbox4">
+                        <label
+                          className="form-check-label"
+                          for="inlineCheckbox4"
+                        >
                           <h5 className="headertext2">7:00 PM</h5>
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="inlineCheckbox5"
                           value="option5"
                         />
-                        <label class="form-check-label" for="inlineCheckbox5">
+                        <label
+                          className="form-check-label"
+                          for="inlineCheckbox5"
+                        >
                           <h5 className="headertext2">8:00 PM</h5>
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="inlineCheckbox6"
                           value="option6"
                         />
-                        <label class="form-check-label" for="inlineCheckbox6">
+                        <label
+                          className="form-check-label"
+                          for="inlineCheckbox6"
+                        >
                           <h5 className="headertext2">9:00 PM</h5>
                         </label>
                       </div>

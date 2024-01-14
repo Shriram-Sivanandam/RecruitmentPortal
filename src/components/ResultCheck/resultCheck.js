@@ -12,9 +12,8 @@ import starillus from "../../assets/starillus.svg";
 import ohyes from "../../assets/Group 381.svg";
 import prize from "../../assets/Group 282.svg";
 import toastError from "../ToastError";
-import groupsticker from '../../assets/groupsticker.svg'
-import groupsticker2 from '../../assets/groupsticker2.svg'
-
+import groupsticker from "../../assets/groupsticker.svg";
+import groupsticker2 from "../../assets/groupsticker2.svg";
 
 function ResultCheck() {
   const [regNo, setRegNo] = useState("");
@@ -137,7 +136,7 @@ function ResultCheck() {
   ];
   return (
     <>
-      <div classname="resultContMain">
+      <div className="resultContMain">
         <div className="resultInnerCont">
           <div className="resultHeadingCont">
             <h3 className="resultMainHeading5">

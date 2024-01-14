@@ -107,8 +107,11 @@ function Landing1() {
                 </span>
               </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav ml-auto">
                   <div id="navshit" style={{ marginRight: "3rem" }}>
                     <Link to="/register">
                       <li className="nav-item  mx-3 my-3">
@@ -127,7 +130,7 @@ function Landing1() {
                     </SmoothLink>
 
                     <SmoothLink to="connectScroll" smooth={true}>
-                      <li class="nav-item mx-3 my-3 current">
+                      <li className="nav-item mx-3 my-3 current">
                         <a href="/" className="button" id="aa">
                           <h5 className="landingNavHeaders">Contact</h5>
                         </a>
@@ -145,7 +148,9 @@ function Landing1() {
                 </ul>
               </div>
               <Link to="/quiz-dashboard" style={{ textDecoration: "none" }}>
-                <li class="nav-item mr-auto">{width > 991 && <Button />}</li>
+                <li className="nav-item mr-auto">
+                  {width > 991 && <Button />}
+                </li>
               </Link>
             </nav>
 

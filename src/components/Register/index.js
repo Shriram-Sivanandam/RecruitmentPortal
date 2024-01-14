@@ -73,55 +73,55 @@ function Register() {
     }
   };
 
-  useEffect(() => {
-    // console.log("hello");
-    axios.get("/student/test").then((response) => {
-      console.log(response.data);
-      // const d1 = response.data.split("T")
-      // const d2 = d1[1].split("")
-      const date = new Date(response.data[1].date_time);
-      console.log("date", date.getDate());
+  // useEffect(() => {
+  //   // console.log("hello");
+  //   axios.get("/student/test").then((response) => {
+  //     console.log(response.data);
+  //     // const d1 = response.data.split("T")
+  //     // const d2 = d1[1].split("")
+  //     const date = new Date(response.data[1].date_time);
+  //     console.log("date", date.getDate());
 
-      if (dates !== []) {
-        for (let i = 0; i < response.data.length; i++) {
-          const date = new Date(response.data[i].date_time);
-          // console.log(date);
-          if (dates.indexOf(date) === -1) {
-            if (fulldates !== response.data) {
-              setFullDates(response.data);
-            }
+  //     if (dates.length !== 0) {
+  //       for (let i = 0; i < response.data.length; i++) {
+  //         const date = new Date(response.data[i].date_time);
+  //         // console.log(date);
+  //         if (dates.indexOf(date) === -1) {
+  //           if (fulldates !== response.data) {
+  //             setFullDates(response.data);
+  //           }
 
-            // console.log(date[0]);
-            // const d = date.split(" ")
-            if (dates.indexOf(date.getDate()) === -1) {
-              day.push(days[date.getDay()]);
-              dates.push(date.getDate());
-            }
+  //           // console.log(date[0]);
+  //           // const d = date.split(" ")
+  //           if (dates.indexOf(date.getDate()) === -1) {
+  //             day.push(days[date.getDay()]);
+  //             dates.push(date.getDate());
+  //           }
 
-            // console.log(days[date.getDay()]);
+  //           // console.log(days[date.getDay()]);
 
-            if (answersArray[6]?.day === days[date.getDay()]) {
-              // time.push(date.getHours());
-              if (time.indexOf(date.getHours()) === -1) {
-                setTime((previousTime) => [...previousTime, date.getHours()]);
-              }
-              if (minutes.indexOf(date.getMinutes()) === -1) {
-                setMinutes((previousTime) => [
-                  ...previousTime,
-                  date.getMinutes(),
-                ]);
-              }
+  //           if (answersArray[6]?.day === days[date.getDay()]) {
+  //             // time.push(date.getHours());
+  //             if (time.indexOf(date.getHours()) === -1) {
+  //               setTime((previousTime) => [...previousTime, date.getHours()]);
+  //             }
+  //             if (minutes.indexOf(date.getMinutes()) === -1) {
+  //               setMinutes((previousTime) => [
+  //                 ...previousTime,
+  //                 date.getMinutes(),
+  //               ]);
+  //             }
 
-              // minutes.push(date.getMinutes());
-            } else {
-              console.log(days[date.getDay()]);
-            }
-          }
-        }
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [answersArray[6]]);
+  //             // minutes.push(date.getMinutes());
+  //           } else {
+  //             console.log(days[date.getDay()]);
+  //           }
+  //         }
+  //       }
+  //     }
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [answersArray[6]]);
 
   useEffect(() => {
     if (currentQuestion === 5) {
@@ -399,13 +399,13 @@ function Register() {
         <h1 className="headingTop mb-5  mx-auto">Lets Get Started </h1>
       </div>
 
-      <div class="steps-form ">
-        <div class="steps-row setup-panel mobilebar  ">
+      <div className="steps-form ">
+        <div className="steps-row setup-panel mobilebar  ">
           {[0, 1, 2, 3, 4, 5, 6, 7].map((key) => {
             return (
               <>
                 {key - 1 < currentQuestion ? (
-                  <div class="steps-step mr-3">
+                  <div className="steps-step mr-3">
                     <a
                       href="#step-9"
                       type="button"
@@ -415,7 +415,7 @@ function Register() {
                     </a>
                   </div>
                 ) : (
-                  <div class="steps-step">
+                  <div className="steps-step">
                     <div type="button" className="btn btn-indigo btn-circle">
                       {key + 1}
                     </div>
@@ -488,7 +488,7 @@ function Register() {
               {/* <Link to="/login"> */}
               <button
                 type="button"
-                class="btn btn-primary bg-dark mb-5 ml-3"
+                className="btn btn-primary bg-dark mb-5 ml-3"
                 style={{ backgroundColor: "#5E72E4" }}
                 onClick={(e) => {
                   e.preventDefault();

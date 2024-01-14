@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <div
-      class="d-flex flex-column flex-shrink-0 p-3"
+      className="d-flex flex-column flex-shrink-0 p-3"
       style={{ width: "280px", height: "100%", backgroundColor: "#C9CEEE" }}
     >
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item" style={{ display: "flex" }}>
+      <ul className="nav nav-pills flex-column mb-auto">
+        <li className="nav-item" style={{ display: "flex" }}>
           <svg
-            class="ml-lg-3 my-auto"
+            className="ml-lg-3 my-auto"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -26,7 +26,7 @@ function Sidebar() {
           </svg>
           <Link
             to="/admin-dashboard"
-            class="nav-link"
+            className="nav-link"
             style={{ color: "#0a0a4b" }}
           >
             Home
@@ -34,7 +34,7 @@ function Sidebar() {
         </li>
 
         <li
-          class="nav-item active"
+          className="nav-item active"
           aria-current="page"
           style={{
             display: "flex",
@@ -44,7 +44,7 @@ function Sidebar() {
           }}
         >
           <svg
-            class="ml-lg-3 my-auto"
+            className="ml-lg-3 my-auto"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -64,13 +64,13 @@ function Sidebar() {
           </svg>
           <Link
             to="/upload-questions"
-            class="nav-link"
+            className="nav-link"
             style={{ color: "white" }}
           >
             Upload / View Question
           </Link>
         </li>
-        <li class="nav-item" style={{ display: "flex" }}>
+        <li className="nav-item" style={{ display: "flex" }}>
           <svg
             className="ml-lg-3 my-auto"
             width="20"
@@ -86,11 +86,11 @@ function Sidebar() {
               fill="#0A0A4B"
             />
           </svg>
-          <a href="e " class="nav-link" style={{ color: "#0a0a4b" }}>
+          <a href="e " className="nav-link" style={{ color: "#0a0a4b" }}>
             Test List
           </a>
         </li>
-        <li class="nav-item" style={{ display: "flex" }}>
+        <li className="nav-item" style={{ display: "flex" }}>
           <svg
             className="ml-lg-3 my-auto"
             width="20"
@@ -108,13 +108,13 @@ function Sidebar() {
           </svg>
           <Link
             to="/student-list"
-            class="nav-link"
+            className="nav-link"
             style={{ color: "#0a0a4b" }}
           >
             Student List
           </Link>
         </li>
-        <li class="nav-item" style={{ display: "flex" }}>
+        <li Name="nav-item" style={{ display: "flex" }}>
           <svg
             className="ml-lg-3 my-auto"
             width="20"
@@ -134,7 +134,7 @@ function Sidebar() {
               fill="black"
             />
           </svg>
-          <a href=" " class="nav-link" style={{ color: "#0a0a4b" }}>
+          <a href=" " className="nav-link" style={{ color: "#0a0a4b" }}>
             Send mail
           </a>
         </li>
